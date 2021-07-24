@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public WheelCollider el1;
-    public WheelCollider el2;
-    public WheelCollider el3;
-    public WheelCollider el4;
+    public float AlphaThreshold = 0.1f; //이미지 모양대로 버튼 인식하는 스크립트
 
+    public Rigidbody rb;
     private Vector3 mousePos;
     private bool m = false; //마우스오버 여부 
     
@@ -19,40 +18,46 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private float oldY;
     private float curX;
     private float curY;
+    private float crossP; // 외적값
     public static float velocity;
+    public static float speed;
+    public static int sss; // 스크린에 비춰지는 속도값
+
+    private float timecheck; //속도 떨어뜨릴때 타임체크
+
+    private float originX;
+    private float originY;
+
+    public TextMeshProUGUI speedT; // 스크린에 속도값 보여주는 텍스트
 
     // Update is called once per frame
     void Update()
     {
-        //1초 내에 변화가 일어나지 않으면 줄어듦
+        
+        sss = (int)(speed * 10);
+        speedT.text = sss.ToString();
 
+        //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦
+        if (speed != 0 && Time.time - timecheck >= 0.1) {
+            timecheck = Time.time;
+            if (speed < 0.1f && speed > -0.1f) speed = 0;
+            else if (speed > 0) speed-=0.1f;
+            else if (speed < 0) speed+=0.1f;
+        }
+
+        //마우스오버시 수행내용
         if (m)
         {
-            oldX = mousePos.x;
-            oldY = mousePos.y;
+            oldX = mousePos.x - originX;
+            oldY = mousePos.y - originY;
 
-            mousePos = Camera.main.ScreenToWorldPoint(
-            new Vector3(
-            Input.mousePosition.x,
-            Input.mousePosition.y,
-            -Camera.main.transform.position.z)
-            );
+            mousePos = Input.mousePosition;
 
-            curX = mousePos.x;
-            curY = mousePos.y;
+            curX = mousePos.x - originX;
+            curY = mousePos.y - originY;
 
-            /*
-            var v = Math.Pow(curX - oldX, 2) + Math.Pow(curY - oldY, 2);
-            vel = (float)Math.Sqrt(v)/(float)Time.deltaTime; //속도
-            */
-
-            //if (oldX + curX < 0.1 && oldX + curX > -0.1) changeSpeed(1,0); //마우스 가로이동 속도변화
-            //if (oldY + curY < 0.1 && oldY + curY > -0.1) changeSpeed(0,1); //마우스 세로이동 속도변화
-            changeSpeed(1,0);
-            el1.motorTorque = -velocity;
-            el2.motorTorque = -velocity;
-            el3.motorTorque = -velocity;
-            el4.motorTorque = -velocity;
+            crossP = curY*oldX - curX*oldY; // CCW, CW 판별을 위한 벡터 외적값. 프레임단위 마우스 이동거리 벡터
+            if (crossP != 0) changeSpeed();
             
         }
 
@@ -61,66 +66,48 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        // 마우스 오버
+        mousePos = Input.mousePosition; //이전 마우스 좌표는 현재좌표로 초기화
         m = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        // 마우스오버 영역 벗어남
         m = false;
-    }
+        velocity = 0; //누적되던 속도변수 초기화
 
-    public float AlphaThreshold = 0.1f; //이미지 모양대로 버튼 인식하는 스크립트
+    }
 
     void Start()
     {
         this.GetComponent<Image>().alphaHitTestMinimumThreshold = AlphaThreshold; //이미지 모양대로 버튼 인식하는 스크립트
+        
+        //변수 초기화
         velocity = 0;
+        speed = 0;
+        originX = Screen.width / 2;
+        originY = Screen.height / 2;
     }
 
-    void changeSpeed(int x, int y){
+    void changeSpeed(){ //속도변화
 
-        if (curY*oldX - curX*oldY > 0) {
-            velocity += 0.1f;
-            print("반시계"+velocity);
+        if (crossP > 0) {
+            velocity += 0.01f * crossP;
         }
-        else if (curY*oldX - curX*oldY < 0){
-            velocity -= 0.1f;
-            print("시계"+velocity);
-        }
-/*
-        print("들어옴");
-        if (x==1){ //마우스 가로이동 속도변화
-            float dX = curX - oldX;
-            // x가 +에서 -로 변할때
-            if (dX < 0 && curY > 0) {
-                velocity += 10;
-                print("반시계"+velocity);
-            }
-            else if (dX < 0 && curY < 0) {
-                velocity -= 10;
-                print("시계"+velocity);
-            }
-            //x가 -에서 +로 변할때
-            else if (dX > 0 && curY > 0) {
-                velocity -= 10;
-                print("반시계"+velocity);
-            }
-            else if (dX > 0 && curY < 0) {
-                velocity += 10;
-                print("시계"+velocity);
-            }
-            //print(mousePos.x+"x "+velocity);
+        else if (crossP < 0){
+            velocity += 0.01f * crossP;
         }
 
-        if (y==1){ //마우스 세로이동 속도변화
-            float dY = curY - oldY;
-            // y가 +에서 -로 변할때
-            if (dY < 0 && curX > 0) velocity -= 10;
-            else if (dY < 0 && curX < 0) velocity += 10;
-            // y가 -에서 +로 변할때
-            else if (dY > 0 && curX > 0) velocity += 10;
-            else if (dY > 0 && curX < 0) velocity -= 10;
-            print(velocity);
-        }*/
+        if (velocity >= 1) {
+            speed += 0.01f;
+            velocity = 0;
+            timecheck = Time.time;
+        }
+        else if (velocity <= -1){
+            speed -= 0.01f;
+            velocity = 0;
+            timecheck = Time.time;
+        }
     }
 }
