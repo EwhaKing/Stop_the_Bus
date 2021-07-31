@@ -408,12 +408,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1979586041}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &104426858 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7582261289685149129, guid: 7ea56929a0c6bb047b5a794f315524e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1979586041}
+--- !u!111 &104426859
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104426857}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1a72dec0be8e64c43a7116b6e8214083, type: 2}
+  - {fileID: 7400000, guid: 89a18de3aeab05a49b7008dbd4d622e6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!146 &104426861
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -788,12 +799,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1979586041}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &473366998 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3804304106995939664, guid: 7ea56929a0c6bb047b5a794f315524e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1979586041}
+--- !u!111 &473366999
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473366997}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1a72dec0be8e64c43a7116b6e8214083, type: 2}
+  - {fileID: 7400000, guid: 89a18de3aeab05a49b7008dbd4d622e6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!146 &473367001
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -1389,12 +1411,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tires:
-  - {fileID: 473366998}
-  - {fileID: 1902116193}
-  - {fileID: 1346929277}
-  - {fileID: 104426858}
+  - {fileID: 104426859}
+  - {fileID: 1902116194}
+  - {fileID: 1346929278}
+  - {fileID: 473366999}
   accel: 0.01
-  speedT: {fileID: 0}
+  speedT: {fileID: 1869915094}
 --- !u!4 &750707316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
@@ -1919,7 +1941,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164780155}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1164780157
 Camera:
   m_ObjectHideFlags: 0
@@ -2261,12 +2283,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1979586041}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1346929277 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5814713753104837985, guid: 7ea56929a0c6bb047b5a794f315524e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1979586041}
+--- !u!111 &1346929278
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346929276}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1a72dec0be8e64c43a7116b6e8214083, type: 2}
+  - {fileID: 7400000, guid: 89a18de3aeab05a49b7008dbd4d622e6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!146 &1346929280
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -2829,12 +2862,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1979586041}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1902116193 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5850889563798606979, guid: 7ea56929a0c6bb047b5a794f315524e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1979586041}
+--- !u!111 &1902116194
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902116192}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 1a72dec0be8e64c43a7116b6e8214083, type: 2}
+  - {fileID: 7400000, guid: 89a18de3aeab05a49b7008dbd4d622e6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!146 &1902116196
 WheelCollider:
   m_ObjectHideFlags: 0
