@@ -12,14 +12,19 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public Rigidbody rb;
     private Vector3 mousePos;
-    private bool m = false; //마우스오버 여부 
+    public static bool m = false; //마우스오버 여부 
+    public static bool speedChange = false;
     
     private float oldX;
     private float oldY;
     private float curX;
     private float curY;
-    private float crossP; // 외적값
-    public static float velocity;
+    public static float crossP; // 외적값
+    private float originX;
+    private float originY;
+    /*
+    private float velocity;
+    public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
     public static float speed;
     public static int sss; // 스크린에 비춰지는 속도값
 
@@ -29,11 +34,11 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private float originY;
 
     public TextMeshProUGUI speedT; // 스크린에 속도값 보여주는 텍스트
-
+*/
     // Update is called once per frame
     void Update()
     {
-        
+        /*
         sss = (int)(speed * 10);
         speedT.text = sss.ToString();
 
@@ -43,7 +48,7 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (speed < 0.1f && speed > -0.1f) speed = 0;
             else if (speed > 0) speed-=0.1f;
             else if (speed < 0) speed+=0.1f;
-        }
+        }*/
 
         //마우스오버시 수행내용
         if (m)
@@ -57,7 +62,7 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             curY = mousePos.y - originY;
 
             crossP = curY*oldX - curX*oldY; // CCW, CW 판별을 위한 벡터 외적값. 프레임단위 마우스 이동거리 벡터
-            if (crossP != 0) changeSpeed();
+            if (crossP != 0) speedChange = true; //changeSpeed();
             
         }
 
@@ -75,7 +80,8 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         // 마우스오버 영역 벗어남
         m = false;
-        velocity = 0; //누적되던 속도변수 초기화
+        speedChange = false;
+        //velocity = 0; //누적되던 속도변수 초기화
 
     }
 
@@ -84,12 +90,12 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         this.GetComponent<Image>().alphaHitTestMinimumThreshold = AlphaThreshold; //이미지 모양대로 버튼 인식하는 스크립트
         
         //변수 초기화
-        velocity = 0;
-        speed = 0;
+        //velocity = 0;
+        //speed = 0;
         originX = Screen.width / 2;
         originY = Screen.height / 2;
     }
-
+/*
     void changeSpeed(){ //속도변화
 
         if (crossP > 0) {
@@ -100,14 +106,14 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
         if (velocity >= 1) {
-            speed += 0.01f;
+            speed += accel;
             velocity = 0;
             timecheck = Time.time;
         }
         else if (velocity <= -1){
-            speed -= 0.01f;
+            speed -= accel;
             velocity = 0;
             timecheck = Time.time;
         }
-    }
+    }*/
 }
