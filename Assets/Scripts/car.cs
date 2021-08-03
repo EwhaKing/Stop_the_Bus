@@ -32,7 +32,6 @@ public class car : MonoBehaviour{
 
         if (Input.GetKeyDown(KeyCode.A) && speed != 0){
             for (int i=0;i<4;i++)  tires[i].Play("wheel_left");
-
         }
         else if (Input.GetKeyDown(KeyCode.D) && speed != 0){
             for (int i=0;i<4;i++)  tires[i].Play("wheel_right");
