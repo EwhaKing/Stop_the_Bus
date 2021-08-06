@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class car : MonoBehaviour{
 
-    public Animation[] tires = new Animation[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
+    public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
+    public Transform[] tires = new Transform[4];
     Rigidbody rb;
     
     private float velocity;
@@ -28,14 +30,25 @@ public class car : MonoBehaviour{
     private void Update()
     {
         transform.Translate(Vector3.forward * 0.01f * -speed);
-        //for (int i=0;i<4;i++)  tires[i].Rotate(Vector3.right * 0.5f * -speed);
 
+        //자동차 바퀴 회전
+        for (int i=0;i<4;i++)  { 
+            if (i%2==1){
+                colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                Vector3 position;
+                Quaternion rotation;
+                colls[i].GetWorldPose(out position, out rotation);
+                tires[i].rotation = rotation;
+            }
+        }
+
+/*
         if (Input.GetKeyDown(KeyCode.A) && speed != 0){
             for (int i=0;i<4;i++)  tires[i].Play("wheel_left");
         }
         else if (Input.GetKeyDown(KeyCode.D) && speed != 0){
             for (int i=0;i<4;i++)  tires[i].Play("wheel_right");
-        }
+        }*/
 
 
         if(Input.GetKey(KeyCode.A) && speed != 0)
@@ -51,8 +64,8 @@ public class car : MonoBehaviour{
         sss = (int)(speed * 10);
         speedT.text = sss.ToString();
 
-        //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦
-        if (speed != 0 && Time.time - timecheck >= 0.1) {
+        //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
+        if (speed != 0 && Time.time - timecheck >= 0.2) {
             timecheck = Time.time;
             if (speed < 0.1f && speed > -0.1f) speed = 0;
             else if (speed > 0) speed-=0.1f;
