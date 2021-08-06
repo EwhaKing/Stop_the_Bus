@@ -15,8 +15,8 @@ public class SpringCustomer : MonoBehaviour
     bool wheel1, wheel2, wheel3, wheel4;
     private bool eachtaken;     //손님 탑승 체크 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
-    private bool minusCom;
-    // Start is called before the first frame update
+    private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
+
     void Start()
     {
         SpringAssign Cus = GameObject.Find("Map_Spring").GetComponent<SpringAssign>();
