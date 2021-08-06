@@ -5,8 +5,11 @@ using UnityEngine;
 public class bump : MonoBehaviour
 {
     public static int speedBump; // 방지턱 위반 속도 4가지
+    public GameObject obj30;
+    public GameObject obj40;
+    public GameObject obj50;
+    public GameObject obj60;
     private int rand;
-    // private Text text;
     Rigidbody rd;
 
     void Start()
@@ -16,15 +19,19 @@ public class bump : MonoBehaviour
         switch (rand) {
             case 3:
                 speedBump = 30;
+                Instantiate(obj30, new Vector3(0, 0, 0), Quaternion.identity);
                 break;
             case 4:
                 speedBump = 40;
+                Instantiate(obj40, new Vector3(0, 0, 0), Quaternion.identity);
                 break;
             case 5:
                 speedBump = 50;
+                Instantiate(obj50, new Vector3(0, 0, 0), Quaternion.identity);
                 break;
             case 6:
                 speedBump = 60;
+                Instantiate(obj60, new Vector3(0, 0, 0), Quaternion.identity);
                 break;
         }
     }
