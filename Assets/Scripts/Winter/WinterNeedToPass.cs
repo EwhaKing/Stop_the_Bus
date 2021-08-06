@@ -7,6 +7,7 @@ public class WinterNeedToPass : MonoBehaviour
     bool[] pass;
     public static bool end;
     string passname;
+    GameObject endsign;
 
     void Start()
     {
@@ -15,6 +16,9 @@ public class WinterNeedToPass : MonoBehaviour
 
         for (int i = 0; i < pass.Length; i++)
             pass[i] = false;
+
+        endsign = GameObject.Find("BusStopSign(Red)").gameObject;
+        endsign.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,12 +43,12 @@ public class WinterNeedToPass : MonoBehaviour
 
     void Update()
     {
+        end = true;
         for (int i = 0; i < pass.Length; i++)
             end = end && pass[i];
-    }
+        Debug.Log("end : " + end);
 
-    public static bool IsEnd()
-    {
-        return end;
+        if (end)
+            endsign.SetActive(true);
     }
 }

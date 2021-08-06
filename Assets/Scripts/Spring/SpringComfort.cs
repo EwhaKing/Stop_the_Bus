@@ -58,7 +58,6 @@ public class SpringComfort : MonoBehaviour
                     comfort -= NumOfPass * 5;
                     overline.SetMinusCom();
                 }
-                Debug.Log(string.Format("만족도 : {0}", comfort));
             }
         }
     }
@@ -68,11 +67,7 @@ public class SpringComfort : MonoBehaviour
         // 버스가 정류장 점선 내에 있는지 확인
         check = false;
         for (int i = 0; i < insign.Length; i++)
-        {
             check = check || insign[i].InSign();
-            Debug.Log("Check : " + check);
-        }
-
 
         if (car.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
         {

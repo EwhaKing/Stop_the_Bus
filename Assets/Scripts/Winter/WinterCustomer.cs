@@ -15,8 +15,8 @@ public class WinterCustomer : MonoBehaviour
     bool wheel1, wheel2, wheel3, wheel4;
     private bool eachtaken;     //손님 탑승 체크 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
+    private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
 
-    // Start is called before the first frame update
     void Start()
     {
         WinterAssign Cus = GameObject.Find("Map_Winter").GetComponent<WinterAssign>();
@@ -53,6 +53,7 @@ public class WinterCustomer : MonoBehaviour
         wheel4 = false;
         eachtaken = true;
         insign = false;
+        minusCom = false;
     }
 
 
@@ -120,5 +121,15 @@ public class WinterCustomer : MonoBehaviour
     public bool InSign()    //정류장 점선 안에 버스가 있는지를 반환하는 함수
     {
         return insign;
+    }
+
+    public void SetMinusCom()   //정류장을 넘어서서 만족도가 깎였을 때 사용할 함수
+    {
+        minusCom = true;
+    }
+
+    public bool GetMinusCom()   //정류장을 넘어서서 만족도가 깎였는지 확인할 함수
+    {
+        return minusCom;
     }
 }
