@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinterAssign : MonoBehaviour
+public class SpringAssign : MonoBehaviour
 {
-    static int StopNum = data.WinterBusStopNum;   //겨울 버스 정류장 수
+    static int StopNum = data.SpringBusStopNum; //봄 버스 정류장 수
     int PassengerNum = data.passenger;          //맵당 전체 손님 수 가져오기
     public int[] EachPass = new int[StopNum];   //정류장당 손님 수 저장할 배열
 
