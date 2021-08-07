@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bump4 : MonoBehaviour
+public class fallBump5 : MonoBehaviour
 {
     public static int speedBump; // 방지턱 위반 속도 4가지
     public GameObject obj30; // 표지판 30
@@ -21,19 +21,19 @@ public class bump4 : MonoBehaviour
         {
             case 3:
                 speedBump = 30;
-                Instantiate(obj30, new Vector3(-36.01f, 18.905f, 55.25f), Quaternion.Euler(-90.0f, 0, -45.0f));
+                Instantiate(obj30, new Vector3(25.98f, 0.152f, 49.76f), Quaternion.Euler(-90.0f, 0, 0));
                 break;
             case 4:
                 speedBump = 40;
-                Instantiate(obj40, new Vector3(-36.01f, 18.905f, 55.25f), Quaternion.Euler(-90.0f, 0, -45.0f));
+                Instantiate(obj40, new Vector3(25.98f, 0.152f, 49.76f), Quaternion.Euler(-90.0f, 0, 0));
                 break;
             case 5:
                 speedBump = 50;
-                Instantiate(obj50, new Vector3(-36.01f, 18.905f, 55.25f), Quaternion.Euler(0, -45.0f, 0));
+                Instantiate(obj50, new Vector3(25.98f, 0.152f, 49.76f), Quaternion.identity);
                 break;
             case 6:
                 speedBump = 60;
-                Instantiate(obj60, new Vector3(-36.01f, 18.905f, 55.25f), Quaternion.Euler(-90.0f, 0, -45.0f));
+                Instantiate(obj60, new Vector3(25.98f, 0.152f, 49.76f), Quaternion.Euler(-90.0f, 0, 0));
                 break;
         }
     }

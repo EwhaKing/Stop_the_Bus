@@ -377,7 +377,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_Name
-      value: Bump 4
+      value: fallBump 4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
@@ -684,7 +684,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639566583
 MonoBehaviour:
@@ -1212,7 +1212,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_Name
-      value: Bump 3
+      value: fallBump 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
@@ -1501,7 +1501,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_Name
-      value: Bump 1
+      value: fallBump 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
@@ -1915,7 +1915,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_Name
-      value: Bump 2
+      value: fallBump 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
@@ -2222,7 +2222,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_Name
-      value: Bump 5
+      value: fallBump 5
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
