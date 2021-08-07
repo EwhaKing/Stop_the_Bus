@@ -2,48 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpringCustomer : MonoBehaviour
+public class TutorialCustomer : MonoBehaviour
 {
-    public GameObject person;   //손님 오브젝트
+    public static int Tutopassenger;
+    public GameObject[] person;
     private List<GameObject> passengers = new List<GameObject>();   //손님 오브젝트 배열
 
-    int[] ListOfNumPass;        //정류장 손님수 배열
-    int NumOfPass;              //각 정류장마다 손님수를 저장할 변수
-
-    float timeCount;
     string wheel;
-    bool wheel1, wheel2, wheel3, wheel4;
+    bool wheel1, wheel2, wheel3, wheel4;    //바퀴가 점선과 접촉해 있는지 확인할 변수
+
     private bool eachtaken;     //손님 탑승 체크 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
-    private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
+
+    float timeCount;
 
     void Start()
     {
-        SpringAssign Cus = GameObject.Find("Map_Spring").GetComponent<SpringAssign>();
-        ListOfNumPass = Cus.EachPass;        //정류장 랜덤 손님 수 배열 가져오기
-        string name = this.gameObject.name;     //오브젝트 이름
-
-        //버스 정류장 수에 따라 수정 필요
-        if (name == "BusStopSign1")
-            NumOfPass = ListOfNumPass[0];
-        else if (name == "BusStopSign2")
-            NumOfPass = ListOfNumPass[1];
-        else if (name == "BusStopSign3")
-            NumOfPass = ListOfNumPass[2];
-
-        timeCount = 4 * NumOfPass;      //각 바퀴 콜라이더마다 계산해서 4 곱해야 함
-
-        //손님 에셋 추가 시 수정!!!!
-        for (int i = 0; i < NumOfPass; i++)
-        {
-            GameObject per = Instantiate(person, this.transform.position, Quaternion.identity);
-            per.transform.parent = this.gameObject.transform;
-            per.transform.localScale = new Vector3(0.03f, 0.006f, 0.03f);
-            per.transform.localRotation = Quaternion.Euler(0, 90, 90);
-            per.transform.localPosition = new Vector3(0.005f - 0.002f * i, 0.0065f, 0.0002f);
-            //나중에 크기 변환 조절해야 함.
-            passengers.Add(per);
-        }
+        Tutopassenger = 5;
+        timeCount = 4 * Tutopassenger;
 
         wheel1 = false;
         wheel2 = false;
@@ -51,9 +27,26 @@ public class SpringCustomer : MonoBehaviour
         wheel4 = false;
         eachtaken = true;
         insign = false;
-        minusCom = false;
-    }
 
+        for (int i = 0; i < Tutopassenger; i++)
+        {
+            int size = Random.Range(0, person.Length);
+
+            GameObject per = Instantiate(person[size], this.transform.position, Quaternion.identity);
+            per.transform.parent = this.gameObject.transform;
+            if(size == 0)
+                per.transform.localScale = new Vector3(0.09395387f, 0.07338747f, 0.01879078f);
+            else if (size == 1)
+                per.transform.localScale = new Vector3(0.06591024f, 0.03539975f, 0.04162221f);
+            else if (size == 2)
+                per.transform.localScale = new Vector3(0.06688508f, 0.03592332f, 0.04223782f);
+            else
+                per.transform.localScale = new Vector3(0.06357845f, 0.03414736f, 0.04014969f);
+            per.transform.localRotation = Quaternion.Euler(0, 0, 90);
+            per.transform.localPosition = new Vector3(0.006f - 0.0025f * i, 0.0065f, 0.00098f);
+            passengers.Add(per);
+        }
+    }
 
     void OnTriggerStay(Collider coll)
     {
@@ -74,19 +67,16 @@ public class SpringCustomer : MonoBehaviour
                 if (timeCount > 0)
                     timeCount -= Time.deltaTime;
                 else
-                    timeCount = 4 * NumOfPass;
-
+                    timeCount = 4 * Tutopassenger;
         }
 
 
         if (timeCount <= 0 && eachtaken)
         {
             eachtaken = false;
-
-            //손님 오브젝트 삭제
+            
             foreach (var child in passengers)
                 Destroy(child.gameObject);
-
         }
 
     }
@@ -107,7 +97,7 @@ public class SpringCustomer : MonoBehaviour
         {
             insign = false;
             if (eachtaken)
-                timeCount = 4 * NumOfPass;
+                timeCount = 4 * Tutopassenger;
         }
     }
 
@@ -119,15 +109,5 @@ public class SpringCustomer : MonoBehaviour
     public bool InSign()    //정류장 점선 안에 버스가 있는지를 반환하는 함수
     {
         return insign;
-    }
-
-    public void SetMinusCom()   //정류장을 넘어서서 만족도가 깎였을 때 사용할 함수
-    {
-        minusCom = true;
-    }
-
-    public bool GetMinusCom()   //정류장을 넘어서서 만족도가 깎였는지 확인할 함수
-    {
-        return minusCom;
     }
 }
