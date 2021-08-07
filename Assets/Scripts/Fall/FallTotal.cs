@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class WinterTotal : MonoBehaviour
+public class FallTotal : MonoBehaviour
 {
-    WinterAssign Cus;
+    FallAssign Cus;
     private int[] ListOfNumPass;
 
-    WinterCustomer[] obj;
-    int num = data.WinterBusStopNum;
+    FallCustomer[] obj;
+    int num = data.FallBusStopNum;
 
     public TextMeshProUGUI customerText;
     public static int SumOfCus;     //손님 합계
@@ -20,14 +20,14 @@ public class WinterTotal : MonoBehaviour
     {
         customerText = gameObject.GetComponent<TextMeshProUGUI>();
 
-        Cus = GameObject.Find("Map_Winter").GetComponent<WinterAssign>();
+        Cus = GameObject.Find("Map_fall").GetComponent<FallAssign>();
         ListOfNumPass = Cus.EachPass;        //정류장 랜덤 손님 수 배열 가져오기
 
-        obj = new WinterCustomer[num];
-        obj[0] = GameObject.Find("BusStopSign1").GetComponent<WinterCustomer>();
-        obj[1] = GameObject.Find("BusStopSign2").GetComponent<WinterCustomer>();
-        obj[2] = GameObject.Find("BusStopSign3").GetComponent<WinterCustomer>();
-        obj[3] = GameObject.Find("BusStopSign4").GetComponent<WinterCustomer>();
+        obj = new FallCustomer[num];
+        obj[0] = GameObject.Find("BusStopSign1").GetComponent<FallCustomer>();
+        obj[1] = GameObject.Find("BusStopSign2").GetComponent<FallCustomer>();
+        obj[2] = GameObject.Find("BusStopSign3").GetComponent<FallCustomer>();
+        obj[3] = GameObject.Find("BusStopSign4").GetComponent<FallCustomer>();
 
         SumOfCus = 0;
         count = 0;
