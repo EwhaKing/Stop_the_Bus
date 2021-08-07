@@ -16,7 +16,7 @@ public class car : MonoBehaviour{
     public static int sss; // 스크린에 비춰지는 속도값
 
     private float timecheck; //속도 떨어뜨릴때 타임체크
-
+    private bool breaks = false;
     public TextMeshProUGUI speedT;
 
     void Start()
@@ -29,55 +29,58 @@ public class car : MonoBehaviour{
 
     private void Update()
     {
+        //버스 이동
         transform.Translate(Vector3.forward * 0.01f * -speed);
 
-        //자동차 바퀴 회전
+        //버스 바퀴 회전
         for (int i=0;i<4;i++)  { 
             tires[i].Rotate(Vector3.right * -speed);
-            if (i%2==1 && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))){
-                colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+            if (i%2==1){
+                if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
                 Vector3 position;
                 Quaternion rotation;
-                
-                Vector3 rot;
+                //Vector3 rot;
                 colls[i].GetWorldPose(out position, out rotation);
                 //rot = tires[i].eulerAngles + rotation.eulerAngles;
                 tires[i].rotation = rotation;
             }
         }
-
+/*
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
-            transform.Rotate(Vector3.up * 0.05f * Input.GetAxis("Horizontal") * Math.Abs(speed));
-        }
-        /*
+            if (Math.Abs(speed) < 70)  transform.Rotate(Vector3.up * 0.1f * Input.GetAxis("Horizontal") * Math.Abs(speed));
+            else transform.Rotate(Vector3.up * 0.1f * Input.GetAxis("Horizontal") * 70);
+        }*/
+
+        // 버스 차체 회전
         if(Input.GetKey(KeyCode.A) && speed != 0)
         {
-            transform.Rotate(Vector3.up * 0.1f * -speed);
-            for (int i=0;i<4;i++)  { 
-                if (i%2==1){
-                    colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                    Vector3 position;
-                    Quaternion rotation;
-                    colls[i].GetWorldPose(out position, out rotation);
-                    tires[i].rotation = rotation;
-                }
-            }
+            if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * -speed);
+            else if (speed > 0) transform.Rotate(Vector3.up * 0.1f * -7);
+            else if (speed < 0) transform.Rotate(Vector3.up * 0.1f * 7);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * 0.1f * speed);
-            for (int i=0;i<4;i++)  { 
-                if (i%2==1){
-                    colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                    Vector3 position;
-                    Quaternion rotation;
-                    colls[i].GetWorldPose(out position, out rotation);
-                    tires[i].rotation = rotation;
-                }
-            }           
-        }*/
+            if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+            else if (speed > 0) transform.Rotate(Vector3.up * 0.1f * 7);
+            else if (speed < 0) transform.Rotate(Vector3.up * 0.1f * -7);        
+        }
 
+        //급정거
+        if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
+            breaks = true;
+        }
 
+        if (breaks){
+            if (speed > 0.1f) speed -=0.2f;
+            else if (speed < -0.1f) speed +=0.2f;
+            else {
+                speed=0;
+                breaks = false;
+            }
+        }
+        
+        // 속도 text
         sss = (int)(speed * 10);
         speedT.text = sss.ToString();
 
@@ -90,7 +93,7 @@ public class car : MonoBehaviour{
         }
 
         //마우스오버시 수행내용
-        if (mouse.speedChange)
+        if (mouse.speedChange && !breaks)
         {
             changeSpeed();
         }
@@ -135,5 +138,11 @@ public class car : MonoBehaviour{
         }
         
     }
+/*
+    IEnumerator Break(){
+        while(speed!=0){
+
+        }
+    }*/
 
 }
