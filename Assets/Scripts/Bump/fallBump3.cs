@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bump3 : MonoBehaviour
+public class fallBump3 : MonoBehaviour
 {
     public static int speedBump; // 방지턱 위반 속도 4가지
     public GameObject obj30; // 표지판 30
