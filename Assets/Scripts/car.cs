@@ -33,32 +33,49 @@ public class car : MonoBehaviour{
 
         //자동차 바퀴 회전
         for (int i=0;i<4;i++)  { 
-            if (i%2==1){
+            tires[i].Rotate(Vector3.right * -speed);
+            if (i%2==1 && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))){
                 colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
                 Vector3 position;
                 Quaternion rotation;
+                
+                Vector3 rot;
                 colls[i].GetWorldPose(out position, out rotation);
+                //rot = tires[i].eulerAngles + rotation.eulerAngles;
                 tires[i].rotation = rotation;
             }
         }
 
-/*
-        if (Input.GetKeyDown(KeyCode.A) && speed != 0){
-            for (int i=0;i<4;i++)  tires[i].Play("wheel_left");
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
+            transform.Rotate(Vector3.up * 0.05f * Input.GetAxis("Horizontal") * Math.Abs(speed));
         }
-        else if (Input.GetKeyDown(KeyCode.D) && speed != 0){
-            for (int i=0;i<4;i++)  tires[i].Play("wheel_right");
-        }*/
-
-
+        /*
         if(Input.GetKey(KeyCode.A) && speed != 0)
         {
             transform.Rotate(Vector3.up * 0.1f * -speed);
+            for (int i=0;i<4;i++)  { 
+                if (i%2==1){
+                    colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                    Vector3 position;
+                    Quaternion rotation;
+                    colls[i].GetWorldPose(out position, out rotation);
+                    tires[i].rotation = rotation;
+                }
+            }
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * 0.1f * speed);           
-        }
+            transform.Rotate(Vector3.up * 0.1f * speed);
+            for (int i=0;i<4;i++)  { 
+                if (i%2==1){
+                    colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                    Vector3 position;
+                    Quaternion rotation;
+                    colls[i].GetWorldPose(out position, out rotation);
+                    tires[i].rotation = rotation;
+                }
+            }           
+        }*/
 
 
         sss = (int)(speed * 10);
@@ -109,13 +126,6 @@ public class car : MonoBehaviour{
         if (col.collider.CompareTag("gravel")){
             accel = 0.015f;
         }
-        /*
-        else if(col.collider.CompareTag("curve90")){
-            cameraMove.rotat = 90;
-        }
-        else if(col.collider.CompareTag("curve180")){
-            cameraMove.rotat = 180;
-        }*/
     }
 
     void OnCollisionExit(Collision col){
