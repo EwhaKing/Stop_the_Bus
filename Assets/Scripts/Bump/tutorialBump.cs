@@ -21,19 +21,19 @@ public class tutorialBump : MonoBehaviour
         {
             case 3:
                 speedBump = 30;
-                Instantiate(obj30, new Vector3(22.79f, 0.1524f, -17.05f), Quaternion.Euler(-90.0f, 90.0f, 0));
+                Instantiate(obj30, new Vector3(22.79f, 0.1524f, -32.05f), Quaternion.Euler(-90.0f, 90.0f, 0));
                 break;
             case 4:
                 speedBump = 40;
-                Instantiate(obj40, new Vector3(22.79f, 0.1524f, -17.05f), Quaternion.Euler(-90.0f, 90.0f, 0));
+                Instantiate(obj40, new Vector3(22.79f, 0.1524f, -32.05f), Quaternion.Euler(-90.0f, 90.0f, 0));
                 break;
             case 5:
                 speedBump = 50;
-                Instantiate(obj50, new Vector3(22.79f, 0.1524f, -17.05f), Quaternion.Euler(0, 90.0f, 0));
+                Instantiate(obj50, new Vector3(22.79f, 0.1524f, -32.05f), Quaternion.Euler(0, 90.0f, 0));
                 break;
             case 6:
                 speedBump = 60;
-                Instantiate(obj60, new Vector3(22.79f, 0.1524f, -17.05f), Quaternion.Euler(-90.0f, 90.0f, 0));
+                Instantiate(obj60, new Vector3(22.79f, 0.1524f, -32.05f), Quaternion.Euler(-90.0f, 90.0f, 0));
                 break;
         }
     }
