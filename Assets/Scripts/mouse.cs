@@ -36,6 +36,9 @@ public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TextMeshProUGUI speedT; // 스크린에 속도값 보여주는 텍스트
 */
     // Update is called once per frame
+    void Awake(){
+        Screen.SetResolution(1320, 1030, false);
+    }
     void Update()
     {
         /*
