@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sign : MonoBehaviour
+public class sign : MonoBehaviour
 {
     public GameObject removeText;
     public GameObject newText;
