@@ -9,6 +9,7 @@ public class car : MonoBehaviour{
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
     Rigidbody rb;
+    Animation ani;
     
     private float velocity;
     public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
@@ -22,6 +23,7 @@ public class car : MonoBehaviour{
     void Start()
     {
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
+        ani = GetComponent<Animation>(); 
         rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
         speed = 0;
@@ -72,6 +74,7 @@ public class car : MonoBehaviour{
         //급정거
         if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
             breaks = true;
+            ani.Play("bump");
         }
 
         if (breaks){
