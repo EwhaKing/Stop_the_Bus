@@ -36,6 +36,9 @@ public class car : MonoBehaviour{
         for (int i=0;i<4;i++)  { 
             tires[i].Rotate(Vector3.right * -speed);
             if (i%2==1){
+                if (colls[i].rpm > 3) {
+                    colls[i].brakeTorque = Mathf.Infinity;
+                }
                 if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
                 else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
                 Vector3 position;
