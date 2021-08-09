@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stageScene.unity
     guid: 0904635ff361d1b44af94f39151270b0
+  - enabled: 1
+    path: Assets/Scenes/spring.unity
+    guid: 2b5534311b2d36e488f29e7205f731f6
+  - enabled: 1
+    path: Assets/Scenes/Summer.unity
+    guid: e877eba41940c644991a2c3057e8c3b7
   m_configObjects: {}
