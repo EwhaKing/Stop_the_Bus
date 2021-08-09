@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52855786}
   - component: {fileID: 52855785}
+  - component: {fileID: 52855787}
   m_Layer: 0
   m_Name: Opening
   m_TagString: Untagged
@@ -146,7 +147,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52855784}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 484a783da727bd74eaf34f88c873675c, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 8ad52dd57d5809e4e90057067a997f33, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 963194227}
@@ -154,7 +155,7 @@ VideoPlayer:
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 1
+  m_RenderMode: 4
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
@@ -184,6 +185,20 @@ Transform:
   m_Father: {fileID: 1261447322}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52855787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52855784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5932b24a8398b94f8afbcb286e2dc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mScreen: {fileID: 512069843}
+  mVideoPlayer: {fileID: 52855785}
 --- !u!1 &221103156
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &512069842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -373,26 +388,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 512069841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 3413c6318074fbd409f9809a49b2d130, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!222 &512069844
 CanvasRenderer:
   m_ObjectHideFlags: 0
