@@ -1632,6 +1632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AlphaThreshold: 0.1
   rb: {fileID: 750707318}
+  defaltCursor: {fileID: 2800000, guid: 58a5747a54e73894989c27e7db7850f9, type: 3}
+  driveCursor: {fileID: 2800000, guid: b166fa9af7071af419ad2d0e69e78561, type: 3}
 --- !u!1001 &650038195
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -74,7 +74,8 @@ public class car : MonoBehaviour{
         //급정거
         if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
             breaks = true;
-            ani.Play("bump");
+            rb.AddRelativeForce(new Vector3(0, -1, 0) * 1000 * Math.Abs(speed));
+            rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
         }
 
         if (breaks){
@@ -144,11 +145,5 @@ public class car : MonoBehaviour{
         }
         
     }
-/*
-    IEnumerator Break(){
-        while(speed!=0){
-
-        }
-    }*/
 
 }
