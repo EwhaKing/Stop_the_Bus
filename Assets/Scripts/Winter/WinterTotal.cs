@@ -35,30 +35,13 @@ public class WinterTotal : MonoBehaviour
 
     void Update()
     {
-        if (!obj[0].Taken() && count == 0)
-        {
-            SumOfCus += ListOfNumPass[0];
-            count++;
-            Debug.Log(string.Format("{0}번 버스 정류장 {1}명 태워서 총 {2}명", name, ListOfNumPass[0], SumOfCus));
-        }
-        else if (!obj[1].Taken() && count == 1)
-        {
-            SumOfCus += ListOfNumPass[1];
-            count++;
-            Debug.Log(string.Format("{0}번 버스 정류장 {1}명 태워서 총 {2}명", name, ListOfNumPass[1], SumOfCus));
-        }
-        else if (!obj[2].Taken() && count == 2)
-        {
-            SumOfCus += ListOfNumPass[2];
-            count++;
-            Debug.Log(string.Format("{0}번 버스 정류장 {1}명 태워서 총 {2}명", name, ListOfNumPass[2], SumOfCus));
-        }
-        else if (!obj[3].Taken() && count == 3)
-        {
-            SumOfCus += ListOfNumPass[3];
-            count++;
-            Debug.Log(string.Format("{0}번 버스 정류장 {1}명 태워서 총 {2}명", name, ListOfNumPass[3], SumOfCus));
-        }
+        for (int i = 0; i < obj.Length; i++)
+            if (!obj[i].Taken() && count == i)
+            {
+                SumOfCus += ListOfNumPass[i];
+                count++;
+                Debug.Log(string.Format("{0}번 버스 정류장 {1}명 태워서 총 {2}명", i, ListOfNumPass[i], SumOfCus));
+            }
 
         customerText.text = SumOfCus.ToString();
     }

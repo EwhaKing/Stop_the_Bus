@@ -22,7 +22,6 @@ public class SpringCustomer : MonoBehaviour
         SpringAssign Cus = GameObject.Find("Map_Spring").GetComponent<SpringAssign>();
         ListOfNumPass = Cus.EachPass;        //정류장 랜덤 손님 수 배열 가져오기
         string name = this.gameObject.name;     //오브젝트 이름
-        Vector3 basePos = transform.position;   //오브젝트 위치
 
         //버스 정류장 수에 따라 수정 필요
         if (name == "BusStopSign1")
