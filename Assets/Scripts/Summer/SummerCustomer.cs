@@ -40,7 +40,7 @@ public class SummerCustomer : MonoBehaviour
 
         timeCount = 4 * NumOfPass;      //각 바퀴 콜라이더마다 계산해서 4 곱해야 함
 
-        //손님 에셋 추가 시 수정!!!!
+
         for (int i = 0; i < NumOfPass; i++)
         {
             int size = Random.Range(0, person.Length);
@@ -89,7 +89,6 @@ public class SummerCustomer : MonoBehaviour
                 audioSource.Play();
                 TakenSound++;
             }
-
     }
 
 
