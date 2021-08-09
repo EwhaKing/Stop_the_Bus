@@ -3,7 +3,10 @@ guid: bab2d0fa6689a734c9a2c5b15c0e1e8c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - defaltCursor: {instanceID: 0}
+  - driveCursor: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
