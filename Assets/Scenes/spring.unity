@@ -733,13 +733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8534672cb8954c49bf049f7289f8711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  person:
-  - {fileID: 919132149155446097, guid: c7ddb26181863ed4d8d6b4ff20d2a949, type: 3}
-  - {fileID: 919132149155446097, guid: 84ae2675d78788b4186410714564840d, type: 3}
-  - {fileID: 919132149155446097, guid: b16adbdb189aa9947bda03decbd90746, type: 3}
-  - {fileID: 919132149155446097, guid: e66575c80326e20448d8cf7bd5769fb5, type: 3}
-  customerIng: {fileID: 8300000, guid: d7ab52ff04cbf0d458194cdf49e4ced3, type: 3}
-  customerEnd: {fileID: 8300000, guid: ca81814fda5620b4693e7f50e8154cec, type: 3}
+  person: []
+  customerIng: {fileID: 0}
+  customerEnd: {fileID: 0}
 --- !u!114 &126383079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,6 +2728,8 @@ GameObject:
   m_Component:
   - component: {fileID: 578686865}
   - component: {fileID: 578686866}
+  - component: {fileID: 578686868}
+  - component: {fileID: 578686867}
   m_Layer: 8
   m_Name: MinimapBus
   m_TagString: Untagged
@@ -2746,12 +2744,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578686864}
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -0.7071067, w: 0}
-  m_LocalPosition: {x: 0.0023, y: 0.04, z: -0}
-  m_LocalScale: {x: 0.06, y: 0.06, z: 0}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.00000008940697, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 19.249998, y: -37.43901, z: 150.02}
+  m_LocalScale: {x: 7.799998, y: 7.7999983, z: 0}
   m_Children: []
-  m_Father: {fileID: 714624852}
-  m_RootOrder: 0
+  m_Father: {fileID: 699409178}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!212 &578686866
 SpriteRenderer:
@@ -2791,7 +2789,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0fb41e8f92c214c4bbc3ec654566399c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2803,6 +2801,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &578686867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578686864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab700e6c66463741a0e130631c0091a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 750707316}
+  x: 0
+  y: 0
+  z: 1
+--- !u!54 &578686868
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578686864}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &583200035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3388,6 +3418,7 @@ Transform:
   - {fileID: 1418443957}
   - {fileID: 1002128806}
   - {fileID: 490899389}
+  - {fileID: 578686865}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3579,12 +3610,6 @@ Transform:
 --- !u!1 &714624851 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 315279653166075164, guid: 7ea56929a0c6bb047b5a794f315524e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1979586041}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &714624852 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1414811956847084122, guid: 7ea56929a0c6bb047b5a794f315524e9,
     type: 3}
   m_PrefabInstance: {fileID: 1979586041}
   m_PrefabAsset: {fileID: 0}
@@ -5229,13 +5254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8534672cb8954c49bf049f7289f8711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  person:
-  - {fileID: 919132149155446097, guid: c7ddb26181863ed4d8d6b4ff20d2a949, type: 3}
-  - {fileID: 919132149155446097, guid: 84ae2675d78788b4186410714564840d, type: 3}
-  - {fileID: 919132149155446097, guid: b16adbdb189aa9947bda03decbd90746, type: 3}
-  - {fileID: 919132149155446097, guid: e66575c80326e20448d8cf7bd5769fb5, type: 3}
-  customerIng: {fileID: 8300000, guid: d7ab52ff04cbf0d458194cdf49e4ced3, type: 3}
-  customerEnd: {fileID: 8300000, guid: ca81814fda5620b4693e7f50e8154cec, type: 3}
+  person: []
+  customerIng: {fileID: 0}
+  customerEnd: {fileID: 0}
 --- !u!65 &1147295922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8799,13 +8820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8534672cb8954c49bf049f7289f8711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  person:
-  - {fileID: 919132149155446097, guid: c7ddb26181863ed4d8d6b4ff20d2a949, type: 3}
-  - {fileID: 919132149155446097, guid: 84ae2675d78788b4186410714564840d, type: 3}
-  - {fileID: 919132149155446097, guid: b16adbdb189aa9947bda03decbd90746, type: 3}
-  - {fileID: 919132149155446097, guid: e66575c80326e20448d8cf7bd5769fb5, type: 3}
-  customerIng: {fileID: 8300000, guid: d7ab52ff04cbf0d458194cdf49e4ced3, type: 3}
-  customerEnd: {fileID: 8300000, guid: ca81814fda5620b4693e7f50e8154cec, type: 3}
+  person: []
+  customerIng: {fileID: 0}
+  customerEnd: {fileID: 0}
 --- !u!65 &2140964407
 BoxCollider:
   m_ObjectHideFlags: 0
