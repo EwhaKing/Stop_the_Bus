@@ -13,8 +13,6 @@ public class SpringComfort : MonoBehaviour
     string n;
     
     SpringCustomer overline;  //comfort line을 넘어설 때 사용할 오브젝트
-    int count;
-
     SpringCustomer[] insign;    //버스 정류장 사인 안에 있을 때 사용할 오브젝트
     bool check;
     
@@ -29,9 +27,9 @@ public class SpringComfort : MonoBehaviour
         ListOfNumPass = Cus.EachPass;        //정류장 랜덤 손님 수 배열 가져오기
 
         insign = new SpringCustomer[num];
-        insign[0] = GameObject.Find("BusStopSign1").GetComponent<SpringCustomer>();
-        insign[1] = GameObject.Find("BusStopSign2").GetComponent<SpringCustomer>();
-        insign[2] = GameObject.Find("BusStopSign3").GetComponent<SpringCustomer>();
+        for (int i = 0; i < insign.Length; i++)
+            insign[i] = GameObject.Find(string.Format("BusStopSign{0}", i + 1)).GetComponent<SpringCustomer>();
+
         check = false;
     }
 
