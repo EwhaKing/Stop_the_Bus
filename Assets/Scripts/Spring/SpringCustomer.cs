@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpringCustomer : MonoBehaviour
 {
-    public GameObject person;   //손님 오브젝트
+    public GameObject[] person;   //손님 오브젝트
     private List<GameObject> passengers = new List<GameObject>();   //손님 오브젝트 배열
 
     int[] ListOfNumPass;        //정류장 손님수 배열
@@ -17,11 +17,18 @@ public class SpringCustomer : MonoBehaviour
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
     private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
 
+    AudioSource audioSource;
+    public AudioClip customerIng;
+    public AudioClip customerEnd;
+    float soundCount = 0;       //손님 태울 때 시간 카운트
+    int TakenSound = 0;         //손님 다 태우고 났을 때 사운드 
+
     void Start()
     {
         SpringAssign Cus = GameObject.Find("Map_Spring").GetComponent<SpringAssign>();
         ListOfNumPass = Cus.EachPass;        //정류장 랜덤 손님 수 배열 가져오기
         string name = this.gameObject.name;     //오브젝트 이름
+        audioSource = GetComponent<AudioSource>();
 
         //버스 정류장 수에 따라 수정 필요
         if (name == "BusStopSign1")
@@ -36,12 +43,20 @@ public class SpringCustomer : MonoBehaviour
         //손님 에셋 추가 시 수정!!!!
         for (int i = 0; i < NumOfPass; i++)
         {
-            GameObject per = Instantiate(person, this.transform.position, Quaternion.identity);
+            int size = Random.Range(0, person.Length);
+
+            GameObject per = Instantiate(person[size], this.transform.position, Quaternion.identity);
             per.transform.parent = this.gameObject.transform;
-            per.transform.localScale = new Vector3(0.03f, 0.006f, 0.03f);
-            per.transform.localRotation = Quaternion.Euler(0, 90, 90);
-            per.transform.localPosition = new Vector3(0.005f - 0.002f * i, 0.0065f, 0.0002f);
-            //나중에 크기 변환 조절해야 함.
+            if (size == 0)
+                per.transform.localScale = new Vector3(0.0629103f, 0.04913933f, 0.01258207f);
+            else if (size == 1)
+                per.transform.localScale = new Vector3(0.04886299f, 0.02624385f, 0.03085691f);
+            else if (size == 2)
+                per.transform.localScale = new Vector3(0.04735571f, 0.02543431f, 0.02990506f);
+            else
+                per.transform.localScale = new Vector3(0.04570316f, 0.02454673f, 0.02886147f);
+            per.transform.localRotation = Quaternion.Euler(0, 0, 90);
+            per.transform.localPosition = new Vector3(0.006f - 0.0025f * i, 0.0065f, 0.0007f);
             passengers.Add(per);
         }
 
@@ -52,6 +67,28 @@ public class SpringCustomer : MonoBehaviour
         eachtaken = true;
         insign = false;
         minusCom = false;
+    }
+
+    void Update()
+    {
+        if (insign && car.speed == 0 && eachtaken)
+        {
+            soundCount += Time.deltaTime;
+            if (soundCount >= 1f)
+            {
+                audioSource.clip = customerIng;
+                audioSource.Play();
+                soundCount = 0;
+            }
+        }
+
+        if (insign && car.speed == 0 && !eachtaken)
+            if (TakenSound == 0)
+            {
+                audioSource.clip = customerEnd;
+                audioSource.Play();
+                TakenSound++;
+            }
     }
 
 
@@ -77,7 +114,6 @@ public class SpringCustomer : MonoBehaviour
             }
             else
                 timeCount = 4 * NumOfPass;
-
         }
 
 

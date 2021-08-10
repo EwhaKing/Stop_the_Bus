@@ -66,7 +66,6 @@ public class SummerComfort : MonoBehaviour
         check = false;
         for (int i = 0; i < insign.Length; i++)
             check = check || insign[i].InSign();
-        Debug.Log("in? : " + check);        //삭제
 
         if (car.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
         {
