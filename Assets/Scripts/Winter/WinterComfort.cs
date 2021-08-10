@@ -15,6 +15,7 @@ public class WinterComfort : MonoBehaviour
     WinterCustomer overline;  //comfort line을 넘어설 때 사용할 오브젝트
     WinterCustomer[] insign;    //버스 정류장 사인 안에 있을 때 사용할 오브젝트
     bool check;
+
     float time;
 
     void Start()

@@ -91,7 +91,6 @@ public class SummerCustomer : MonoBehaviour
             }
     }
 
-
     void OnTriggerStay(Collider coll)
     {
         wheel = coll.gameObject.name;
