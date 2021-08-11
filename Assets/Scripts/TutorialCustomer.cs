@@ -63,7 +63,7 @@ public class TutorialCustomer : MonoBehaviour
         if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
         {
             insign = true;
-            if (car.speed == 0)          // 버스 속도가 0이어야        
+            if (bus.speed == 0)          // 버스 속도가 0이어야        
                 if (timeCount > 0)
                     timeCount -= Time.deltaTime;
                 else
