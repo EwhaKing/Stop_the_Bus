@@ -21,19 +21,19 @@ public class winterBump3 : MonoBehaviour
         {
             case 3:
                 speedBump = 30;
-                Instantiate(obj30, new Vector3(32.64f, 11.402f, -34.10f), Quaternion.Euler(-90.0f, 0, 180.0f));
+                Instantiate(obj30, new Vector3(25.71f, 11.402f, -34.10f), Quaternion.Euler(-90.0f, 0, 180.0f));
                 break;
             case 4:
                 speedBump = 40;
-                Instantiate(obj40, new Vector3(32.64f, 11.402f, -34.10f), Quaternion.Euler(-90.0f, 0, 180.0f));
+                Instantiate(obj40, new Vector3(25.71f, 11.402f, -34.10f), Quaternion.Euler(-90.0f, 0, 180.0f));
                 break;
             case 5:
                 speedBump = 50;
-                Instantiate(obj50, new Vector3(32.64f, 11.402f, -34.10f), Quaternion.Euler(0, 180.0f, 0));
+                Instantiate(obj50, new Vector3(25.71f, 11.402f, -34.10f), Quaternion.Euler(0, 180.0f, 0));
                 break;
             case 6:
                 speedBump = 60;
-                Instantiate(obj60, new Vector3(32.64f, 11.402f, -34.10f), Quaternion.Euler(-90.0f, 0, 180.0f));
+                Instantiate(obj60, new Vector3(25.71f, 11.402f, -34.10f), Quaternion.Euler(-90.0f, 0, 180.0f));
                 break;
         }
 
@@ -47,7 +47,7 @@ public class winterBump3 : MonoBehaviour
 
         if (col.collider.CompareTag("Bus")) // 충돌한 오브젝트의 태그가 Bus인지 검사
         {
-            if (car.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
+            if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
                 // 버스 튀어오르는 모션
                 rd.AddRelativeForce(new Vector3(1, 0, 0) * 200000);

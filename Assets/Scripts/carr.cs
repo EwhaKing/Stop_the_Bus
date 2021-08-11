@@ -1,9 +1,9 @@
-﻿using UnityEngine; 
+using UnityEngine; 
 using System.Collections; 
 
 
 // 새로운 자동차 생성 스크립트
-public class car : MonoBehaviour { 
+public class carr : MonoBehaviour { 
 
     public GameObject[] prefab; // 사용할 프리팹 종류
     public Transform[] wayPoints; // 프리팹 기본설정으로 심어두려 했는데 안될듯 ㅅㅂ

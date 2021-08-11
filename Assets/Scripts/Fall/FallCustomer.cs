@@ -16,6 +16,7 @@ public class FallCustomer : MonoBehaviour
     private bool eachtaken;     //손님 탑승 체크 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
     private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
+    private bool sumCheck;      //손님 태워서 합계 더했는지 확인
 
     AudioSource audioSource;
     public AudioClip customerIng;
@@ -69,11 +70,12 @@ public class FallCustomer : MonoBehaviour
         eachtaken = true;
         insign = false;
         minusCom = false;
+        sumCheck = false;
     }
 
     void Update()
     {
-        if (insign && car.speed == 0 && eachtaken)
+        if (insign && bus.speed == 0 && eachtaken)
         {
             soundCount += Time.deltaTime;
             if (soundCount >= 1f)
@@ -84,7 +86,7 @@ public class FallCustomer : MonoBehaviour
             }
         }
 
-        if (insign && car.speed == 0 && !eachtaken)
+        if (insign && bus.speed == 0 && !eachtaken)
             if (TakenSound == 0)
             {
                 audioSource.clip = customerEnd;
@@ -110,7 +112,7 @@ public class FallCustomer : MonoBehaviour
         if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
         {
             insign = true;
-            if (car.speed == 0)     // 버스 속도가 0이어야        
+            if (bus.speed == 0)     // 버스 속도가 0이어야        
             {
                 if (timeCount > 0)
                     timeCount -= Time.deltaTime;
@@ -171,5 +173,15 @@ public class FallCustomer : MonoBehaviour
     public bool GetMinusCom()   //정류장을 넘어서서 만족도가 깎였는지 확인할 함수
     {
         return minusCom;
+    }
+
+    public void SetSumCheck()
+    {
+        sumCheck = true;
+    }
+
+    public bool GetSumCheck()
+    {
+        return sumCheck;
     }
 }

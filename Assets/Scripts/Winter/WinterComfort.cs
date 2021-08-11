@@ -15,6 +15,7 @@ public class WinterComfort : MonoBehaviour
     WinterCustomer overline;  //comfort line을 넘어설 때 사용할 오브젝트
     WinterCustomer[] insign;    //버스 정류장 사인 안에 있을 때 사용할 오브젝트
     bool check;
+
     float time;
 
     void Start()
@@ -68,7 +69,7 @@ public class WinterComfort : MonoBehaviour
         for (int i = 0; i < insign.Length; i++)
             check = check || insign[i].InSign();
 
-        if (car.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
+        if (bus.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
         {
             if (!check)     //버스 정류장 사인 내에서는 안 줄도록
             {
