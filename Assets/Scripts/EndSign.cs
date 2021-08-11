@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class EndSign : MonoBehaviour
 {
+    GameObject result;
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
 
     void Start()
     {
+        result = GameObject.Find("Canvas").transform.Find("Result").gameObject;
+
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
@@ -34,6 +37,6 @@ public class EndSign : MonoBehaviour
             wheel4 = true;
 
         //if (wheel1 && wheel2 && wheel3 && wheel4)
-
+        if (wheel1 && wheel2 && wheel3 && wheel4)
     }
 }
