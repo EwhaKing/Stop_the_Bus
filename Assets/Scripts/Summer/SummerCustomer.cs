@@ -16,6 +16,7 @@ public class SummerCustomer : MonoBehaviour
     private bool eachtaken;     //손님 탑승 체크 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
     private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
+    private bool sumCheck;      //손님 태워서 합계 더했는지 확인
 
     AudioSource audioSource;
     public AudioClip customerIng;
@@ -67,6 +68,7 @@ public class SummerCustomer : MonoBehaviour
         eachtaken = true;
         insign = false;
         minusCom = false;
+        sumCheck = false;
     }
 
     void Update()
@@ -166,5 +168,15 @@ public class SummerCustomer : MonoBehaviour
     public bool GetMinusCom()   //정류장을 넘어서서 만족도가 깎였는지 확인할 함수
     {
         return minusCom;
+    }
+
+    public void SetSumCheck()
+    {
+        sumCheck = true;
+    }
+
+    public bool GetSumCheck()
+    {
+        return sumCheck;
     }
 }

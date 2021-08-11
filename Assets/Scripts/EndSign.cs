@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class EndSign : MonoBehaviour
 {
+    GameObject result;
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
 
     void Start()
     {
+        result = GameObject.Find("Canvas").transform.Find("Result").gameObject;
+
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
         wheel4 = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerStay(Collider coll)
@@ -33,7 +30,7 @@ public class EndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        // if (wheel1 && wheel2 && wheel3 && wheel4)
-
+        if (wheel1 && wheel2 && wheel3 && wheel4)
+            result.SetActive(true);
     }
 }
