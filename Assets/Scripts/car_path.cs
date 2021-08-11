@@ -30,7 +30,8 @@ public class car_path : MonoBehaviour {
 
         if (isInit)
         {
-            currentPoint = wayPoints[0]; 
+            if (isLoop) currentPoint = wayPoints[0]; 
+            else currentPoint = wayPoints[1]; 
             currentIndex = 0; 
         }        
 
@@ -38,11 +39,12 @@ public class car_path : MonoBehaviour {
 
     public void init(bool loop, Transform[] wp){
         // 초기화
-        isInit = true;
         isLoop = loop;
         wayPoints = new Transform[wp.Length];
         for (int i=0; i<wp.Length; i++) wayPoints[i] = wp[i];
-        transform.position = wayPoints[wp.Length - 1].position;
+        if (isLoop) transform.position = wayPoints[wp.Length - 1].position;
+        else transform.position = wayPoints[0].position;
+        isInit = true;
     }
 
     // Update is called once per frame 

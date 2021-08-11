@@ -14,19 +14,20 @@ public class car : MonoBehaviour {
 
     
     private int rand; // 프리팹 랜덤 설정 변수
-    private float timecheck = 0;
+    private float timecheck;
     public static int car_count = 0; //전체 생성한 car count 개수
+    public static bool tutorial = true;
 
     
     // Use this for initialization 
     void Start () {
-
+        timecheck = -createTime;
     } 
 
     // Update is called once per frame 
     void Update () { 
 
-        if (Time.time - timecheck >= createTime && car_count < count){
+        if (Time.time - timecheck >= createTime && car_count < count && tutorial){
             
             timecheck = Time.time;
             rand = Random.Range(0,prefab.Length);
