@@ -11,6 +11,7 @@ TagManager:
   - Bus
   - Backwheel
   - gameOver
+  - BlackIce
   layers:
   - Default
   - TransparentFX
