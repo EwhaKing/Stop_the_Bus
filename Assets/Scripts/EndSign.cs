@@ -18,12 +18,6 @@ public class EndSign : MonoBehaviour
         wheel4 = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerStay(Collider coll)
     {
         wheel = coll.gameObject.name;
@@ -36,7 +30,7 @@ public class EndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        //if (wheel1 && wheel2 && wheel3 && wheel4)
         if (wheel1 && wheel2 && wheel3 && wheel4)
+            result.SetActive(true);
     }
 }
