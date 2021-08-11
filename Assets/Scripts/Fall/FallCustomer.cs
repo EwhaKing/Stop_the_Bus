@@ -73,7 +73,7 @@ public class FallCustomer : MonoBehaviour
 
     void Update()
     {
-        if (insign && car.speed == 0 && eachtaken)
+        if (insign && bus.speed == 0 && eachtaken)
         {
             soundCount += Time.deltaTime;
             if (soundCount >= 1f)
@@ -84,7 +84,7 @@ public class FallCustomer : MonoBehaviour
             }
         }
 
-        if (insign && car.speed == 0 && !eachtaken)
+        if (insign && bus.speed == 0 && !eachtaken)
             if (TakenSound == 0)
             {
                 audioSource.clip = customerEnd;
@@ -110,7 +110,7 @@ public class FallCustomer : MonoBehaviour
         if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
         {
             insign = true;
-            if (car.speed == 0)     // 버스 속도가 0이어야        
+            if (bus.speed == 0)     // 버스 속도가 0이어야        
             {
                 if (timeCount > 0)
                     timeCount -= Time.deltaTime;
