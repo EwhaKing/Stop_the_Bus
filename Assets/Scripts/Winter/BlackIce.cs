@@ -5,7 +5,14 @@ using UnityEngine;
 public class BlackIce : MonoBehaviour
 {
     public GameObject prefab; 
-    public int count = 100;      //찍어낼 게임 오브젝트 갯수
+    public Transform target;
+
+    public float x;
+    public float y;
+    public float z;
+
+    public static int rotat = 0;
+    public int count = 20;      //찍어낼 게임 오브젝트 갯수
     
     void Start()
     {
