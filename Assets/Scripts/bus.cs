@@ -131,15 +131,20 @@ public class bus : MonoBehaviour{
     }
 
 
-    void OnCollisionEnter(Collision col){
-        if (col.collider.CompareTag("gravel")){
+    void OnTriggerEnter(Collider col){
+        if (col.GetComponent<Collider>().CompareTag("gravel")){
             accel = 0.015f;
+        }
+
+        if (col.GetComponent<Collider>().CompareTag("gameOver")){
+            print("게임오버1111111111111111111111111111111111111111111111111111111111111111111111");
+            // 게임오버 엔딩창
         }
     }
 
-    void OnCollisionExit(Collision col){
+    void OnTriggerExit(Collider col){
         
-        if (col.collider.CompareTag("gravel")){
+        if (col.GetComponent<Collider>().CompareTag("gravel")){
             accel = 0.01f;
         }
         
