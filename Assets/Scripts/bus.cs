@@ -41,7 +41,7 @@ public class bus : MonoBehaviour{
             if (colls[i].rpm > 1) {
                 colls[i].brakeTorque = Mathf.Infinity;
             }
-            if (i%2==1){
+            if (i%2==1 && icecheck){
                 
                 if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
                 else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
@@ -148,10 +148,15 @@ public class bus : MonoBehaviour{
         if (col.GetComponent<Collider>().CompareTag("gravel")){
             accel = 0.015f;
         }
-
+/*
         if (col.GetComponent<Collider>().CompareTag("gameOver")){
-            print("게임오버1111111111111111111111111111111111111111111111111111111111111111111111");
-            // 게임오버 엔딩창
+            accel = 0.05f;
+        }*/
+    }
+
+    void OnCollisionEnter(Collision col){
+        if (col.collider.CompareTag("gameOver")){
+            accel = 0.09f;
         }
     }
 
