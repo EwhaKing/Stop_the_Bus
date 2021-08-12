@@ -1,10 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
 
-public class bus : MonoBehaviour{
+public class WinterBus : MonoBehaviour{
 
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
@@ -19,7 +19,7 @@ public class bus : MonoBehaviour{
     private float timecheck; //속도 떨어뜨릴때 타임체크
     private bool breaks = false;
     public TextMeshProUGUI speedT;
-    private bool icecheck = true;
+    private bool icecheck = true; //겨울씬에서 얼음에 닿았는지 체크
 
     void Start()
     {
@@ -57,7 +57,7 @@ public class bus : MonoBehaviour{
         }
 
         // 버스 차체 회전
-        if(icecheck){
+        if (icecheck){ //얼음에 닿지 않았을 때 실행
             if(Input.GetKey(KeyCode.A) && speed != 0)
             {
                 if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
@@ -71,6 +71,7 @@ public class bus : MonoBehaviour{
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.1f * -7);        
             }
         }
+        
 
         //급정거
         if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
@@ -132,18 +133,17 @@ public class bus : MonoBehaviour{
             timecheck = Time.time;
         }
     }
-
-    void OnTriggerStay(Collider col) {
-        if(col.gameObject.tag == "BlackIce")
+    void OnTriggerStay(Collider col) 
         {
-            icecheck = false;
+            if(col.gameObject.tag == "BlackIce")
+            {
+                icecheck = false; //얼음에 닿았을 때 차체 회전 실행 안됨
+            }
+            
+            else{
+                icecheck = true;
+            }
         }
-        else 
-        {
-            icecheck = true;
-        }
-
-    }
     void OnTriggerEnter(Collider col){
         if (col.GetComponent<Collider>().CompareTag("gravel")){
             accel = 0.015f;
@@ -162,5 +162,4 @@ public class bus : MonoBehaviour{
         }
         
     }
-
 }

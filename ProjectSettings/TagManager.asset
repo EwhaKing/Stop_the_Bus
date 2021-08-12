@@ -10,6 +10,8 @@ TagManager:
   - Bump
   - Bus
   - Backwheel
+  - gameOver
+  - BlackIce
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - 
   - 
   - minimap
-  - 
-  - 
+  - car
+  - wall
   - 
   - 
   - 

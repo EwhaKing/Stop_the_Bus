@@ -83,7 +83,6 @@ public class WinterComfort : MonoBehaviour
         }
         else
             time = 0;   //속도가 0이 아니면 다시 시간 카운트 0으로 설정
-        Debug.Log("comfort : " + comfort);
     }
 
     public static int GetComfort()
