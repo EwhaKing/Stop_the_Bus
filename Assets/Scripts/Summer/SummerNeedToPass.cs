@@ -40,7 +40,6 @@ public class SummerNeedToPass : MonoBehaviour
         end = true;
         for (int i = 0; i < pass.Length; i++)
             end = end && pass[i];
-        Debug.Log("end : " + end);
 
         if (end)
             endsign.SetActive(true);

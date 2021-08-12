@@ -22,7 +22,6 @@ public class FallAssign : MonoBehaviour
                 EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
                 n -= EachPass[i];
             }
-            Debug.Log(string.Format("{0}번 정류장 손님 수는 {1}입니다.", i + 1, EachPass[i]));     // 나중에 지우자
         }
     }
 }
