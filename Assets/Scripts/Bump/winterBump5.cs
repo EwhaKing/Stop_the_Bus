@@ -9,7 +9,10 @@ public class winterBump5 : MonoBehaviour
     public GameObject obj40; // 표지판 40
     public GameObject obj50; // 표지판 50
     public GameObject obj60; // 표지판 60
+    public AudioClip audioBump;
     private int rand;
+
+    AudioSource audioSource;
     Rigidbody rd;
 
     void Start()
@@ -37,6 +40,12 @@ public class winterBump5 : MonoBehaviour
                 break;
         }
 
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = audioBump;
+        audioSource.volume = 1.0f;
+        audioSource.mute = true;
+
         Debug.Log("5의 속도는 " + speedBump);
     }
 
@@ -47,8 +56,11 @@ public class winterBump5 : MonoBehaviour
 
         if (col.collider.CompareTag("Bus")) // 충돌한 오브젝트의 태그가 Bus인지 검사
         {
-            if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
+            if (WinterBus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
+                // 충돌 효과음 내기
+                audioSource.mute = false;
+                audioSource.Play();
                 // 버스 튀어오르는 모션
                 rd.AddRelativeForce(new Vector3(1, 0, 0) * 200000);
                 rd.AddRelativeForce(new Vector3(0, 1, 0) * 800000);
