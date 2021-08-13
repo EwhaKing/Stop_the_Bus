@@ -14,6 +14,9 @@ public class data : MonoBehaviour
     public static int FallBusStopNum = 4;   //가을
     public static int WinterBusStopNum = 4; //겨울
 
-    // 더 추가할 거 있으면 추가하셔요~
+    //볼륨상수
+    public static float background = -10f;
+    public static float effect = -10f;
 
+    // 더 추가할 거 있으면 추가하셔요~
 }
