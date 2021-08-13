@@ -20,6 +20,7 @@ public class bus : MonoBehaviour{
     private bool breaks = false;
     public TextMeshProUGUI speedT;
     private bool icecheck = true;
+    public static bool isOut = false;
 
     void Start()
     {
@@ -148,24 +149,16 @@ public class bus : MonoBehaviour{
         if (col.GetComponent<Collider>().CompareTag("gravel")){
             accel = 0.015f;
         }
-/*
+
         if (col.GetComponent<Collider>().CompareTag("gameOver")){
-            accel = 0.05f;
-        }*/
+            isOut = true;
+        }
     }
 
     void OnCollisionEnter(Collision col){
         if (col.collider.CompareTag("gameOver")){
-            accel = 0.09f;
+            isOut = true;
         }
-    }
-
-    void OnTriggerExit(Collider col){
-        
-        if (col.GetComponent<Collider>().CompareTag("gravel")){
-            accel = 0.01f;
-        }
-        
     }
 
 }
