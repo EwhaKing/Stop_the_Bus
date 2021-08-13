@@ -51,7 +51,7 @@ public class SpringEndSign : MonoBehaviour
             result.SetActive(true);     //엔딩 팝업창 나타남
 
             //기록 업데이트
-            BestScore.UpdateSpring(comfortNum, timer.GetMin(), timer.GetSec(), FallTotal.SumOfCus);
+            BestScore.UpdateSpring(comfortNum, timer.GetMin(), timer.GetSec(), SpringTotal.SumOfCus);
         }
     }
 

@@ -42,8 +42,8 @@ public class car_path : MonoBehaviour {
         isLoop = loop;
         wayPoints = new Transform[wp.Length];
         for (int i=0; i<wp.Length; i++) wayPoints[i] = wp[i];
-        if (isLoop) transform.position = wayPoints[wp.Length - 1].position;
-        else transform.position = wayPoints[0].position;
+        if (!isLoop) transform.position = wayPoints[0].position;
+        else transform.position = wayPoints[wp.Length - 1].position;
         isInit = true;
     }
 

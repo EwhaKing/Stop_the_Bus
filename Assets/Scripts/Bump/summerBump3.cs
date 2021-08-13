@@ -9,7 +9,10 @@ public class summerBump3 : MonoBehaviour
     public GameObject obj40; // 표지판 40
     public GameObject obj50; // 표지판 50
     public GameObject obj60; // 표지판 60
+    public AudioClip audioBump;
     private int rand;
+
+    AudioSource audioSource;
     Rigidbody rd;
 
     void Start()
@@ -36,6 +39,12 @@ public class summerBump3 : MonoBehaviour
                 Instantiate(obj60, new Vector3(-17.68f, 15.451f, 44.154f), Quaternion.Euler(-90.0f, 180.0f, 0));
                 break;
         }
+
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = audioBump;
+        audioSource.volume = 1.0f;
+        audioSource.mute = true;
     }
 
     // 충돌 감지
@@ -47,6 +56,9 @@ public class summerBump3 : MonoBehaviour
         {
             if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
+                // 충돌 효과음 내기
+                audioSource.mute = false;
+                audioSource.Play();
                 // 버스 튀어오르는 모션
                 rd.AddRelativeForce(new Vector3(1, 0, 0) * 200000);
                 rd.AddRelativeForce(new Vector3(0, 1, 0) * 800000);

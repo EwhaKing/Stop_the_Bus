@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpringNeedToPass : MonoBehaviour
 {
-    public bool[] pass; //테스트. 나중에 public 삭제
+    bool[] pass; 
     public static bool end;
     string passname;
     GameObject endsign;

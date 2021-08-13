@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BestScore : MonoBehaviour
 {
     //계절별 기록 창
-    public Text SpringCusText;
-    public Text SpringTimeText;
+    public TextMeshProUGUI SpringCusText;
+    public TextMeshProUGUI SpringTimeText;
     public Image SpringFace;
 
-    public Text SummerCusText;
-    public Text SummerTimeText;
+    public TextMeshProUGUI SummerCusText;
+    public TextMeshProUGUI SummerTimeText;
     public Image SummerFace;
 
-    public Text FallCusText;
-    public Text FallTimeText;
+    public TextMeshProUGUI FallCusText;
+    public TextMeshProUGUI FallTimeText;
     public Image FallFace;
 
-    public Text WinterCusText;
-    public Text WinterTimeText;
+    public TextMeshProUGUI WinterCusText;
+    public TextMeshProUGUI WinterTimeText;
     public Image WinterFace;
 
     /*void Start()
