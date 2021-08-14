@@ -23,6 +23,7 @@ public class car : MonoBehaviour {
     void Start () {
         tutorial = true;
         timecheck = -createTime;
+        car_count = 0;
     } 
 
     // Update is called once per frame 
