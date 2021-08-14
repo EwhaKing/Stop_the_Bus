@@ -61,13 +61,15 @@ public class bus : MonoBehaviour{
         if(icecheck){
             if(Input.GetKey(KeyCode.A) && speed != 0)
             {
-                if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                if (Math.Abs(speed) < 1) transform.Rotate(Vector3.up * 0.2f * -speed);
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
                 else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
             }
             else if(Input.GetKey(KeyCode.D))
             {
-                if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                if (Math.Abs(speed) < 1) transform.Rotate(Vector3.up * 0.2f * -speed);
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
                 else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
             }
@@ -147,7 +149,7 @@ public class bus : MonoBehaviour{
     }
     void OnTriggerEnter(Collider col){
         if (col.GetComponent<Collider>().CompareTag("gravel")){
-            accel = 0.015f;
+            accel = 0.04f;
         }
 
         if (col.GetComponent<Collider>().CompareTag("gameOver")){
