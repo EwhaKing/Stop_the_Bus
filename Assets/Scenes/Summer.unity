@@ -1828,6 +1828,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 918022080}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &259961309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1888,6 @@ GameObject:
   - component: {fileID: 282432633}
   - component: {fileID: 282432632}
   - component: {fileID: 282432631}
-  - component: {fileID: 282432630}
   m_Layer: 5
   m_Name: retryButton
   m_TagString: Untagged
@@ -1905,18 +1915,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2, y: 62}
   m_SizeDelta: {x: 123.12738, y: 49.07083}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &282432630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282432628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9efb74f849db3a42b4e9ac02a00adc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &282432631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,9 +1958,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 282432630}
+      - m_Target: {fileID: 259961307}
         m_MethodName: Click
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1749320689}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
