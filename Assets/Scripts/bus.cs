@@ -9,7 +9,7 @@ public class bus : MonoBehaviour{
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
     Rigidbody rb;
-    Animation ani;
+    AudioSource audio;
     
     private float velocity;
     public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
@@ -25,7 +25,7 @@ public class bus : MonoBehaviour{
     void Start()
     {
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
-        ani = GetComponent<Animation>(); 
+        audio = GetComponent<AudioSource>(); 
         rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
         speed = 0;
@@ -95,7 +95,7 @@ public class bus : MonoBehaviour{
         speedT.text = sss.ToString();
 
         //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
-        if (speed != 0 && Time.time - timecheck >= 0.2) {
+        if (speed != 0 && Time.time - timecheck >= 0.1) {
             timecheck = Time.time;
             if (speed < 0.1f && speed > -0.1f) speed = 0;
             else if (speed > 0) speed-=0.1f;
