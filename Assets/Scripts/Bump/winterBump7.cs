@@ -56,7 +56,7 @@ public class winterBump7 : MonoBehaviour
 
         if (col.collider.CompareTag("Bus")) // 충돌한 오브젝트의 태그가 Bus인지 검사
         {
-            if (WinterBus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
+            if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
                 // 충돌 효과음 내기
                 audioSource.mute = false;
