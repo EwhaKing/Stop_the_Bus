@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class tutotextLeft : MonoBehaviour
+public class tutoBump2 : MonoBehaviour
 {
     TextMeshProUGUI flashingText; 
     
@@ -13,9 +13,10 @@ public class tutotextLeft : MonoBehaviour
         
     public IEnumerator BlinkText(){ 
         while (true) 
-        { flashingText.text = ""; 
-          yield return new WaitForSeconds (2f); 
-          flashingText.text = "A를 누른 채로 마우스를 돌려\n커브를 도세요!"; 
-          yield return new WaitForSeconds (1f); } 
+        { 
+          flashingText.text = "(표지판의 속도 이상인 상태에서 방지턱을 지나면 안됩니다)"; 
+          yield return new WaitForSeconds (1f); 
+          flashingText.text = ""; 
+          yield return new WaitForSeconds (2f); } 
     } 
 }
