@@ -21,6 +21,7 @@ public class bus : MonoBehaviour{
     public TextMeshProUGUI speedT;
     private bool icecheck = true;
     public static bool isOut = false;
+    public static bool pause = false; //일시정지 제어
 
     void Start()
     {
@@ -29,88 +30,91 @@ public class bus : MonoBehaviour{
         rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
         speed = 0;
+        pause = false;
     }
 
     private void Update()
     {
         //버스 이동
-        transform.Translate(Vector3.forward * 0.01f * -speed);
+        if (!pause) {
+            transform.Translate(Vector3.forward * 0.01f * -speed);
 
-        //버스 바퀴 회전
-        for (int i=0;i<4;i++)  { 
-            tires[i].Rotate(Vector3.right * -speed);
-            if (colls[i].rpm > 1) {
-                colls[i].brakeTorque = Mathf.Infinity;
+            //버스 바퀴 회전
+            for (int i=0;i<4;i++)  { 
+                tires[i].Rotate(Vector3.right * -speed);
+                if (colls[i].rpm > 1) {
+                    colls[i].brakeTorque = Mathf.Infinity;
+                }
+                if (i%2==1 && icecheck){
+                    
+                    if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                    else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                    Vector3 position;
+                    Quaternion rotation;
+                    //Vector3 rot;
+                    colls[i].GetWorldPose(out position, out rotation);
+                    //rot = tires[i].eulerAngles + rotation.eulerAngles;
+                    tires[i].rotation = rotation;
+                }
+
+
             }
-            if (i%2==1 && icecheck){
-                
-                if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                Vector3 position;
-                Quaternion rotation;
-                //Vector3 rot;
-                colls[i].GetWorldPose(out position, out rotation);
-                //rot = tires[i].eulerAngles + rotation.eulerAngles;
-                tires[i].rotation = rotation;
+
+            // 버스 차체 회전
+            if(icecheck){
+                if(Input.GetKey(KeyCode.A) && speed != 0)
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                }
+                else if(Input.GetKey(KeyCode.D))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+                }
             }
 
+            //급정거
+            if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
+                breaks = true;
+                rb.AddRelativeForce(new Vector3(0, -1, 0) * 1000 * Math.Abs(speed));
+                rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
+                //rb.AddRelativeForce(new Vector3(0, 0, 1) * 30000 * Math.Abs(speed));
+            }
 
-        }
+            if (breaks){
+                if (speed > 0.1f) speed -=0.2f;
+                else if (speed < -0.1f) speed +=0.2f;
+                else {
+                    speed=0;
+                    breaks = false;
+                }
+            }
+            
+            // 속도 text
+            sss = (int)(speed * 10);
+            speedT.text = sss.ToString();
 
-        // 버스 차체 회전
-        if(icecheck){
-            if(Input.GetKey(KeyCode.A) && speed != 0)
+            //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
+            if (speed != 0 && Time.time - timecheck >= 0.2) {
+                timecheck = Time.time;
+                if (speed < 0.1f && speed > -0.1f) speed = 0;
+                else if (speed > 0) speed-=0.1f;
+                else if (speed < 0) speed+=0.1f;
+            }
+
+            //마우스오버시 수행내용
+            if (mouse.speedChange && !breaks)
             {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.2f * -speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                changeSpeed();
             }
-            else if(Input.GetKey(KeyCode.D))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.2f * speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-            }
-        }
-
-        //급정거
-        if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
-            breaks = true;
-            rb.AddRelativeForce(new Vector3(0, -1, 0) * 1000 * Math.Abs(speed));
-            rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
-            //rb.AddRelativeForce(new Vector3(0, 0, 1) * 30000 * Math.Abs(speed));
-        }
-
-        if (breaks){
-            if (speed > 0.1f) speed -=0.2f;
-            else if (speed < -0.1f) speed +=0.2f;
             else {
-                speed=0;
-                breaks = false;
+                velocity = 0;
             }
-        }
-        
-        // 속도 text
-        sss = (int)(speed * 10);
-        speedT.text = sss.ToString();
-
-        //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
-        if (speed != 0 && Time.time - timecheck >= 0.2) {
-            timecheck = Time.time;
-            if (speed < 0.1f && speed > -0.1f) speed = 0;
-            else if (speed > 0) speed-=0.1f;
-            else if (speed < 0) speed+=0.1f;
-        }
-
-        //마우스오버시 수행내용
-        if (mouse.speedChange && !breaks)
-        {
-            changeSpeed();
-        }
-        else {
-            velocity = 0;
         }
 
     }
@@ -135,6 +139,8 @@ public class bus : MonoBehaviour{
             timecheck = Time.time;
         }
     }
+
+
 
     void OnTriggerStay(Collider col) {
         if(col.gameObject.tag == "BlackIce")

@@ -15,6 +15,7 @@ public class car : MonoBehaviour {
     
     private int rand; // 프리팹 랜덤 설정 변수
     private float timecheck;
+    private float pausecheck;
     public static int car_count = 0; //전체 생성한 car count 개수
     public static bool tutorial = true;
 
@@ -29,7 +30,11 @@ public class car : MonoBehaviour {
     // Update is called once per frame 
     void Update () { 
 
-        if (Time.time - timecheck >= createTime && car_count < count && tutorial){
+        if (bus.pause){
+            timecheck = Time.time - pausecheck;
+        }
+
+        else if (Time.time - timecheck >= createTime && car_count < count && tutorial){
             
             timecheck = Time.time;
             rand = Random.Range(0,prefab.Length);
@@ -45,5 +50,14 @@ public class car : MonoBehaviour {
         }
 
     } 
+
+    public void pauseBus(){
+        bus.pause = true;
+        pausecheck = Time.time - timecheck;
+    }
+
+    public void playBus(){
+        bus.pause = false;
+    }
 
 }
