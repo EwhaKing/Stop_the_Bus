@@ -6,11 +6,11 @@ using TMPro;
 
 public class SummerEndSign : MonoBehaviour
 {
-    GameObject result;  //결과 팝업창
-    Timer timer;        //시간 가져오기
-    TextMeshProUGUI NumOfCus;      //팝업창 손님 수
-    TextMeshProUGUI Time;          //팝업창 시간
-    Image Face;         //팝업창 만족도 이미지
+    public GameObject result;  //결과 팝업창
+    public Timer timer;        //시간 가져오기
+    public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
+    public TextMeshProUGUI Time;          //팝업창 시간
+    public Image Face;         //팝업창 만족도 이미지
 
     int comfortNum;     //만족도 1(좋음), 0(보통), -1(나쁨)
 
@@ -19,12 +19,6 @@ public class SummerEndSign : MonoBehaviour
 
     void Start()
     {
-        result = GameObject.Find("Canvas").transform.Find("Result").gameObject;
-        timer = GameObject.Find("Canvas").transform.Find("timer").transform.Find("timerText").GetComponent<Timer>();
-        NumOfCus = result.transform.Find("ResultPassNum").GetComponent<TextMeshProUGUI>();
-        Time = result.transform.Find("ResultTimeText").GetComponent<TextMeshProUGUI>();
-        Face = result.transform.Find("ResultFace").GetComponent<Image>();
-
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;

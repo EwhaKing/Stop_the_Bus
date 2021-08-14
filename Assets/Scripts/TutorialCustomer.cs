@@ -71,10 +71,12 @@ public class TutorialCustomer : MonoBehaviour
         {
             insign = true;
             if (bus.speed == 0)          // 버스 속도가 0이어야        
+            {
                 if (timeCount > 0)
                     timeCount -= Time.deltaTime;
-                else
-                    timeCount = 4 * Tutopassenger;
+            }
+            else
+                timeCount = 4 * Tutopassenger;
         }
 
 
