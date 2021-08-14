@@ -15,6 +15,7 @@ public class SummerComfort : MonoBehaviour
     SummerCustomer overline;  //comfort line을 넘어설 때 사용할 오브젝트
     SummerCustomer[] insign;    //버스 정류장 사인 안에 있을 때 사용할 오브젝트
     bool check;
+    public static bool end;
 
     float time;
 
@@ -30,6 +31,7 @@ public class SummerComfort : MonoBehaviour
         for (int i = 0; i < insign.Length; i++)
             insign[i] = GameObject.Find(string.Format("BusStopSign{0}", i + 1)).GetComponent<SummerCustomer>();
 
+        end = false;
         check = false;
     }
 
@@ -69,7 +71,7 @@ public class SummerComfort : MonoBehaviour
 
         if (bus.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
         {
-            if (!check)     //버스 정류장 사인 내에서는 안 줄도록
+            if (!check && !end)     //버스 정류장 사인 내에서는 안 줄도록
             {
                 time += Time.deltaTime;
                 if (time >= 6)

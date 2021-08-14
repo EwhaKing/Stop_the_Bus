@@ -13,12 +13,14 @@ public class FallEndSign : MonoBehaviour
     public Image Face;         //팝업창 만족도 이미지
 
     int comfortNum;     //만족도 1(좋음), 0(보통), -1(나쁨)
+    int count;
 
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
 
     void Start()
     {
+        count = 0;
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
@@ -43,6 +45,7 @@ public class FallEndSign : MonoBehaviour
             timer.TimerPause();         //시간 정지
             Time.text = timer.GetTime();    //시간 팝업창
             SetResultFace();
+            FallComfort.end = true;
             result.SetActive(true);     //엔딩 팝업창 나타남
 
             //기록 업데이트
@@ -54,20 +57,24 @@ public class FallEndSign : MonoBehaviour
     {
         int comfort = FallComfort.comfort;
 
-        if (comfort >= 80)
+        if (count == 0)
         {
-            Face.sprite = Resources.Load<Sprite>("UI/기록_좋음");
-            comfortNum = 1;
-        }
-        else if (comfort >= 40)
-        {
-            Face.sprite = Resources.Load<Sprite>("UI/기록_보통");
-            comfortNum = 0;
-        }
-        else
-        {
-            Face.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
-            comfortNum = -1;
+            if (comfort >= 80)
+            {
+                Face.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                comfortNum = 1;
+            }
+            else if (comfort >= 40)
+            {
+                Face.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                comfortNum = 0;
+            }
+            else
+            {
+                Face.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                comfortNum = -1;
+            }
+            count++;
         }
     }
 }
