@@ -4030,7 +4030,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 697070278}
         m_MethodName: TimerRestart
         m_Mode: 1
         m_Arguments:
@@ -10967,6 +10967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2a98f70ca6fe347aec70e3288e97fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PassNum: 4
 --- !u!114 &750707320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11322,6 +11323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b98e870e3096748b884ed11d691916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  result: {fileID: 61914913}
+  timer: {fileID: 697070278}
+  NumOfCus: {fileID: 1430344382}
+  Time: {fileID: 1644211179}
+  Face: {fileID: 1206448132}
 --- !u!65 &836769860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12577,8 +12583,9 @@ AudioSource:
   m_GameObject: {fileID: 994746492}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d7ab52ff04cbf0d458194cdf49e4ced3, type: 3}
+  OutputAudioMixerGroup: {fileID: -5467113811410312966, guid: 3ad7fece46c827444b0846ba38a8b58a,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -13731,8 +13738,9 @@ AudioSource:
   m_GameObject: {fileID: 1135644455}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d7ab52ff04cbf0d458194cdf49e4ced3, type: 3}
+  OutputAudioMixerGroup: {fileID: -5467113811410312966, guid: 3ad7fece46c827444b0846ba38a8b58a,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19107,8 +19115,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d50862d89785ae64a9d003976cfb8f0f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21454,8 +21462,9 @@ AudioSource:
   m_GameObject: {fileID: 1665022725}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d7ab52ff04cbf0d458194cdf49e4ced3, type: 3}
+  OutputAudioMixerGroup: {fileID: -5467113811410312966, guid: 3ad7fece46c827444b0846ba38a8b58a,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
