@@ -2,28 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class SpringEndSign : MonoBehaviour
 {
-    GameObject result;  //결과 팝업창
-    Timer timer;        //시간 가져오기
-    Text NumOfCus;      //팝업창 손님 수
-    Text Time;          //팝업창 시간
-    Image Face;         //팝업창 만족도 이미지
-
+    public GameObject result;  //결과 팝업창
+    public Timer timer;        //시간 가져오기
+    public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
+    public TextMeshProUGUI Time;          //팝업창 시간
+    public Image Face;         //팝업창 만족도 이미지
+    
     int comfortNum;     //만족도 1(좋음), 0(보통), -1(나쁨)
 
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
 
     void Start()
-    {
-        result = GameObject.Find("Canvas").transform.Find("Result").gameObject;
-        timer = GameObject.Find("Canvas").transform.Find("timer").transform.Find("timerText").GetComponent<Timer>();
-        NumOfCus = result.transform.Find("ResultPassNum").GetComponent<Text>();
-        Time = result.transform.Find("ResultTimeText").GetComponent<Text>();
-        Face = result.transform.Find("ResultFace").GetComponent<Image>();
-
+    { 
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
