@@ -5550,7 +5550,7 @@ MonoBehaviour:
   - {fileID: 1309224897}
   - {fileID: 1664770626}
   - {fileID: 1898775375}
-  count: 4
+  count: 10
   createTime: 4
   isLoop: 1
 --- !u!114 &715312599
