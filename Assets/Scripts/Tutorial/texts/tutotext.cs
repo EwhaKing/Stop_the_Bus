@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class tutotextRight : MonoBehaviour
+public class tutotext : MonoBehaviour
 {
     TextMeshProUGUI flashingText; 
     
@@ -13,9 +13,10 @@ public class tutotextRight : MonoBehaviour
         
     public IEnumerator BlinkText(){ 
         while (true) 
-        { flashingText.text = ""; 
-          yield return new WaitForSeconds (2f); 
-          flashingText.text = "D를 누른 채로 마우스를 돌려\n커브를 도세요!"; 
-          yield return new WaitForSeconds (1f); } 
+        { 
+          flashingText.text = "마우스를 동그랗게 돌려주세요!"; 
+          yield return new WaitForSeconds (1f); 
+          flashingText.text = ""; 
+          yield return new WaitForSeconds (2f); } 
     } 
 }
