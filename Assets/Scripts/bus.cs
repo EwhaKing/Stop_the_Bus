@@ -61,14 +61,14 @@ public class bus : MonoBehaviour{
         if(icecheck){
             if(Input.GetKey(KeyCode.A) && speed != 0)
             {
-                if (Math.Abs(speed) < 1) transform.Rotate(Vector3.up * 0.2f * -speed);
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.2f * -speed);
                 else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
                 else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
             }
             else if(Input.GetKey(KeyCode.D))
             {
-                if (Math.Abs(speed) < 1) transform.Rotate(Vector3.up * 0.2f * -speed);
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.2f * speed);
                 else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
                 else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
