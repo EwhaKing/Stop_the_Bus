@@ -19,7 +19,7 @@ public class bus : MonoBehaviour{
     private float timecheck; //속도 떨어뜨릴때 타임체크
     private bool breaks = false;
     public TextMeshProUGUI speedT;
-    private bool icecheck = true;
+    private bool icecheck = false;
     public static bool isOut = false;
     public static bool pause = false; //일시정지 제어
 
@@ -27,10 +27,13 @@ public class bus : MonoBehaviour{
     {
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
         audio = GetComponent<AudioSource>(); 
-        rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
+        //rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
         speed = 0;
+        breaks = false;
+        isOut = false;
         pause = false;
+        icecheck = false;
     }
 
     private void Update()
@@ -45,7 +48,9 @@ public class bus : MonoBehaviour{
                 if (colls[i].rpm > 1) {
                     colls[i].brakeTorque = Mathf.Infinity;
                 }
-                if (i%2==1 && icecheck){
+
+                //안바뀐버전
+                if (i%2==1 && !icecheck){
                     
                     if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
                     else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
@@ -56,13 +61,31 @@ public class bus : MonoBehaviour{
                     //rot = tires[i].eulerAngles + rotation.eulerAngles;
                     tires[i].rotation = rotation;
                 }
-
+                
+                /* A <-> D 바뀐버전
+                if (i%2==1){
+                    
+                    if(icecheck){
+                        if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
+                        else colls[i].steerAngle = 5 * -Input.GetAxis("Horizontal") * 3;
+                    }
+                    else{
+                        if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                        else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                    }
+                    Vector3 position;
+                    Quaternion rotation;
+                    //Vector3 rot;
+                    colls[i].GetWorldPose(out position, out rotation);
+                    //rot = tires[i].eulerAngles + rotation.eulerAngles;
+                    tires[i].rotation = rotation;
+                }*/
 
             }
 
-            // 버스 차체 회전
-            if(icecheck){
-                if(Input.GetKey(KeyCode.A) && speed != 0)
+            // 버스 차체 회전 - 안바뀐버전
+            if(!icecheck){
+                if(Input.GetKey(KeyCode.A))
                 {
                     if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
                     else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
@@ -77,6 +100,41 @@ public class bus : MonoBehaviour{
                     else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
                 }
             }
+
+            /* A <-> D 바뀐버전
+            if(!icecheck){
+                if(Input.GetKey(KeyCode.A))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                }
+                else if(Input.GetKey(KeyCode.D))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+                }
+            }
+            else{
+                if(Input.GetKey(KeyCode.D))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                }
+                else if(Input.GetKey(KeyCode.A))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+                }
+            
+            }*/
 
             //급정거
             if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
@@ -145,12 +203,12 @@ public class bus : MonoBehaviour{
     void OnTriggerStay(Collider col) {
         if(col.gameObject.tag == "BlackIce")
         {
-            icecheck = false;
+            icecheck = true;
         }
     }
     void OnTriggerExit(Collider col){
         if(col.gameObject.tag == "BlackIce"){
-            icecheck = true;
+            icecheck = false;
         }
     }
     void OnTriggerEnter(Collider col){
