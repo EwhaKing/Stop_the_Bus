@@ -68,8 +68,8 @@ public class bus : MonoBehaviour{
             else if(Input.GetKey(KeyCode.D))
             {
                 if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.1f * 7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.1f * -7);        
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
             }
         }
 
@@ -95,7 +95,7 @@ public class bus : MonoBehaviour{
         speedT.text = sss.ToString();
 
         //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
-        if (speed != 0 && Time.time - timecheck >= 0.1) {
+        if (speed != 0 && Time.time - timecheck >= 0.2) {
             timecheck = Time.time;
             if (speed < 0.1f && speed > -0.1f) speed = 0;
             else if (speed > 0) speed-=0.1f;
