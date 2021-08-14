@@ -216,6 +216,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1753896643}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 45872840}
         m_MethodName: Click
         m_Mode: 1
@@ -5205,7 +5216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66de7d992d434d47870267f8cbab822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pass: 01010100
 --- !u!65 &750707320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6282,7 +6292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 976852017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9efb74f849db3a42b4e9ac02a00adc6, type: 3}
+  m_Script: {fileID: 11500000, guid: fdf67c3690a17424295d821e49d9b7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &976852020
@@ -6331,6 +6341,17 @@ MonoBehaviour:
       - m_Target: {fileID: 976852019}
         m_MethodName: Click
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 541962791}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
