@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     float _Sec;
     int _Min;
     [SerializeField]
-    Text _TimerText;
+    TextMeshProUGUI _TimerText;
 
     bool timerPause;    //일시정지 버튼 누를 때 사용
 

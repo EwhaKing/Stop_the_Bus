@@ -16,8 +16,15 @@ public class TutorialCustomer : MonoBehaviour
 
     float timeCount;
 
+    AudioSource audioSource;
+    public AudioClip customerIng;
+    public AudioClip customerEnd;
+    float soundCount = 0;       //손님 태울 때 시간 카운트
+    int TakenSound = 0;         //손님 다 태우고 났을 때 사운드 
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Tutopassenger = 5;
         timeCount = 4 * Tutopassenger;
 
@@ -34,16 +41,16 @@ public class TutorialCustomer : MonoBehaviour
 
             GameObject per = Instantiate(person[size], this.transform.position, Quaternion.identity);
             per.transform.parent = this.gameObject.transform;
-            if(size == 0)
-                per.transform.localScale = new Vector3(0.09395387f, 0.07338747f, 0.01879078f);
+            if (size == 0)
+                per.transform.localScale = new Vector3(0.0629103f, 0.04913933f, 0.01258207f);
             else if (size == 1)
-                per.transform.localScale = new Vector3(0.06591024f, 0.03539975f, 0.04162221f);
+                per.transform.localScale = new Vector3(0.04886299f, 0.02624385f, 0.03085691f);
             else if (size == 2)
-                per.transform.localScale = new Vector3(0.06688508f, 0.03592332f, 0.04223782f);
+                per.transform.localScale = new Vector3(0.04735571f, 0.02543431f, 0.02990506f);
             else
-                per.transform.localScale = new Vector3(0.06357845f, 0.03414736f, 0.04014969f);
+                per.transform.localScale = new Vector3(0.04570316f, 0.02454673f, 0.02886147f);
             per.transform.localRotation = Quaternion.Euler(0, 0, 90);
-            per.transform.localPosition = new Vector3(0.006f - 0.0025f * i, 0.0065f, 0.00098f);
+            per.transform.localPosition = new Vector3(0.006f - 0.0025f * i, 0.0065f, 0.0007f);
             passengers.Add(per);
         }
     }
@@ -79,6 +86,28 @@ public class TutorialCustomer : MonoBehaviour
                 Destroy(child.gameObject);
         }
 
+    }
+
+    void Update()
+    {
+        if (insign && bus.speed == 0 && eachtaken)
+        {
+            soundCount += Time.deltaTime;
+            if (soundCount >= 1f)
+            {
+                audioSource.clip = customerIng;
+                audioSource.Play();
+                soundCount = 0;
+            }
+        }
+
+        if (insign && bus.speed == 0 && !eachtaken)
+            if (TakenSound == 0)
+            {
+                audioSource.clip = customerEnd;
+                audioSource.Play();
+                TakenSound++;
+            }
     }
 
     void OnTriggerExit(Collider coll)

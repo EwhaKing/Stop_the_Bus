@@ -21,6 +21,7 @@ public class car : MonoBehaviour {
     
     // Use this for initialization 
     void Start () {
+        tutorial = true;
         timecheck = -createTime;
     } 
 
