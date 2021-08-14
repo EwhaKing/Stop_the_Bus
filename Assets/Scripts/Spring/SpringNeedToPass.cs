@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpringNeedToPass : MonoBehaviour
 {
+    public int PassNum;
     bool[] pass; 
     public static bool end;
     string passname;
@@ -11,7 +12,7 @@ public class SpringNeedToPass : MonoBehaviour
 
     void Start()
     {
-        pass = new bool[4];     //통과해야하는 콜라이더 수 배열 생성
+        pass = new bool[PassNum];     //통과해야하는 콜라이더 수 배열 생성
         end = true;
 
         for (int i = 0; i < pass.Length; i++)
@@ -25,14 +26,9 @@ public class SpringNeedToPass : MonoBehaviour
     {
         passname = other.gameObject.name;
 
-        if (passname == "Pass1")
-            pass[0] = true;
-        else if (passname == "Pass2")
-            pass[1] = true;
-        else if (passname == "Pass3")
-            pass[2] = true;
-        else if (passname == "Pass4")
-            pass[3] = true;
+        for (int i = 0; i < pass.Length; i++)
+            if (passname == string.Format("Pass{0}", i + 1))
+                pass[i] = true;
     }
 
     void Update()
