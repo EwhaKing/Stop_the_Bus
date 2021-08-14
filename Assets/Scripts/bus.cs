@@ -141,11 +141,11 @@ public class bus : MonoBehaviour{
         {
             icecheck = false;
         }
-        else 
-        {
+    }
+    void OnTriggerExit(Collider col){
+        if(col.gameObject.tag == "BlackIce"){
             icecheck = true;
         }
-
     }
     void OnTriggerEnter(Collider col){
         if (col.GetComponent<Collider>().CompareTag("gravel")){
