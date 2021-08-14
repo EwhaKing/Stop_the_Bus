@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TutorialEndSign : MonoBehaviour
 {
-    Fade Panel;
+    public GameObject popup;
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
     
     void Start()
     {
-        Panel = GameObject.Find("Canvas").transform.Find("FadeOut").GetComponent<Fade>();
-
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
@@ -32,15 +30,7 @@ public class TutorialEndSign : MonoBehaviour
             wheel4 = true;
 
         if (wheel1 && wheel2 && wheel3 && wheel4)
-        {
-            Panel.Panel.gameObject.SetActive(true);
-            Panel.ActiveFadeOut();
-            if(Panel.Panel.color.a == 1f)
-            {
-                Fade.change = true;
-                SceneManager.LoadScene("stageScene");
-            }
-        }
+            popup.SetActive(true);
     }
 
 }
