@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TutorialEndSign : MonoBehaviour
 {
     public GameObject popup;
+    public GameObject clickPanel;
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
     
@@ -30,7 +31,10 @@ public class TutorialEndSign : MonoBehaviour
             wheel4 = true;
 
         if (wheel1 && wheel2 && wheel3 && wheel4)
+        {
             popup.SetActive(true);
+            clickPanel.SetActive(true);
+        }
     }
 
 }

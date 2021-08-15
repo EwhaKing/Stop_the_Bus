@@ -11,6 +11,7 @@ public class SummerEndSign : MonoBehaviour
     public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
     public TextMeshProUGUI Time;          //팝업창 시간
     public Image Face;         //팝업창 만족도 이미지
+    public GameObject clickPanel;
 
     int comfortNum;     //만족도 1(좋음), 0(보통), -1(나쁨)
     int count;          //
@@ -47,6 +48,7 @@ public class SummerEndSign : MonoBehaviour
             SetResultFace();
             SummerComfort.end = true;
             result.SetActive(true);     //엔딩 팝업창 나타남
+            clickPanel.SetActive(true);
 
             //기록 업데이트
             BestScore.UpdateSummer(comfortNum, timer.GetMin(), timer.GetSec(), SummerTotal.SumOfCus);

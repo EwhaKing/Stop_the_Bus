@@ -11,6 +11,7 @@ public class FallEndSign : MonoBehaviour
     public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
     public TextMeshProUGUI Time;          //팝업창 시간
     public Image Face;         //팝업창 만족도 이미지
+    public GameObject clickPanel;
 
     int comfortNum;     //만족도 1(좋음), 0(보통), -1(나쁨)
     int count;
@@ -42,11 +43,13 @@ public class FallEndSign : MonoBehaviour
         if (wheel1 && wheel2 && wheel3 && wheel4)
         {
             NumOfCus.text = FallTotal.SumOfCus.ToString();      //계절 스크립트별
-            Timer.timerPause = true;         //시간 정지
+            Timer.timerPause = true;        //시간 정지
             Time.text = timer.GetTime();    //시간 팝업창
-            SetResultFace();
-            FallComfort.end = true;
-            result.SetActive(true);     //엔딩 팝업창 나타남
+            SetResultFace();                //만족도 얼굴 
+            FallComfort.end = true;         //엔딩 만족도 안 줄어들게
+            //bus.speed = 0; <-- 이렇게 해야 하나? 현재 bus의 breaks 변수는 private임
+            result.SetActive(true);         //엔딩 팝업창 나타남
+            clickPanel.SetActive(true);     
 
             //기록 업데이트
             BestScore.UpdateFall(comfortNum, timer.GetMin(), timer.GetSec(), FallTotal.SumOfCus);
