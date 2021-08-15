@@ -229,7 +229,7 @@ public class bus : MonoBehaviour{
         }
         else if(col.gameObject.tag == "puddle")
         {
-            puddle = true;
+            puddle = false;
         }
     }
     void OnTriggerEnter(Collider col){
