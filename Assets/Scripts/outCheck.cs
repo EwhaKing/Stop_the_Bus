@@ -7,8 +7,6 @@ public class outCheck : MonoBehaviour{
     public GameObject popup;
     public GameObject panel;
 
-    public AudioSource aa;
-
 
     void Update(){
         if (bus.isOut){

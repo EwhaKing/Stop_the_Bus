@@ -9,7 +9,7 @@ public class bus : MonoBehaviour{
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
     Rigidbody rb;
-    AudioSource audio;
+    AudioSource sound;
     
     private float velocity;
     public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
@@ -22,11 +22,15 @@ public class bus : MonoBehaviour{
     private bool icecheck = false;
     public static bool isOut = false;
     public static bool pause = false; //일시정지 제어
+    
+    private bool out_check = false;
+    private float outTime = 0f;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
-        audio = GetComponent<AudioSource>(); 
+        sound = GetComponent<AudioSource>(); 
         //rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
         speed = 0;
@@ -34,10 +38,23 @@ public class bus : MonoBehaviour{
         isOut = false;
         pause = false;
         icecheck = false;
+        out_check = false;
+        outTime = 0f;
     }
 
     private void Update()
-    {
+    {   
+        if(Math.Abs(transform.eulerAngles.x) < 91 && Math.Abs(transform.eulerAngles.x) > 89){
+            if (!out_check){
+                breaks = true;
+                outTime = Time.time;
+                out_check = true;
+            }
+        }
+        else out_check = false;
+
+        if (out_check && Time.time - outTime >= 2) isOut = true;
+
         //버스 이동
         if (!pause) {
             transform.Translate(Vector3.forward * 0.01f * -speed);
