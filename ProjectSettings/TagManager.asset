@@ -12,6 +12,7 @@ TagManager:
   - Backwheel
   - gameOver
   - BlackIce
+  - puddle
   layers:
   - Default
   - TransparentFX
