@@ -42,7 +42,7 @@ public class WinterEndSign : MonoBehaviour
         if (wheel1 && wheel2 && wheel3 && wheel4)
         {
             NumOfCus.text = WinterTotal.SumOfCus.ToString();      //계절 스크립트별
-            timer.TimerPause();         //시간 정지
+            Timer.timerPause = true;         //시간 정지
             Time.text = timer.GetTime();    //시간 팝업창
             SetResultFace();
             WinterComfort.end = true;
