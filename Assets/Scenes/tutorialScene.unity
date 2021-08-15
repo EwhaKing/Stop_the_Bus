@@ -8058,7 +8058,8 @@ MonoBehaviour:
   - {fileID: 1902116197}
   - {fileID: 1346929281}
   - {fileID: 473366998}
-  accel: 0.02
+  rb: {fileID: 0}
+  accel: 0.01
   speedT: {fileID: 297116977}
 --- !u!4 &750707316 stripped
 Transform:
