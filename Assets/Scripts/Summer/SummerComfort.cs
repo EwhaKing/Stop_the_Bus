@@ -71,7 +71,7 @@ public class SummerComfort : MonoBehaviour
 
         if (bus.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
         {
-            if (!check && !end)     //버스 정류장 사인 내에서는 안 줄도록
+            if (!check && !end && !bus.pause)     //버스 정류장 사인 내에서는 안 줄도록
             {
                 time += Time.deltaTime;
                 if (time >= 6)
