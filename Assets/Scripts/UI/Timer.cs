@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _TimerText;
 
-    bool timerPause;    //일시정지 버튼 누를 때 사용
+    public static bool timerPause;    //일시정지 버튼 누를 때 사용
 
     private void Start()
     {
@@ -42,12 +42,12 @@ public class Timer : MonoBehaviour
 
     public void TimerPause()
     {
-        timerPause = true;
+        Time.timeScale = 0f;
     }
 
     public void TimerRestart()
     {
-        timerPause = false;
+        Time.timeScale = 0f;
     }
 
     public string GetTime()
