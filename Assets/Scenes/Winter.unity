@@ -1321,22 +1321,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00012546778
+      value: -0.00012340446
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00012117624
+      value: 0.00012340446
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.6943562
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.71963155
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
@@ -1346,7 +1346,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.00001
+      value: -0.020000001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
@@ -1356,7 +1356,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -177.95201
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
@@ -2041,6 +2041,7 @@ MonoBehaviour:
   - {fileID: 686784408}
   - {fileID: 147705632}
   - {fileID: 60753543}
+  rb: {fileID: 0}
   accel: 0.02
   speedT: {fileID: 569000974}
 --- !u!82 &164892921
@@ -8163,6 +8164,7 @@ MonoBehaviour:
   - {fileID: 1902116193}
   - {fileID: 1346929277}
   - {fileID: 473366998}
+  rb: {fileID: 0}
   accel: 0.02
   speedT: {fileID: 569000974}
 --- !u!4 &750707316 stripped
@@ -11143,22 +11145,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00012546778
+      value: -0.00012340446
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00012117624
+      value: 0.00012340446
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.6943562
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.71963155
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
@@ -11168,7 +11170,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.00001
+      value: -0.020000001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
@@ -11178,7 +11180,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -177.95201
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ae1152982bf5f74db9fcbd07383efc2,
         type: 3}
@@ -11972,7 +11974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   result: {fileID: 1881191326}
-  timer: {fileID: 0}
+  timer: {fileID: 1612142792}
   NumOfCus: {fileID: 22951997}
   Time: {fileID: 1688450905}
   Face: {fileID: 1778196213}
@@ -18560,7 +18562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 5, y: 80}
+  m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778196213
@@ -19457,7 +19459,8 @@ AudioSource:
   m_GameObject: {fileID: 1883802748}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5467113811410312966, guid: 3ad7fece46c827444b0846ba38a8b58a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 24cc00444c533914d904ba70bfdbbc0c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
