@@ -50,7 +50,7 @@ public class car_path : MonoBehaviour {
     // Update is called once per frame 
     void Update () { 
 
-        if (isInit && !bus.pause){
+        if (isInit){
             MoveTowardWaypoint(); 
 
             if (Vector3.Distance( currentPoint.transform.position, transform.position ) < minDistance) { 
