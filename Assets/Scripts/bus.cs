@@ -8,7 +8,7 @@ public class bus : MonoBehaviour{
 
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
-    Rigidbody rb;
+    public Rigidbody rb;
     AudioSource sound;
     
     private float velocity;
@@ -20,6 +20,7 @@ public class bus : MonoBehaviour{
     private bool breaks = false;
     public TextMeshProUGUI speedT;
     private bool icecheck = false;
+    private bool puddle = false;
     public static bool isOut = false;
     
     private bool out_check = false;
@@ -64,7 +65,7 @@ public class bus : MonoBehaviour{
             }
 
             //안바뀐버전
-            if (i%2==1 && !icecheck){
+            if (i%2==1 && !puddle){
                 
                 if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
                 else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
@@ -76,8 +77,8 @@ public class bus : MonoBehaviour{
                     tires[i].rotation = rotation;
                 }
                 
-            /* A <-> D 바뀐버전
-            if (i%2==1){
+            // A <-> D 바뀐버전
+            else if (i%2==1 && puddle){
                 
                 if(icecheck){
                     if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
@@ -93,12 +94,12 @@ public class bus : MonoBehaviour{
                 colls[i].GetWorldPose(out position, out rotation);
                 //rot = tires[i].eulerAngles + rotation.eulerAngles;
                 tires[i].rotation = rotation;
-            }*/
+            }
 
         }
-
+/*
         // 버스 차체 회전 - 안바뀐버전
-        if(!icecheck){
+        if(!puddle){
             if(Input.GetKey(KeyCode.A))
             {
                 if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
@@ -114,41 +115,41 @@ public class bus : MonoBehaviour{
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
             }
         }
-
-            /* A <-> D 바뀐버전
-            if(!icecheck){
-                if(Input.GetKey(KeyCode.A))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                }
-                else if(Input.GetKey(KeyCode.D))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-                }
-            }
-            else{
-                if(Input.GetKey(KeyCode.D))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                }
-                else if(Input.GetKey(KeyCode.A))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-                }
+*/
             
-            }*/
+        if(!puddle){
+            if(Input.GetKey(KeyCode.A))
+            {
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+            }
+            else if(Input.GetKey(KeyCode.D))
+            {
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+            }
+        }
+        else{
+            if(Input.GetKey(KeyCode.D))
+            {
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+            }
+            else if(Input.GetKey(KeyCode.A))
+            {
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+            }
+            
+        }
 
         //급정거
         if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
@@ -217,10 +218,18 @@ public class bus : MonoBehaviour{
         {
             icecheck = true;
         }
+        else if(col.gameObject.tag == "puddle")
+        {
+            puddle = true;
+        }
     }
     void OnTriggerExit(Collider col){
         if(col.gameObject.tag == "BlackIce"){
             icecheck = false;
+        }
+        else if(col.gameObject.tag == "puddle")
+        {
+            puddle = true;
         }
     }
     void OnTriggerEnter(Collider col){
