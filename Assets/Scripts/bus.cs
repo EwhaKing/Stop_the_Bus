@@ -25,6 +25,7 @@ public class bus : MonoBehaviour{
     
     private bool out_check = false;
     private float outTime = 0f;
+    public static bool pause = false;
 
 
     void Start()
@@ -39,6 +40,7 @@ public class bus : MonoBehaviour{
         icecheck = false;
         out_check = false;
         outTime = 0f;
+        pause = false;
     }
 
     private void Update()
@@ -54,140 +56,143 @@ public class bus : MonoBehaviour{
 
         if (out_check && Time.time - outTime >= 2) isOut = true;
 
-        //버스 이동
-        transform.Translate(Vector3.forward * 0.01f * -speed);
+        if (!pause){
+            //버스 이동
+            transform.Translate(Vector3.forward * 0.01f * -speed);
 
-        //버스 바퀴 회전
-        for (int i=0;i<4;i++)  { 
-            tires[i].Rotate(Vector3.right * -speed);
-            if (colls[i].rpm > 1) {
-                colls[i].brakeTorque = Mathf.Infinity;
-            }
+            //버스 바퀴 회전
+            for (int i=0;i<4;i++)  { 
+                tires[i].Rotate(Vector3.right * -speed);
+                if (colls[i].rpm > 1) {
+                    colls[i].brakeTorque = Mathf.Infinity;
+                }
 
-            //안바뀐버전
-            if (i%2==1 && !puddle){
-                
-                if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                Vector3 position;
-                Quaternion rotation;
-                //Vector3 rot;
-                colls[i].GetWorldPose(out position, out rotation);
-                //rot = tires[i].eulerAngles + rotation.eulerAngles;
-                    tires[i].rotation = rotation;
-                }
-                
-            // A <-> D 바뀐버전
-            else if (i%2==1 && puddle){
-                
-                if(icecheck){
-                    if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
-                    else colls[i].steerAngle = 5 * -Input.GetAxis("Horizontal") * 3;
-                }
-                else{
+                //안바뀐버전
+                if (i%2==1 && !icecheck){
+                    
                     if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
                     else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                    Vector3 position;
+                    Quaternion rotation;
+                    //Vector3 rot;
+                    colls[i].GetWorldPose(out position, out rotation);
+                    //rot = tires[i].eulerAngles + rotation.eulerAngles;
+                    tires[i].rotation = rotation;
                 }
-                Vector3 position;
-                Quaternion rotation;
-                //Vector3 rot;
-                colls[i].GetWorldPose(out position, out rotation);
-                //rot = tires[i].eulerAngles + rotation.eulerAngles;
-                tires[i].rotation = rotation;
-            }
+                    /*
+                // A <-> D 바뀐버전
+                else if (i%2==1 && puddle){
+                    
+                    if(icecheck){
+                        if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
+                        else colls[i].steerAngle = 5 * -Input.GetAxis("Horizontal") * 3;
+                    }
+                    else{
+                        if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                        else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                    }
+                    Vector3 position;
+                    Quaternion rotation;
+                    //Vector3 rot;
+                    colls[i].GetWorldPose(out position, out rotation);
+                    //rot = tires[i].eulerAngles + rotation.eulerAngles;
+                    tires[i].rotation = rotation;
+                }*/
 
-        }
-/*
-        // 버스 차체 회전 - 안바뀐버전
-        if(!puddle){
-            if(Input.GetKey(KeyCode.A))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
             }
-            else if(Input.GetKey(KeyCode.D))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+    
+            // 버스 차체 회전 - 안바뀐버전
+            if(!icecheck){
+                if(Input.GetKey(KeyCode.A))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                }
+                else if(Input.GetKey(KeyCode.D))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+                }
             }
-        }
+    
+          /*      
+            if(!puddle){
+                if(Input.GetKey(KeyCode.A))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                }
+                else if(Input.GetKey(KeyCode.D))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+                }
+            }
+            else{
+                if(Input.GetKey(KeyCode.D))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                }
+                else if(Input.GetKey(KeyCode.A))
+                {
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+                }
+                
+            }
 */
-            
-        if(!puddle){
-            if(Input.GetKey(KeyCode.A))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
+            //급정거
+            if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
+                breaks = true;
+                rb.AddRelativeForce(new Vector3(0, -1, 0) * 1000 * Math.Abs(speed));
+                rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
+                //rb.AddRelativeForce(new Vector3(0, 0, 1) * 30000 * Math.Abs(speed));
             }
-            else if(Input.GetKey(KeyCode.D))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-            }
-        }
-        else{
-            if(Input.GetKey(KeyCode.D))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
-            }
-            else if(Input.GetKey(KeyCode.A))
-            {
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
+
+            if (breaks){
+                if (speed > 0.1f) speed -=0.2f;
+                else if (speed < -0.1f) speed +=0.2f;
+                else {
+                    speed=0;
+                    breaks = false;
+                }
             }
             
-        }
+            // 속도 text
+            sss = (int)(speed * 10);
+            speedT.text = sss.ToString();
 
-        //급정거
-        if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
-            breaks = true;
-            rb.AddRelativeForce(new Vector3(0, -1, 0) * 1000 * Math.Abs(speed));
-            rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
-            //rb.AddRelativeForce(new Vector3(0, 0, 1) * 30000 * Math.Abs(speed));
-        }
+            //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
+            if (speed != 0 && Time.time - timecheck >= 0.2) {
+                timecheck = Time.time;
+                if (speed < 0.1f && speed > -0.1f) speed = 0;
+                else if (speed > 0) speed-=0.1f;
+                else if (speed < 0) speed+=0.1f;
+            }
 
-        if (breaks){
-            if (speed > 0.1f) speed -=0.2f;
-            else if (speed < -0.1f) speed +=0.2f;
+            //마우스오버시 수행내용
+            if (mouse.speedChange && !breaks)
+            {
+                changeSpeed();
+            }
             else {
-                speed=0;
-                breaks = false;
+                velocity = 0;
             }
         }
         
-        // 속도 text
-        sss = (int)(speed * 10);
-        speedT.text = sss.ToString();
-
-        //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
-        if (speed != 0 && Time.time - timecheck >= 0.2) {
-            timecheck = Time.time;
-            if (speed < 0.1f && speed > -0.1f) speed = 0;
-            else if (speed > 0) speed-=0.1f;
-            else if (speed < 0) speed+=0.1f;
-        }
-
-        //마우스오버시 수행내용
-        if (mouse.speedChange && !breaks)
-        {
-            changeSpeed();
-        }
-        else {
-            velocity = 0;
-        }
     }
 
     void changeSpeed(){ //속도변화
