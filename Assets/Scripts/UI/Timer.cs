@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour
 
     public void TimerRestart()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     public string GetTime()
