@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class SpringEndSign : MonoBehaviour
 {
     public GameObject result;  //결과 팝업창
@@ -10,9 +11,10 @@ public class SpringEndSign : MonoBehaviour
     public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
     public TextMeshProUGUI Time;          //팝업창 시간
     public Image Face;         //팝업창 만족도 이미지
-    
+    public GameObject clickPanel;
+
     int comfortNum;     //만족도 1(좋음), 0(보통), -1(나쁨)
-    int count;
+    int count;          //
 
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
@@ -46,6 +48,7 @@ public class SpringEndSign : MonoBehaviour
             SetResultFace();
             SpringComfort.end = true;
             result.SetActive(true);     //엔딩 팝업창 나타남
+            clickPanel.SetActive(true);
 
             //기록 업데이트
             BestScore.UpdateSpring(comfortNum, timer.GetMin(), timer.GetSec(), SpringTotal.SumOfCus);
@@ -55,7 +58,6 @@ public class SpringEndSign : MonoBehaviour
     void SetResultFace()
     {
         int comfort = SpringComfort.comfort;
-
         if (count == 0)
         {
             if (comfort >= 80)
