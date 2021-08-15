@@ -42,12 +42,14 @@ public class Timer : MonoBehaviour
 
     public void TimerPause()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.0f;
+        bus.pause = true;
     }
 
     public void TimerRestart()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1.0f;
+        bus.pause = false;
     }
 
     public string GetTime()
