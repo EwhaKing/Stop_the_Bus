@@ -183,61 +183,44 @@ public class bus : MonoBehaviour{
     }
 
     void rotateWheel(int wheel, string s){
-         
-        tires[wheel].Rotate(Vector3.right * -speed);
 
         if (colls[wheel].rpm > 1) {
             colls[wheel].brakeTorque = Mathf.Infinity;
-        }
-        
+        }       
 
+        // 버스가 움직일때 굴러가는 바퀴
+        if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 0 ,0);
+        else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 0 ,0);
+
+
+        // 앞바퀴 좌우 회전
         switch(s){
 
             case "winter":
-            if (wheel%2==1 && !icecheck){
-                
-                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                else colls[wheel].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                
-                //Vector3 rot;
-                colls[wheel].GetWorldPose(out pos, out rot);
-                //rot.x = tires[wheel].eulerAngles.x + 
-                //if (tires[wheel].eulerAngles.x <= 0) tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
-                //else tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,-rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
-                tires[wheel].rotation = rot;
+            // 아이스에 닿지 않을때 - 회전방향 정상
+            if (!icecheck && wheel%2==1){ 
+                if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 3* Input.GetAxis("Horizontal") * Math.Abs(speed) ,0);
+                else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, Input.GetAxis("Horizontal") * 15 ,0);
             }
             break;
 
             case "summer":
-            if (wheel%2==1 && !puddle){
-                
-                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                else colls[wheel].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                
+            // 물웅덩이에 닿지 않을때 - 회전방향 정상
+            if (!puddle && wheel%2==1){ 
+                if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 3* Input.GetAxis("Horizontal") * Math.Abs(speed) ,0);
+                else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, Input.GetAxis("Horizontal") * 15 ,0);
             }
-            else if (wheel%2==1 && puddle){
-                
-                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
-                else colls[wheel].steerAngle = 5 * -Input.GetAxis("Horizontal") * 3;
-                
+            // 물웅덩이에 닿을때 - 회전방향 반대
+            else if (puddle && wheel%2==1){
+                if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, -3* Input.GetAxis("Horizontal") * Math.Abs(speed) ,0);
+                else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, -Input.GetAxis("Horizontal") * 15 ,0);     
             }
-            //Vector3 rot;
-            colls[wheel].GetWorldPose(out pos, out rot);
-            //rot = tires[i].eulerAngles + rotation.eulerAngles;
-            tires[wheel].rotation = rot;
             break;
 
             default:
-            if (wheel%2==1 && !icecheck){
-                
-                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                else colls[wheel].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                //Vector3 rot;
-                colls[wheel].GetWorldPose(out pos, out rot);
-                //rot.x = tires[wheel].eulerAngles.x + 
-                //if (tires[wheel].eulerAngles.x <= 0) tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
-                //else tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,-rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
-                tires[wheel].rotation = rot;
+            if (wheel%2==1){ 
+                if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 3* Input.GetAxis("Horizontal") * Math.Abs(speed) ,0);
+                else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, Input.GetAxis("Horizontal") * 15 ,0);
             }
             break;
         }
