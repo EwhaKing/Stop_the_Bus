@@ -28,7 +28,7 @@ public class miniBus : MonoBehaviour
             transform.Rotate(Vector3.up * 90);
             rotat = 0;
         }*/
-        me.position = new Vector3(target.position.x + x, 0, target.position.z + z);
+        me.position = new Vector3(target.position.x + x, me.position.y, target.position.z + z);
         
         
         //tr.LookAt(target);
