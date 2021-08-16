@@ -468,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47050779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.5, y: 2, z: 19.373}
+  m_LocalPosition: {x: 13.84, y: 2, z: 19.373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 570870155}
@@ -13061,9 +13061,9 @@ MonoBehaviour:
   - {fileID: 1979586044}
   - {fileID: 1979586043}
   - {fileID: 1979586042}
-  rb: {fileID: 0}
-  accel: 0.03
   speedT: {fileID: 217544543}
+  season: summer
+  accel: 0.03
 --- !u!4 &750707316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
@@ -13589,6 +13589,7 @@ MonoBehaviour:
   NumOfCus: {fileID: 1430344382}
   Time: {fileID: 1644211179}
   Face: {fileID: 1206448132}
+  clickPanel: {fileID: 0}
 --- !u!65 &836769860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13784,6 +13785,15 @@ MonoBehaviour:
   - {fileID: 2028865502508430620, guid: 3812cd6efe8f47e4fb9f8a952d44bb78, type: 3}
   - {fileID: 390206754567996834, guid: b3fa1c97786b5e3479dc58c9144791e5, type: 3}
   wayPoints:
+  - {fileID: 520381663}
+  - {fileID: 702961459}
+  - {fileID: 1269822518}
+  - {fileID: 47050780}
+  - {fileID: 1002137198}
+  - {fileID: 193556959}
+  - {fileID: 2089296229}
+  - {fileID: 856602367}
+  - {fileID: 333594691}
   - {fileID: 1527566942}
   - {fileID: 1279134435}
   - {fileID: 1181706194}
@@ -13833,16 +13843,7 @@ MonoBehaviour:
   - {fileID: 533008928}
   - {fileID: 727261874}
   - {fileID: 983180241}
-  - {fileID: 520381663}
-  - {fileID: 702961459}
-  - {fileID: 1269822518}
-  - {fileID: 47050780}
-  - {fileID: 1002137198}
-  - {fileID: 193556959}
-  - {fileID: 2089296229}
-  - {fileID: 856602367}
-  - {fileID: 333594691}
-  count: 15
+  count: 13
   createTime: 4
   isLoop: 1
 --- !u!114 &858476447
