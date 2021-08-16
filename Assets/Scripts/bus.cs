@@ -9,7 +9,7 @@ public class bus : MonoBehaviour{
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
     public TextMeshProUGUI speedT;
-    public string season; 
+    public string season = ""; 
 
     Rigidbody rb;
     AudioSource sound;
@@ -68,7 +68,7 @@ public class bus : MonoBehaviour{
         if (!pause){
 
             //버스 이동
-            transform.Translate(Vector3.forward * -speed * Time.deltaTime * 0.2f);
+            transform.Translate(Vector3.forward * -speed * Time.deltaTime * 0.5f);
 
             //버스 바퀴 회전
             for (int i=0;i<4;i++)  {
@@ -87,6 +87,9 @@ public class bus : MonoBehaviour{
             }
 
             if (breaks){
+                for(int i=0;i<4;i++) {
+                    colls[i].brakeTorque = Mathf.Infinity;
+                }
                 if (speed > 0.1f) speed -=0.2f;
                 else if (speed < -0.1f) speed +=0.2f;
                 else {
@@ -243,35 +246,38 @@ public class bus : MonoBehaviour{
     }
 
 
+    void OnTriggerEnter(Collider col){
+        if (col.gameObject.CompareTag("gravel")){
+            accel = 0.04f;
+        }
 
+        if (col.gameObject.CompareTag("gameOver")){
+            isOut = true;
+        }
+    }
     void OnTriggerStay(Collider col) {
-        if(col.gameObject.tag == "BlackIce")
+        if(col.gameObject.CompareTag("BlackIce"))
         {
             icecheck = true;
         }
-        else if(col.gameObject.tag == "puddle")
+        else if(col.gameObject.CompareTag("puddle"))
         {
             puddle = true;
         }
     }
     void OnTriggerExit(Collider col){
-        if(col.gameObject.tag == "BlackIce"){
+        if(col.gameObject.CompareTag("BlackIce")){
             icecheck = false;
         }
-        else if(col.gameObject.tag == "puddle")
+        else if(col.gameObject.CompareTag("puddle"))
         {
             puddle = false;
         }
-    }
-    void OnTriggerEnter(Collider col){
-        if (col.GetComponent<Collider>().CompareTag("gravel")){
-            accel = 0.04f;
-        }
-
-        if (col.GetComponent<Collider>().CompareTag("gameOver")){
-            isOut = true;
+        if (col.gameObject.CompareTag("gravel")){
+            accel = 0.02f;
         }
     }
+    
 
     void OnCollisionEnter(Collision col){
         if (col.collider.CompareTag("gameOver")){
