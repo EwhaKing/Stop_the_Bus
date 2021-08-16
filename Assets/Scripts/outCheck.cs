@@ -14,7 +14,6 @@ public class outCheck : MonoBehaviour{
             //타이머 정지
             popup.SetActive(true);
             panel.SetActive(true);
-            bus.isOut = false;
         }
     }
 
