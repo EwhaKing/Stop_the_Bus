@@ -40,7 +40,7 @@ public class FallEndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        if (wheel1 && wheel2 && wheel3 && wheel4)
+        if (wheel1 && wheel2 && wheel3 && wheel4 && bus.speed == 0)
         {
             NumOfCus.text = FallTotal.SumOfCus.ToString();      //계절 스크립트별
             Timer.timerPause = true;        //시간 정지
