@@ -21,6 +21,7 @@ public class bus : MonoBehaviour{
     public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
     public static float speed;
     public static int sss; // 스크린에 비춰지는 속도값
+    public static int ppp; //뒤로 갈 때 속도값
 
     private float timecheck; //속도 떨어뜨릴때 타임체크
     private bool breaks = false;
@@ -100,7 +101,12 @@ public class bus : MonoBehaviour{
             
             // 속도 text
             sss = (int)(speed * 10);
-            speedT.text = sss.ToString();
+            ppp = (int)(speed * -10);
+            if(speed>0){
+            speedT.text = sss.ToString();}
+            else{
+                speedT.text = ppp.ToString();
+            }
 
             //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
             if (speed != 0 && Time.time - timecheck >= 0.2) {
