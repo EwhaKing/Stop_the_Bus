@@ -2,41 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tutorialBump : MonoBehaviour
+public class tutorialBump2 : MonoBehaviour
 {
     public static int speedBump; // 방지턱 위반 속도 4가지
-    public GameObject obj30; // 표지판 30
-    public GameObject obj40; // 표지판 40
-    public GameObject obj50; // 표지판 50
-    public GameObject obj60; // 표지판 60
     public AudioClip audioBump;
-    private int rand;
 
     AudioSource audioSource;
     public Rigidbody rd;
 
     void Start()
     {
-        rand = Random.Range(3, 7); // 변수에 랜덤으로 3, 4, 5, 6 저장
 
-        // 속도 지정 및 표지판 생성
-        switch (rand)
+        // tutorialBump1과 같은 속도 지정
+        switch (tutorialBump1.speedBump)
         {
-            case 3:
+            case 30:
                 speedBump = 30;
-                Instantiate(obj30, new Vector3(22.9f, 0.153f, -34.1f), Quaternion.Euler(-90.0f, 0, 90.0f));
                 break;
-            case 4:
+            case 40:
                 speedBump = 40;
-                Instantiate(obj40, new Vector3(22.9f, 0.153f, -34.1f), Quaternion.Euler(-90.0f, 0, 90.0f));
                 break;
-            case 5:
+            case 50:
                 speedBump = 50;
-                Instantiate(obj50, new Vector3(22.9f, 0.153f, -34.1f), Quaternion.Euler(0, 90.0f, 0));
                 break;
-            case 6:
+            case 60:
                 speedBump = 60;
-                Instantiate(obj60, new Vector3(22.9f, 0.153f, -34.1f), Quaternion.Euler(-90.0f, 0, 90.0f));
                 break;
         }
 
