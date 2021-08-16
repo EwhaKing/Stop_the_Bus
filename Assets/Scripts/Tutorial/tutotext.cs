@@ -13,7 +13,7 @@ public class tutotext : MonoBehaviour
 
      public IEnumerator FadeTextToFullAlpha() // 알파값 0에서 1로 전환
     {
-        text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 0.3f);
         while (text.color.a < 1.0f)
         {
             text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime / 1.0f));
@@ -25,9 +25,9 @@ public class tutotext : MonoBehaviour
     public IEnumerator FadeTextToZero()  // 알파값 1에서 0으로 전환
     {
         text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
-        while (text.color.a > 0.0f)
+        while (text.color.a > 0.3f)
         {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 3.5f));
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 2f));
             yield return null;
         }
         StartCoroutine(FadeTextToFullAlpha());
