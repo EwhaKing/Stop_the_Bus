@@ -8,8 +8,14 @@ public class bus : MonoBehaviour{
 
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
-    public Rigidbody rb;
+    public TextMeshProUGUI speedT;
+    public string season; 
+
+    Rigidbody rb;
     AudioSource sound;
+
+    Vector3 pos;
+    Quaternion rot;
     
     private float velocity;
     public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
@@ -18,14 +24,14 @@ public class bus : MonoBehaviour{
 
     private float timecheck; //속도 떨어뜨릴때 타임체크
     private bool breaks = false;
-    public TextMeshProUGUI speedT;
+    
     private bool icecheck = false;
     private bool puddle = false;
-    public static bool isOut = false;
-    
     private bool out_check = false;
+
     private float outTime = 0f;
     public static bool pause = false;
+    public static bool isOut = false;
 
 
     void Start()
@@ -45,7 +51,9 @@ public class bus : MonoBehaviour{
 
     private void Update()
     {   
-        if(Math.Abs(transform.eulerAngles.x) < 91 && Math.Abs(transform.eulerAngles.x) > 89){
+        //Debug.Log();
+        // 일직선으로 세워졌을때 아웃시키는 부분
+        if(Math.Abs(transform.eulerAngles.x) < 100 && Math.Abs(transform.eulerAngles.x) > 80){
             if (!out_check){
                 breaks = true;
                 outTime = Time.time;
@@ -56,104 +64,20 @@ public class bus : MonoBehaviour{
 
         if (out_check && Time.time - outTime >= 2) isOut = true;
 
+        // 일시정지가 아닐때 버스 움직임
         if (!pause){
+
             //버스 이동
-            transform.Translate(Vector3.forward * 0.01f * -speed);
+            transform.Translate(Vector3.forward * -speed * Time.deltaTime * 0.2f);
 
             //버스 바퀴 회전
-            for (int i=0;i<4;i++)  { 
-                tires[i].Rotate(Vector3.right * -speed);
-                if (colls[i].rpm > 1) {
-                    colls[i].brakeTorque = Mathf.Infinity;
-                }
-
-                //안바뀐버전
-                if (i%2==1 && !icecheck){
-                    
-                    if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                    else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                    Vector3 position;
-                    Quaternion rotation;
-                    //Vector3 rot;
-                    colls[i].GetWorldPose(out position, out rotation);
-                    //rot = tires[i].eulerAngles + rotation.eulerAngles;
-                    tires[i].rotation = rotation;
-                }
-                    /*
-                // A <-> D 바뀐버전
-                else if (i%2==1 && puddle){
-                    
-                    if(icecheck){
-                        if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
-                        else colls[i].steerAngle = 5 * -Input.GetAxis("Horizontal") * 3;
-                    }
-                    else{
-                        if (Math.Abs(speed) < 5)  colls[i].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
-                        else colls[i].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
-                    }
-                    Vector3 position;
-                    Quaternion rotation;
-                    //Vector3 rot;
-                    colls[i].GetWorldPose(out position, out rotation);
-                    //rot = tires[i].eulerAngles + rotation.eulerAngles;
-                    tires[i].rotation = rotation;
-                }*/
-
+            for (int i=0;i<4;i++)  {
+                rotateWheel(i, season);
             }
     
-            // 버스 차체 회전 - 안바뀐버전
-            if(!icecheck){
-                if(Input.GetKey(KeyCode.A))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                }
-                else if(Input.GetKey(KeyCode.D))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-                }
-            }
-    
-          /*      
-            if(!puddle){
-                if(Input.GetKey(KeyCode.A))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                }
-                else if(Input.GetKey(KeyCode.D))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-                }
-            }
-            else{
-                if(Input.GetKey(KeyCode.D))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                }
-                else if(Input.GetKey(KeyCode.A))
-                {
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed);
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.1f * speed);
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7);
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7);        
-                }
-                
-            }
-*/
+            //버스 차체 회전
+            rotateBody(season);
+
             //급정거
             if (Math.Abs(speed) > 0 && Input.GetKeyDown(KeyCode.Space)){
                 breaks = true;
@@ -214,6 +138,108 @@ public class bus : MonoBehaviour{
             velocity = 0;
             timecheck = Time.time;
         }
+    }
+
+    // 차체 회전
+    void rotateBody(string s){
+
+        switch(s){
+
+            case "winter":
+                if(!icecheck){
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed * Input.GetAxis("Horizontal") );
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                }
+                break;
+
+            case "summer":
+                if(!puddle){
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed * Input.GetAxis("Horizontal") );
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                }
+                else{
+                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed * Input.GetAxis("Horizontal") );
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed *Input.GetAxis("Horizontal"));
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
+                }
+                break;
+
+            default:
+                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed * Input.GetAxis("Horizontal") );
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                break;
+        }
+
+    }
+
+    void rotateWheel(int wheel, string s){
+         
+        tires[wheel].Rotate(Vector3.right * -speed);
+
+        if (colls[wheel].rpm > 1) {
+            colls[wheel].brakeTorque = Mathf.Infinity;
+        }
+        
+
+        switch(s){
+
+            case "winter":
+            if (wheel%2==1 && !icecheck){
+                
+                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                else colls[wheel].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                
+                //Vector3 rot;
+                colls[wheel].GetWorldPose(out pos, out rot);
+                //rot.x = tires[wheel].eulerAngles.x + 
+                //if (tires[wheel].eulerAngles.x <= 0) tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
+                //else tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,-rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
+                tires[wheel].rotation = rot;
+            }
+            break;
+
+            case "summer":
+            if (wheel%2==1 && !puddle){
+                
+                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                else colls[wheel].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                
+            }
+            else if (wheel%2==1 && puddle){
+                
+                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * -Input.GetAxis("Horizontal") * Math.Abs(speed);
+                else colls[wheel].steerAngle = 5 * -Input.GetAxis("Horizontal") * 3;
+                
+            }
+            //Vector3 rot;
+            colls[wheel].GetWorldPose(out pos, out rot);
+            //rot = tires[i].eulerAngles + rotation.eulerAngles;
+            tires[wheel].rotation = rot;
+            break;
+
+            default:
+            if (wheel%2==1 && !icecheck){
+                
+                if (Math.Abs(speed) < 5)  colls[wheel].steerAngle = 3 * Input.GetAxis("Horizontal") * Math.Abs(speed);
+                else colls[wheel].steerAngle = 5 * Input.GetAxis("Horizontal") * 3;
+                //Vector3 rot;
+                colls[wheel].GetWorldPose(out pos, out rot);
+                //rot.x = tires[wheel].eulerAngles.x + 
+                //if (tires[wheel].eulerAngles.x <= 0) tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
+                //else tires[wheel].rotation = Quaternion.Euler(tires[wheel].eulerAngles.x,-rotation.eulerAngles.y,tires[wheel].eulerAngles.z);
+                tires[wheel].rotation = rot;
+            }
+            break;
+        }
+
+            
     }
 
 
