@@ -3229,6 +3229,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!82 &280288217
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5208,6 +5209,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!82 &476622476
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7066,6 +7068,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!82 &664698678
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13830,6 +13833,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!82 &1266490902
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14213,6 +14217,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!65 &1319346052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18489,6 +18494,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: -8374996638353687122, guid: 7ea56929a0c6bb047b5a794f315524e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bus
+      objectReference: {fileID: 0}
     - target: {fileID: -5814713753104837985, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -18549,6 +18559,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3765930882361276914, guid: 7ea56929a0c6bb047b5a794f315524e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bus
+      objectReference: {fileID: 0}
+    - target: {fileID: 315279653166075164, guid: 7ea56929a0c6bb047b5a794f315524e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bus
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
       propertyPath: m_Name
@@ -18560,6 +18580,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ea56929a0c6bb047b5a794f315524e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bus
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807097527897544584, guid: 7ea56929a0c6bb047b5a794f315524e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bus
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939862423820334136, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
       propertyPath: m_TagString
       value: Bus
@@ -20233,6 +20263,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!82 &1950406437
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21519,6 +21550,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  rd: {fileID: 164892923}
 --- !u!82 &2120120486
 AudioSource:
   m_ObjectHideFlags: 0
