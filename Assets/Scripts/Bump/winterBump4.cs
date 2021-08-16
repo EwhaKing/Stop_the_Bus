@@ -13,7 +13,7 @@ public class winterBump4 : MonoBehaviour
     private int rand;
 
     AudioSource audioSource;
-    Rigidbody rd;
+    public Rigidbody rd;
 
     void Start()
     {
@@ -50,11 +50,9 @@ public class winterBump4 : MonoBehaviour
     }
 
     // 충돌 감지
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
-        rd = col.gameObject.GetComponent<Rigidbody>(); // 충돌한 오브젝트의 리지드바디 받아옴
-
-        if (col.collider.CompareTag("Bus")) // 충돌한 오브젝트의 태그가 Bus인지 검사
+        if (col.CompareTag("Bus")) // 충돌한 오브젝트의 태그가 Bus인지 검사
         {
             if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
