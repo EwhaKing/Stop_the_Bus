@@ -13326,7 +13326,7 @@ MonoBehaviour:
   - {fileID: 1979586042}
   speedT: {fileID: 217544543}
   season: summer
-  accel: 0.03
+  accel: 0.02
 --- !u!4 &750707316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
