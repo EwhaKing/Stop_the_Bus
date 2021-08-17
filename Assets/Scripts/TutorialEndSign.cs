@@ -30,7 +30,7 @@ public class TutorialEndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        if (wheel1 && wheel2 && wheel3 && wheel4 & bus.speed == 0)
+        if (wheel1 && wheel2 && wheel3 && wheel4 && bus.speed == 0)
         {
             popup.SetActive(true);
             clickPanel.SetActive(true);
