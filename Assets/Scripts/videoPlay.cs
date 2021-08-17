@@ -11,8 +11,12 @@ public class videoPlay : MonoBehaviour
     public RawImage mScreen = null;
     public VideoPlayer mVideoPlayer = null;
 
+    void Awake(){
+        Screen.SetResolution(1320, 1030, false);
+    }
     void Start()
     {
+        
         if (mScreen != null && mVideoPlayer != null)
         {
             // 비디오 준비 코루틴 호출

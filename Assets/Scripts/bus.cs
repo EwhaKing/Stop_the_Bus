@@ -51,7 +51,12 @@ public class bus : MonoBehaviour{
     }
 
     private void Update()
-    {   
+    {   /*
+        print(sound.volume);
+        
+        if (Math.Abs(speed) < 2) sound.volume = Math.Abs(speed);
+        else sound.volume = 2;
+*/
         //Debug.Log();
         // 일직선으로 세워졌을때 아웃시키는 부분
         if(Math.Abs(transform.eulerAngles.x) < 100 && Math.Abs(transform.eulerAngles.x) > 80){
@@ -156,8 +161,7 @@ public class bus : MonoBehaviour{
 
             case "winter":
                 if(!icecheck){
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed * Input.GetAxis("Horizontal") );
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
                     else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
                     else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
                 }
@@ -165,22 +169,19 @@ public class bus : MonoBehaviour{
 
             case "summer":
                 if(!puddle){
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed * Input.GetAxis("Horizontal") );
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
                     else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
                     else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
                 }
                 else{
-                    if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * -speed * Input.GetAxis("Horizontal") );
-                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed *Input.GetAxis("Horizontal"));
+                    if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed *Input.GetAxis("Horizontal"));
                     else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
                     else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
                 }
                 break;
 
             default:
-                if (Math.Abs(speed) < 2) transform.Rotate(Vector3.up * 0.17f * speed * Input.GetAxis("Horizontal") );
-                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
                 else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
                 else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
                 break;
@@ -237,13 +238,14 @@ public class bus : MonoBehaviour{
 
     void OnTriggerEnter(Collider col){
         if (col.gameObject.CompareTag("gravel")){
-            accel = 0.04f;
+            accel = 0.02f;
         }
 
         if (col.gameObject.CompareTag("gameOver")){
             isOut = true;
         }
     }
+
     void OnTriggerStay(Collider col) {
         if(col.gameObject.CompareTag("BlackIce"))
         {
@@ -254,6 +256,7 @@ public class bus : MonoBehaviour{
             puddle = true;
         }
     }
+
     void OnTriggerExit(Collider col){
         if(col.gameObject.CompareTag("BlackIce")){
             icecheck = false;
@@ -263,7 +266,7 @@ public class bus : MonoBehaviour{
             puddle = false;
         }
         if (col.gameObject.CompareTag("gravel")){
-            accel = 0.02f;
+            accel = 0.01f;
         }
     }
     

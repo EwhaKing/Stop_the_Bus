@@ -2083,7 +2083,7 @@ MonoBehaviour:
   - {fileID: 60753543}
   speedT: {fileID: 569000974}
   season: winter
-  accel: 0.02
+  accel: 0.01
 --- !u!82 &164892921
 AudioSource:
   m_ObjectHideFlags: 0
