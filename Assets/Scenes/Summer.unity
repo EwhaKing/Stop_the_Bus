@@ -800,7 +800,7 @@ RectTransform:
   m_GameObject: {fileID: 99042826}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 155.9}
-  m_LocalScale: {x: 25.193707, y: 25.856615, z: 0.2520742}
+  m_LocalScale: {x: 1.8212488, y: 1.8691704, z: 0.018222403}
   m_Children: []
   m_Father: {fileID: 1080651610}
   m_RootOrder: 1
@@ -857,7 +857,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08061b0d99fed514b9c47574610905ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b6e4ad84edca5f419b7e735c0dd105e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13326,7 +13326,7 @@ MonoBehaviour:
   - {fileID: 1979586042}
   speedT: {fileID: 217544543}
   season: summer
-  accel: 0.03
+  accel: 0.02
 --- !u!4 &750707316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
@@ -14334,7 +14334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.8
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -24340,7 +24340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ee0c5d47acf84fba6b3c4b0ec5a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerText: {fileID: 0}
+  customerText: {fileID: 1383694291}
 --- !u!222 &1383694293
 CanvasRenderer:
   m_ObjectHideFlags: 0

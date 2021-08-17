@@ -6072,7 +6072,7 @@ MonoBehaviour:
   - {fileID: 1979586042}
   speedT: {fileID: 1069285627}
   season: 
-  accel: 0.02
+  accel: 0.01
 --- !u!4 &750707316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
@@ -6928,7 +6928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.8
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -7708,7 +7708,7 @@ RectTransform:
   m_GameObject: {fileID: 1002128805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 156.2}
-  m_LocalScale: {x: 16.99636, y: 17.661623, z: 0.17218184}
+  m_LocalScale: {x: 1.2304419, y: 1.2786032, z: 0.012465008}
   m_Children: []
   m_Father: {fileID: 699409178}
   m_RootOrder: 1
@@ -7765,7 +7765,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 208e2caf4ea34ba47882955a607609db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67b4568b75b273a489db9d5c97732747, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13168,7 +13168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58764686876b55342bf68048db017ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerText: {fileID: 0}
+  customerText: {fileID: 1712893253}
 --- !u!222 &1712893255
 CanvasRenderer:
   m_ObjectHideFlags: 0

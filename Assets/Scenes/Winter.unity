@@ -2083,7 +2083,7 @@ MonoBehaviour:
   - {fileID: 60753543}
   speedT: {fileID: 569000974}
   season: winter
-  accel: 0.02
+  accel: 0.01
 --- !u!82 &164892921
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10547,7 +10547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.8
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -15951,7 +15951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a95cfd568a57a34087c6137dc5b95cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerText: {fileID: 0}
+  customerText: {fileID: 1442921844}
 --- !u!1 &1452333774 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2807097527897544584, guid: 7ea56929a0c6bb047b5a794f315524e9,
