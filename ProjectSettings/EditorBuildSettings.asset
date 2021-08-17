@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Winter.unity
     guid: 21685676216c569489301bfe7b4555bf
+  - enabled: 1
+    path: Assets/Scenes/loadingSF.unity
+    guid: 84698f16c39fdf449a228f38f8b2015c
+  - enabled: 1
+    path: Assets/Scenes/loadingSW.unity
+    guid: 28376851a7b31e549a15c1489d396a91
   m_configObjects: {}
