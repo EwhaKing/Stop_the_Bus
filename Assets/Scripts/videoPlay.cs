@@ -12,7 +12,7 @@ public class videoPlay : MonoBehaviour
     public VideoPlayer mVideoPlayer = null;
 
     void Awake(){
-        Screen.SetResolution(1320, 1030, false);
+        Screen.SetResolution(1056, 824, false);
     }
     void Start()
     {
