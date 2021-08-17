@@ -27,7 +27,7 @@ public class TutorialCustomer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         Tutopassenger = 5;
-        timeCount = 4 * Tutopassenger;
+        timeCount = Tutopassenger;
 
         wheel1 = false;
         wheel2 = false;
@@ -68,7 +68,10 @@ public class TutorialCustomer : MonoBehaviour
             wheel3 = true;
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
+    }
 
+    void Update()
+    {
         if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
         {
             insign = true;
@@ -78,22 +81,18 @@ public class TutorialCustomer : MonoBehaviour
                     timeCount -= Time.deltaTime;
             }
             else
-                timeCount = 4 * Tutopassenger;
+                timeCount = Tutopassenger;
         }
 
 
         if (timeCount <= 0 && eachtaken)
         {
             eachtaken = false;
-            
+
             foreach (var child in passengers)
                 Destroy(child.gameObject);
         }
 
-    }
-
-    void Update()
-    {
         if (insign && bus.speed == 0 && eachtaken)
         {
             soundCount += Time.deltaTime;
@@ -130,7 +129,7 @@ public class TutorialCustomer : MonoBehaviour
         {
             insign = false;
             if (eachtaken)
-                timeCount = 4 * Tutopassenger;
+                timeCount = Tutopassenger;
         }
     }
 
