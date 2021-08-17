@@ -14,7 +14,7 @@ public class SummerTotal : MonoBehaviour
     public TextMeshProUGUI customerText;
     public static int SumOfCus;     //손님 합계
 
-    GameObject Parent;
+    public GameObject Bus;
     GameObject[] Child;
 
 
@@ -31,10 +31,9 @@ public class SummerTotal : MonoBehaviour
         for(int i = 0; i < obj.Length; i++)
             obj[i] = GameObject.Find(string.Format("BusStopSign{0}", i + 1)).GetComponent<SummerCustomer>();
 
-        Parent = GameObject.FindWithTag("Bus");
         Child = new GameObject[8];
         for(int i = 0; i < Child.Length; i++)
-            Child[i] = Parent.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
+            Child[i] = Bus.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
     }
 
     void Update()

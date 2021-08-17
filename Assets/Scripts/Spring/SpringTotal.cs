@@ -14,7 +14,7 @@ public class SpringTotal : MonoBehaviour
     public TextMeshProUGUI customerText;
     public static int SumOfCus;     //손님 합계
 
-    GameObject Parent;
+    public GameObject Bus;
     GameObject[] Child;
 
     void Start()
@@ -29,11 +29,9 @@ public class SpringTotal : MonoBehaviour
         obj = new SpringCustomer[num];
         for (int i = 0; i < obj.Length; i++)
             obj[i] = GameObject.Find(string.Format("BusStopSign{0}", i + 1)).GetComponent<SpringCustomer>();
-
-        Parent = GameObject.FindWithTag("Bus");
         Child = new GameObject[8];
         for (int i = 0; i < Child.Length; i++)
-            Child[i] = Parent.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
+            Child[i] = Bus.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
     }
 
     void Update()

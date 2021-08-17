@@ -10,7 +10,7 @@ public class TutorialTotal : MonoBehaviour
     public TextMeshProUGUI customerText;
     public static int SumOfCus;     //손님 합계
     
-    GameObject Parent;
+    public GameObject Bus;
     GameObject[] Child;
 
     void Start()
@@ -21,10 +21,9 @@ public class TutorialTotal : MonoBehaviour
 
         obj = GameObject.Find("BusStopSign").GetComponent<TutorialCustomer>();
 
-        Parent = GameObject.FindWithTag("Bus");
         Child = new GameObject[8];
-        for (int i = 0; i < Child.Length; i++)
-            Child[i] = Parent.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
+        for (int i = 0; i < Child.Length; i++) 
+            Child[i] = Bus.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
     }
 
     void Update()
