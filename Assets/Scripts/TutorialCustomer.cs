@@ -13,6 +13,7 @@ public class TutorialCustomer : MonoBehaviour
 
     private bool eachtaken;     //손님 탑승 체크 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
+    private bool sumCheck;
 
     float timeCount;
 
@@ -34,6 +35,7 @@ public class TutorialCustomer : MonoBehaviour
         wheel4 = false;
         eachtaken = true;
         insign = false;
+        sumCheck = false;
 
         for (int i = 0; i < Tutopassenger; i++)
         {
@@ -140,5 +142,15 @@ public class TutorialCustomer : MonoBehaviour
     public bool InSign()    //정류장 점선 안에 버스가 있는지를 반환하는 함수
     {
         return insign;
+    }
+
+    public void SetSumCheck()
+    {
+        sumCheck = true;
+    }
+
+    public bool GetSumCheck()
+    {
+        return sumCheck;
     }
 }
