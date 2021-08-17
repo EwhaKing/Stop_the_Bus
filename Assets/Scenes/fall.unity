@@ -3036,6 +3036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerText: {fileID: 314885581}
+  Bus: {fileID: 750707314}
 --- !u!222 &314885583
 CanvasRenderer:
   m_ObjectHideFlags: 0
