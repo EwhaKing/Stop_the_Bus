@@ -41,7 +41,7 @@ public class FallCustomer : MonoBehaviour
         else if (name == "BusStopSign4")
             NumOfPass = ListOfNumPass[3];
 
-        timeCount = 4 * NumOfPass;      //각 바퀴 콜라이더마다 계산해서 4 곱해야 함
+        timeCount = NumOfPass;      
 
 
         for (int i = 0; i < NumOfPass; i++)
@@ -74,7 +74,31 @@ public class FallCustomer : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
+        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
+        {
+            insign = true;
+            if (bus.speed == 0)     // 버스 속도가 0이어야        
+            {
+                if (timeCount > 0)
+                    timeCount -= Time.deltaTime;
+            }
+            else
+                timeCount = NumOfPass;
+
+        }
+
+
+        if (timeCount <= 0 && eachtaken)
+        {
+            eachtaken = false;
+
+            //손님 오브젝트 삭제
+            foreach (var child in passengers)
+                Destroy(child.gameObject);
+
+        }
+
         if (insign && bus.speed == 0 && eachtaken)
         {
             soundCount += Time.deltaTime;
@@ -108,31 +132,6 @@ public class FallCustomer : MonoBehaviour
             wheel3 = true;
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
-
-        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
-        {
-            insign = true;
-            if (bus.speed == 0)     // 버스 속도가 0이어야        
-            {
-                if (timeCount > 0)
-                    timeCount -= Time.deltaTime;
-            }
-            else
-                timeCount = 4 * NumOfPass;
-
-        }
-
-
-        if (timeCount <= 0 && eachtaken)
-        {
-            eachtaken = false;
-
-            //손님 오브젝트 삭제
-            foreach (var child in passengers)
-                Destroy(child.gameObject);
-
-        }
-
     }
 
     void OnTriggerExit(Collider coll)
@@ -151,7 +150,7 @@ public class FallCustomer : MonoBehaviour
         {
             insign = false;
             if (eachtaken)
-                timeCount = 4 * NumOfPass;
+                timeCount = NumOfPass;
         }
     }
 

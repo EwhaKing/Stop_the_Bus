@@ -39,7 +39,7 @@ public class SpringCustomer : MonoBehaviour
         else if (name == "BusStopSign3")
             NumOfPass = ListOfNumPass[2];
 
-        timeCount = 4 * NumOfPass;      //각 바퀴 콜라이더마다 계산해서 4 곱해야 함
+        timeCount =NumOfPass;
 
         //손님 에셋 추가 시 수정!!!!
         for (int i = 0; i < NumOfPass; i++)
@@ -73,6 +73,39 @@ public class SpringCustomer : MonoBehaviour
 
     void Update()
     {
+        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
+        {
+            insign = true;
+            if (bus.speed == 0)     // 버스 속도가 0이어야        
+            {
+                if (timeCount > 0)
+                    timeCount -= Time.deltaTime;
+            }
+            else
+                timeCount = NumOfPass;
+        }
+
+        if (timeCount <= 0 && eachtaken)
+        {
+            eachtaken = false;
+
+            //손님 오브젝트 삭제
+            foreach (var child in passengers)
+                Destroy(child.gameObject);
+
+        }
+
+
+        if (timeCount <= 0 && eachtaken)
+        {
+            eachtaken = false;
+
+            //손님 오브젝트 삭제
+            foreach (var child in passengers)
+                Destroy(child.gameObject);
+
+        }
+
         if (insign && bus.speed == 0 && eachtaken)
         {
             soundCount += Time.deltaTime;
@@ -105,30 +138,6 @@ public class SpringCustomer : MonoBehaviour
             wheel3 = true;
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
-
-        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
-        {
-            insign = true;
-            if (bus.speed == 0)     // 버스 속도가 0이어야        
-            {
-                if (timeCount > 0)
-                    timeCount -= Time.deltaTime;
-            }
-            else
-                timeCount = 4 * NumOfPass;
-        }
-
-
-        if (timeCount <= 0 && eachtaken)
-        {
-            eachtaken = false;
-
-            //손님 오브젝트 삭제
-            foreach (var child in passengers)
-                Destroy(child.gameObject);
-
-        }
-
     }
 
     void OnTriggerExit(Collider coll)
@@ -147,7 +156,7 @@ public class SpringCustomer : MonoBehaviour
         {
             insign = false;
             if (eachtaken)
-                timeCount = 4 * NumOfPass;
+                timeCount = NumOfPass;
         }
     }
 
