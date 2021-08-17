@@ -20,6 +20,8 @@ public class SummerTotal : MonoBehaviour
 
     void Start()
     {
+        SumOfCus = 0;
+
         customerText = gameObject.GetComponent<TextMeshProUGUI>();
 
         Cus = GameObject.Find("Map_Summer").GetComponent<SummerAssign>();
@@ -33,8 +35,6 @@ public class SummerTotal : MonoBehaviour
         Child = new GameObject[8];
         for(int i = 0; i < Child.Length; i++)
             Child[i] = Parent.transform.Find(string.Format("customerSit{0}", i + 1)).gameObject;
-
-        SumOfCus = 0;
     }
 
     void Update()
