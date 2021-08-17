@@ -24271,7 +24271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ee0c5d47acf84fba6b3c4b0ec5a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerText: {fileID: 0}
+  customerText: {fileID: 1383694291}
 --- !u!222 &1383694293
 CanvasRenderer:
   m_ObjectHideFlags: 0
