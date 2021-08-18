@@ -21,7 +21,7 @@ public class SummerAssign : MonoBehaviour
             else if (i == 0)
                 EachPass[i] = n;
             else
-                EachPass[i] = Random.Range(1, n - i);
+                EachPass[i] = Random.Range(1, n - i + 1);
             n -= EachPass[i];
         }
     }
