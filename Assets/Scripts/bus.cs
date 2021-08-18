@@ -11,8 +11,9 @@ public class bus : MonoBehaviour{
     public TextMeshProUGUI speedT;
     public string season = ""; 
 
+    public AudioSource[] effect;
+
     Rigidbody rb;
-    AudioSource sound;
 
     Vector3 pos;
     Quaternion rot;
@@ -38,8 +39,7 @@ public class bus : MonoBehaviour{
     void Start()
     {
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
-        sound = GetComponent<AudioSource>(); 
-        //rb.centerOfMass = new Vector3(0, 0, 0); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
+        rb.centerOfMass = new Vector3(0, -0.218f, 0.173f); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
         speed = 0;
         breaks = false;
@@ -51,13 +51,11 @@ public class bus : MonoBehaviour{
     }
 
     private void Update()
-    {   /*
-        print(sound.volume);
+    {   
+
+        // 버스 기본 소리
+        if (Math.Abs(speed) > 0) soundEffect(0); 
         
-        if (Math.Abs(speed) < 2) sound.volume = Math.Abs(speed);
-        else sound.volume = 2;
-*/
-        //Debug.Log();
         // 일직선으로 세워졌을때 아웃시키는 부분
         if(Math.Abs(transform.eulerAngles.x) < 100 && Math.Abs(transform.eulerAngles.x) > 80){
             if (!out_check){
@@ -89,7 +87,9 @@ public class bus : MonoBehaviour{
                 breaks = true;
                 rb.AddRelativeForce(new Vector3(0, -1, 0) * 1000 * Math.Abs(speed));
                 rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
-                //rb.AddRelativeForce(new Vector3(0, 0, 1) * 30000 * Math.Abs(speed));
+
+                //브레이크 소리는 일정 속도 이상일때만
+                if (Math.Abs(speed) > 2) soundEffect(1); 
             }
 
             if (breaks){
@@ -131,6 +131,10 @@ public class bus : MonoBehaviour{
             }
         }
         
+    }
+
+    void soundEffect(int i){
+        effect[i].Play();
     }
 
     void changeSpeed(){ //속도변화
@@ -235,7 +239,6 @@ public class bus : MonoBehaviour{
             
     }
 
-
     void OnTriggerEnter(Collider col){
         if (col.gameObject.CompareTag("gravel")){
             accel = 0.02f;
@@ -243,6 +246,12 @@ public class bus : MonoBehaviour{
 
         if (col.gameObject.CompareTag("gameOver")){
             isOut = true;
+        }
+
+        if(col.gameObject.CompareTag("BlackIce") && icecheck == false)
+        {
+            icecheck = true;
+            soundEffect(2); // 아이스 밟았을때 소리
         }
     }
 
