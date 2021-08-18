@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 603434772}
   - component: {fileID: 603434771}
   - component: {fileID: 603434774}
+  - component: {fileID: 603434775}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -842,6 +843,18 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 3ad7fece46c827444b0846ba38a8b58a, type: 2}
   backSlider: {fileID: 691827036}
   effectSlider: {fileID: 971015247}
+--- !u!114 &603434775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603434770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d7d0b00ec94754e8830c5d47060fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &691827035
 GameObject:
   m_ObjectHideFlags: 0
