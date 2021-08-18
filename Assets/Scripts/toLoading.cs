@@ -22,17 +22,6 @@ public class toLoading : MonoBehaviour
     public void Load(int n)
     {
         ld = n;
-
-        switch (ld)
-        {
-            case 0:
-            case 2:
-                SceneManager.LoadScene("LoadingSF");
-                break;
-            case 1:
-            case 3:
-                SceneManager.LoadScene("LoadingSW");
-                break;
-        }
+        SceneManager.LoadScene("loadingScene");
     }
 }
