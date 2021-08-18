@@ -21,7 +21,7 @@ public class car_path : MonoBehaviour {
     void Awake() { 
 
         speed = 8.0f; //스피드도 다양하게 할 수는 있긴함, 근데 일정속도로 지나가도 괜찮을 것 같음..
-        minDistance = 0.8f; 
+        minDistance = 0.6f; 
 
     } 
     
