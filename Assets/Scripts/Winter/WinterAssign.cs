@@ -19,7 +19,12 @@ public class WinterAssign : MonoBehaviour
                 EachPass[i] = n;
             else
             {
-                EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
+                if(i == 1 && n >= 14)
+                    EachPass[i] = Random.Range(1, 15);
+                else if (i == 2 && n > 13)
+                    EachPass[i] = Random.Range(1, 14);
+                else
+                    EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
                 n -= EachPass[i];
             }
         }

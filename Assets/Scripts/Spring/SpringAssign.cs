@@ -19,7 +19,10 @@ public class SpringAssign : MonoBehaviour
                 EachPass[i] = n;
             else
             {
-                EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
+                if (i == 1 && n >= 15)
+                    EachPass[i] = Random.Range(1, 16);
+                else
+                    EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
                 n -= EachPass[i];
             }
         }

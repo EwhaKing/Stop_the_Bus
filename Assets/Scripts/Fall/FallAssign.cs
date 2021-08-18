@@ -13,15 +13,17 @@ public class FallAssign : MonoBehaviour
         int n = PassengerNum;
         int i;
 
-        for (i = 0; i < StopNum; i++)   //정류장에 손님수 랜덤으로 할당
+        for (i = StopNum - 1; i >= 0; i--)   //정류장에 손님수 랜덤으로 할당
         {
             if (i == StopNum - 1)
+                EachPass[i] = Random.Range(1, 8);
+            else if (i == StopNum - 2)
+                EachPass[i] = Random.Range(1, 11);
+            else if (i == 0)
                 EachPass[i] = n;
             else
-            {
-                EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
-                n -= EachPass[i];
-            }
+                EachPass[i] = Random.Range(1, n - i);
+            n -= EachPass[i];
         }
     }
 }
