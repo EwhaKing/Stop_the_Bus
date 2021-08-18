@@ -27,7 +27,6 @@ public class WinterAssign : MonoBehaviour
                     EachPass[i] = Random.Range(1, n - (StopNum - i) + 1);
                 n -= EachPass[i];
             }
-            Debug.Log(string.Format("{0}번 {1}명", i, EachPass[i]));
         }
     }
 }

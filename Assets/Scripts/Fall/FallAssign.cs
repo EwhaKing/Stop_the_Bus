@@ -24,7 +24,6 @@ public class FallAssign : MonoBehaviour
             else
                 EachPass[i] = Random.Range(1, n - i + 1);
             n -= EachPass[i];
-            Debug.Log(string.Format("{0}번 {1}명", i, EachPass[i]));
         }
     }
 }
