@@ -22,7 +22,6 @@ public class bus : MonoBehaviour{
     public float accel; //0.01씩 증가가 기본, 유니티 씬에서 받아오는 값 (맵마다 다른 값)
     public static float speed;
     public static int sss; // 스크린에 비춰지는 속도값
-    public static int ppp; //뒤로 갈 때 속도값
 
     private float timecheck; //속도 떨어뜨릴때 타임체크
     private bool breaks = false;
@@ -54,7 +53,8 @@ public class bus : MonoBehaviour{
     {   
 
         // 버스 기본 소리
-        if (Math.Abs(speed) > 0) soundEffect(0); 
+        if (Math.Abs(speed) == 0) effect[0].Pause();
+        else soundEffect(0);
         
         // 일직선으로 세워졌을때 아웃시키는 부분
         if(Math.Abs(transform.eulerAngles.x) < 100 && Math.Abs(transform.eulerAngles.x) > 80){
@@ -89,7 +89,8 @@ public class bus : MonoBehaviour{
                 rb.AddRelativeForce(new Vector3(0, 0, -1) * 50000 * Math.Abs(speed));
 
                 //브레이크 소리는 일정 속도 이상일때만
-                if (Math.Abs(speed) > 2) soundEffect(1); 
+                effect[1].volume = Math.Abs(speed);
+                soundEffect(1); 
             }
 
             if (breaks){
@@ -105,13 +106,8 @@ public class bus : MonoBehaviour{
             }
             
             // 속도 text
-            sss = (int)(speed * 10);
-            ppp = (int)(speed * -10);
-            if(speed>0){
-            speedT.text = sss.ToString();}
-            else{
-                speedT.text = ppp.ToString();
-            }
+            sss = (int)(Math.Abs(speed) * 10);
+            speedT.text = sss.ToString();
 
             //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦 //귀찮아서 2초로 늘림
             if (speed != 0 && Time.time - timecheck >= 0.2) {
@@ -200,21 +196,26 @@ public class bus : MonoBehaviour{
         }       
 
         // 버스가 움직일때 굴러가는 바퀴
-        if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 0 ,0);
-        else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 0 ,0);
-
-
+        tires[wheel].Rotate(Vector3.right * -speed);// = Quaternion.Euler( -speed * 100, 0 ,0);
+        
         // 앞바퀴 좌우 회전
         switch(s){
-
+            /*
             case "winter":
             // 아이스에 닿지 않을때 - 회전방향 정상
-            if (!icecheck && wheel%2==1){ 
-                if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 3* Input.GetAxis("Horizontal") * Math.Abs(speed) ,0);
-                else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, Input.GetAxis("Horizontal") * 15 ,0);
+            if (!icecheck){
+                if (wheel%2==1){ 
+                    if (Math.Abs(speed) < 5) tires[wheel].localRotation = Quaternion.Euler( -speed * 100, 3* Input.GetAxis("Horizontal") * Math.Abs(speed) ,0);
+                    else tires[wheel].localRotation = Quaternion.Euler( -speed * 100, Input.GetAxis("Horizontal") * 15 ,0);
+                }
+            }
+            else {
+                if (wheel%2==0){ 
+                    tires[wheel].Rotate(Vector3.right * -speed);
+                }
             }
             break;
-
+*/
             case "summer":
             // 물웅덩이에 닿지 않을때 - 회전방향 정상
             if (!puddle && wheel%2==1){ 
