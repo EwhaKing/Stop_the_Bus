@@ -16,7 +16,7 @@ public class tutotext : MonoBehaviour
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0.3f);
         while (text.color.a < 1.0f)
         {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime / 1.0f));
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime / 2f));
             yield return null;
         }
         StartCoroutine(FadeTextToZero());
@@ -27,7 +27,7 @@ public class tutotext : MonoBehaviour
         text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
         while (text.color.a > 0.3f)
         {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 2f));
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 2.5f));
             yield return null;
         }
         StartCoroutine(FadeTextToFullAlpha());
