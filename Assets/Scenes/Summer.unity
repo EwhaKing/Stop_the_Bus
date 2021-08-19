@@ -2902,8 +2902,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 50, z: 150}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 60.337097, z: 150}
+  m_Center: {x: 0, y: 5.1685486, z: 0}
 --- !u!33 &265111835
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4282,8 +4282,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 131.28458, y: 50, z: 10}
-  m_Center: {x: 9.357716, y: 0, z: 0}
+  m_Size: {x: 131.28458, y: 50.93976, z: 10}
+  m_Center: {x: 9.357712, y: 0.46987915, z: 0}
 --- !u!33 &390478277
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17976,8 +17976,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 150, y: 50, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 150, y: 52.741745, z: 10}
+  m_Center: {x: 0, y: 1.3708725, z: 0}
 --- !u!33 &1157398402
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25901,7 +25901,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 919401505}
   m_HandleRect: {fileID: 403988488}
   m_Direction: 0
-  m_MinValue: -45
+  m_MinValue: -50
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: -19.7
@@ -26820,8 +26820,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 50, z: 150}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 57.04358, z: 150}
+  m_Center: {x: 0, y: 3.5217896, z: 0}
 --- !u!33 &1698398069
 MeshFilter:
   m_ObjectHideFlags: 0

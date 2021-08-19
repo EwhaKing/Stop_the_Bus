@@ -51,10 +51,11 @@ public class bus : MonoBehaviour{
 
     private void Update()
     {   
-
+        /*
         // 버스 기본 소리
         if (Math.Abs(speed) == 0) effect[0].Pause();
         else soundEffect(0);
+        */
         
         // 일직선으로 세워졌을때 아웃시키는 부분
         if(Math.Abs(transform.eulerAngles.x) < 100 && Math.Abs(transform.eulerAngles.x) > 80){
