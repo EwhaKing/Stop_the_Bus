@@ -162,29 +162,33 @@ public class bus : MonoBehaviour{
 
             case "winter":
                 if(!icecheck){
-                    if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                    if (Math.Abs(speed) <= 2)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.14f * speed *Input.GetAxis("Horizontal"));
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
                 }
                 break;
 
             case "summer":
                 if(!puddle){
-                    if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                    if (Math.Abs(speed) <= 2)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.14f * speed *Input.GetAxis("Horizontal"));
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
                 }
                 else{
-                    if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * -speed *Input.GetAxis("Horizontal"));
-                    else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
-                    else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
+                    if (Math.Abs(speed) <= 2)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                    else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.14f * -speed *Input.GetAxis("Horizontal"));
+                    else if (speed > 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
+                    else if (speed < 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
                 }
                 break;
 
             default:
-                if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
-                else if (speed > 0) transform.Rotate(Vector3.up * 0.15f * 7 *Input.GetAxis("Horizontal"));
-                else if (speed < 0) transform.Rotate(Vector3.up * 0.15f * -7 *Input.GetAxis("Horizontal"));
+                if (Math.Abs(speed) <= 2)  transform.Rotate(Vector3.up * 0.15f * speed *Input.GetAxis("Horizontal"));
+                else if (Math.Abs(speed) < 7)  transform.Rotate(Vector3.up * 0.14f * speed *Input.GetAxis("Horizontal"));
+                else if (speed > 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
+                else if (speed < 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
                 break;
         }
 
