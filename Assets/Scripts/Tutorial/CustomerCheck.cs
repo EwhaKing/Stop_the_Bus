@@ -11,6 +11,8 @@ public class CustomerCheck : MonoBehaviour
     public GameObject removeText;
     public GameObject newText;
     public GameObject busObject;
+    public AudioSource outEff;
+
     void Start()
     {
         obj = GameObject.Find("BusStopSign").GetComponent<TutorialCustomer>();
@@ -37,6 +39,7 @@ public class CustomerCheck : MonoBehaviour
         //손님 안들어있을 경우
         else{
             busObject.transform.position = new Vector3(22.7f, 0.6f, -9.23f);//위치로 리스폰
+            outEff.Play();
 
         }
     }
