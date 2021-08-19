@@ -3552,6 +3552,7 @@ MonoBehaviour:
   removeText: {fileID: 1124339377}
   newText: {fileID: 1563877056}
   busObject: {fileID: 750707314}
+  outEff: {fileID: 1231555528}
 --- !u!65 &364201382
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -201,8 +201,10 @@ public class bus : MonoBehaviour{
         }       
 
         // 버스가 움직일때 굴러가는 바퀴
-        tires[wheel].Rotate(Vector3.right * -speed * 0.2f);// = Quaternion.Euler( -speed * 100, 0 ,0);
-        
+        if (Math.Abs(speed) <= 2) tires[wheel].Rotate(Vector3.right * -speed * Time.deltaTime * 20);
+        else if (Math.Abs(speed) <= 3) tires[wheel].Rotate(Vector3.right * -speed * Time.deltaTime * 18);
+        else if (speed < 0) tires[wheel].Rotate(Vector3.right * Time.deltaTime * 54);
+        else if (speed > 0) tires[wheel].Rotate(Vector3.right * -Time.deltaTime * 54);
         // 앞바퀴 좌우 회전
         switch(s){
             /*
