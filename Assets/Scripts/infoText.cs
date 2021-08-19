@@ -15,10 +15,10 @@ public class infoText : MonoBehaviour
         switch (toLoading.ld)
         {
             case 0:
-                txt.text = "한 자리에 너무 오래 머무르면 손님들이 불만을 표시합니다.";
+                txt.text = "한 자리에 너무 오래 머무르면 승객들이 불만을 표시합니다.";
                 break;
             case 1:
-                txt.text = "물웅덩이에서는 원하지 않은 방향으로 미끄러질 수 있습니다.";
+                txt.text = "물웅덩이에서는 원하지 않는 방향으로 미끄러질 수 있습니다.";
                 break;
             case 2:
                 txt.text = "아스팔트 포장도로는 길이 매끄러우니 속도 조절에 유의하세요.";
