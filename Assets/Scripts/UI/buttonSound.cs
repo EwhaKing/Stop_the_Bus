@@ -5,19 +5,16 @@ using System.Collections;
 
 public class buttonSound : MonoBehaviour {
 
-    void Start () {
+    private GameObject btn;
 
+    void Start(){
+        btn = GameObject.Find("btnaudio");
     }
-
     public void ButtonClick(){
-        gameObject.GetComponent<AudioSource>().Play();
-        DontDestroyOnLoad(gameObject);
-        soundOff();
+        btn.GetComponent<AudioSource>().Play();
+        
     }
 
-    IEnumerator soundOff(){
-        yield return new WaitForSeconds(5f);
-        GameObject.Destroy(gameObject);
-    }
+    
 }
 
