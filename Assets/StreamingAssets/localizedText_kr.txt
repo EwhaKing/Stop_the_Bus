@@ -1,0 +1,142 @@
+{
+	"items": [
+		{
+			"key": "btn_lang",
+			"value": "English"
+		},
+		{
+			"key": "btn_start",
+			"value": "게임시작"
+		},
+		{
+			"key": "btn_tuto",
+			"value": "튜토리얼"
+		},
+		{
+			"key": "btn_continue",
+			"value": "이어하기"
+		},
+		{
+			"key": "btn_retry",
+			"value": "다시하기"
+		},
+		{
+			"key": "btn_stage",
+			"value": "스테이지"
+		},
+		{
+			"key": "btn_home",
+			"value": "처음화면"
+		},
+		{
+			"key": "btn_spring",
+			"value": "봄"
+		},
+		{
+			"key": "btn_summer",
+			"value": "여름"
+		},
+		{
+			"key": "btn_fall",
+			"value": "가을"
+		},
+		{
+			"key": "btn_winter",
+			"value": "겨울"
+		},
+		{
+			"key": "rcd_num",
+			"value": "태운 손님 수"
+		},
+		{
+			"key": "rcd_time",
+			"value": "경과 시간"
+		},
+		{
+			"key": "rcd_comfort",
+			"value": "승차감"
+		},
+		{
+			"key": "out",
+			"value": "아웃!"
+		},
+		{
+			"key": "success",
+			"value": "성공!"
+		},
+		{
+			"key": "background",
+			"value": "배경음"
+		},
+		{
+			"key": "effect",
+			"value": "효과음"
+		},
+		{
+			"key": "lang",
+			"value": "언어설정"
+		},
+		{
+			"key": "left",
+			"value": "좌회전"
+		},
+		{
+			"key": "right",
+			"value": "우회전"
+		},
+		{
+			"key": "break",
+			"value": "브레이크"
+		},
+		{
+			"key": "txt_tuto1",
+			"value": "마우스를 회전시켜 전진하세요"
+		},
+		{
+			"key": "txt_tuto2",
+			"value": "A 키를 눌러 왼쪽 커브를 도세요!"
+		},
+		{
+			"key": "txt_tuto3",
+			"value": "D 키를 눌러 오른쪽 커브를 도세요!"
+		},
+		{
+			"key": "txt_tuto4",
+			"value": "손님을 태우세요!"
+		},
+		{
+			"key": "txt_tuto5",
+			"value": "하얀 점선 안에서 기다리세요"
+		},
+		{
+			"key": "txt_tuto6",
+			"value": "제한 속도 미만으로 \n방지턱을 지나가세요!"
+		},
+		{
+			"key": "txt_tuto7",
+			"value": "시작과 끝"
+		},
+		{
+			"key": "txt_tuto8",
+			"value": "빨간 점선 안에서 멈추세요"
+		},
+		{
+			"key": "txt_loading1",
+			"value": "한 자리에 너무 오래 머무르면 승객들이 불만을 표시합니다."
+		},
+		{
+			"key": "txt_loading2",
+			"value": "물웅덩이에서는 원하지 않는 방향으로 미끄러질 수 있습니다."
+		},
+		{
+			"key": "txt_loading3",
+			"value": "아스팔트 포장도로는 길이 매끄러우니 속도 조절에 유의하세요."
+		},
+		{
+			"key": "txt_loading4",
+			"value": "푸른 빙판 위에서는 바퀴가 얼어붙을 수 있으니 조심하세요."
+		}
+
+	]
+
+}

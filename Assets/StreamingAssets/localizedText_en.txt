@@ -1,0 +1,142 @@
+{
+	"items": [
+		{
+			"key": "btn_lang",
+			"value": "한국어"
+		},
+		{
+			"key": "btn_start",
+			"value": "START"
+		},
+		{
+			"key": "btn_tuto",
+			"value": "TUTORIAL"
+		},
+		{
+			"key": "btn_continue",
+			"value": "CONTINUE"
+		},
+		{
+			"key": "btn_retry",
+			"value": "RETRY"
+		},
+		{
+			"key": "btn_stage",
+			"value": "STAGE"
+		},
+		{
+			"key": "btn_home",
+			"value": "HOME"
+		},
+		{
+			"key": "btn_spring",
+			"value": "Spring"
+		},
+		{
+			"key": "btn_summer",
+			"value": "Summer"
+		},
+		{
+			"key": "btn_fall",
+			"value": "Fall"
+		},
+		{
+			"key": "btn_winter",
+			"value": "Winter"
+		},
+		{
+			"key": "rcd_num",
+			"value": "Number of People"
+		},
+		{
+			"key": "rcd_time",
+			"value": "Time Record"
+		},
+		{
+			"key": "rcd_comfort",
+			"value": "Comfort"
+		},
+		{
+			"key": "out",
+			"value": "OUT!"
+		},
+		{
+			"key": "success",
+			"value": "Success!"
+		},
+		{
+			"key": "background",
+			"value": "BGM"
+		},
+		{
+			"key": "effect",
+			"value": "Effects"
+		},
+		{
+			"key": "lang",
+			"value": "Language"
+		},
+		{
+			"key": "left",
+			"value": "Left"
+		},
+		{
+			"key": "right",
+			"value": "Right"
+		},
+		{
+			"key": "break",
+			"value": "Break"
+		},
+		{
+			"key": "txt_tuto1",
+			"value": "Rotate the mouse in the circle"
+		},
+		{
+			"key": "txt_tuto2",
+			"value": "Press A button"
+		},
+		{
+			"key": "txt_tuto3",
+			"value": "Press D button"
+		},
+		{
+			"key": "txt_tuto4",
+			"value": "Pick up passengers"
+		},
+		{
+			"key": "txt_tuto5",
+			"value": "Wait in the white line"
+		},
+		{
+			"key": "txt_tuto6",
+			"value": "Keep the speed limit"
+		},
+		{
+			"key": "txt_tuto7",
+			"value": "The End"
+		},
+		{
+			"key": "txt_tuto8",
+			"value": "Stop in the red line"
+		},
+		{
+			"key": "txt_loading1",
+			"value": "People complain when the bus doesn't move"
+		},
+		{
+			"key": "txt_loading2",
+			"value": "Be careful about changing directions in puddles"
+		},
+		{
+			"key": "txt_loading3",
+			"value": "Be careful of speed control on asphalt pavement."
+		},
+		{
+			"key": "txt_loading4",
+			"value": "Be careful as the wheels can freeze on ice."
+		}
+
+	]
+
+}

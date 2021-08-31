@@ -18,5 +18,8 @@ public class data : MonoBehaviour
     public static float background = -10f;
     public static float effect = -10f;
 
+    void Awake(){
+        PlayerPrefs.SetString("lang","localizedText_kr");
+    }
     // 더 추가할 거 있으면 추가하셔요~
 }
