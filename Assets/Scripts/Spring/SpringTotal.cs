@@ -15,7 +15,7 @@ public class SpringTotal : MonoBehaviour
     public static int SumOfCus;     //손님 합계
 
     public GameObject Bus;
-    GameObject[] Child;
+    public static GameObject[] Child;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class SpringTotal : MonoBehaviour
 
     void Update()
     {
+        /*
         for (int i = 0; i < obj.Length; i++)
             if (!obj[i].Taken() && !obj[i].GetSumCheck())
             {
@@ -45,13 +46,23 @@ public class SpringTotal : MonoBehaviour
             }
 
         customerText.text = SumOfCus.ToString();
+        */
+
+        customerText.text = SumOfCus.ToString();
     }
 
-    void ActiveCustomer(int num)
+    public static void ActiveCustomer(int num)
     {
+        int count = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            if (Child[i].activeSelf)
+                count++;
+        }
+
         if (num <= 8)
         {
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < num - count; i++)
             {
                 int rand = Random.Range(0, 8);
                 if (Child[rand].activeSelf)

@@ -10,6 +10,7 @@ public class SummerAssign : MonoBehaviour
 
     void Awake()
     {
+        /*
         int n = PassengerNum;
         int i;
 
@@ -24,5 +25,42 @@ public class SummerAssign : MonoBehaviour
                 EachPass[i] = Random.Range(1, n - i + 1);
             n -= EachPass[i];
         }
+        */
+
+        int n;
+        int a = 1, b = 1, c = 1;
+        int x, y, z;
+
+        //c부터 배정. 3번 정류장은 9명까지.
+        while(a + b + c < PassengerNum)
+        {
+            n = PassengerNum - (a + b + c);
+            z = Random.Range(0, 10 - c);
+            if(n - z > 10 - b)
+            {
+                y = Random.Range(0, 11 - b);
+                if (n - z - y > 10 - a)
+                    x = Random.Range(0, 11 - a);
+                else
+                    x = n - z - y;
+            }
+            else
+            {
+                y = Random.Range(0, n - z + 1);
+                x = n - z - y;
+            }
+
+            a += x;
+            b += y;
+            c += z;
+        }
+
+        EachPass[0] = a;
+        EachPass[1] = b;
+        EachPass[2] = c;
+
+        Debug.Log("첫번째 정류장 : " + EachPass[0] + "명");
+        Debug.Log("두번째 정류장 : " + EachPass[1] + "명");
+        Debug.Log("세번째 정류장 : " + EachPass[2] + "명");
     }
 }
