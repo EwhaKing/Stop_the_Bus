@@ -73,8 +73,32 @@
 			"value": "효과음"
 		},
 		{
+			"key": "part1",
+			"value": "기획 & 그래픽"
+		},
+		{
+			"key": "part2",
+			"value": "프로그래머"
+		},
+		{
+			"key": "copyright",
+			"value": "| 저작권 |"
+		},
+		{
+			"key": "sound",
+			"value": "| 음향 |"
+		},
+		{
 			"key": "lang",
-			"value": "언어설정"
+			"value": "| 언어 |"
+		},
+		{
+			"key": "forward",
+			"value": "전진"
+		},
+		{
+			"key": "backward",
+			"value": "후진"
 		},
 		{
 			"key": "left",

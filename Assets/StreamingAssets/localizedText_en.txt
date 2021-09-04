@@ -73,8 +73,32 @@
 			"value": "Effects"
 		},
 		{
+			"key": "part1",
+			"value": "PM & Graphic"
+		},
+		{
+			"key": "part2",
+			"value": "Programmer"
+		},
+		{
+			"key": "copyright",
+			"value": "| COPYRIGHT |"
+		},
+		{
+			"key": "sound",
+			"value": "| SOUND |"
+		},
+		{
 			"key": "lang",
-			"value": "Language"
+			"value": "| LANGUAGE |"
+		},
+		{
+			"key": "forward",
+			"value": "Forward"
+		},
+		{
+			"key": "backward",
+			"value": "Backward"
 		},
 		{
 			"key": "left",
