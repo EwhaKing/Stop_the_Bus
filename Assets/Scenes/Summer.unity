@@ -3768,6 +3768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: summerBump 4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: SummerBump4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &359631702 stripped
@@ -3785,14 +3790,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 359631702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46db5101a3f18949a9be7f23c72a667, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBump: 0
   obj30: {fileID: 983370887}
   obj40: {fileID: 352790266}
   obj50: {fileID: 1730768929}
   obj60: {fileID: 413824568}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 359631702}
   rd: {fileID: 750707318}
 --- !u!65 &359631704
 BoxCollider:
@@ -3992,6 +3999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: summerBump 2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: SummerBump2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &379221952 stripped
@@ -4009,14 +4021,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 379221952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a765a4e0605ff64e9627f1bd79595fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBump: 0
   obj30: {fileID: 983370887}
   obj40: {fileID: 352790266}
   obj50: {fileID: 1730768929}
   obj60: {fileID: 413824568}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 379221952}
   rd: {fileID: 750707318}
 --- !u!65 &379221954
 BoxCollider:
@@ -6379,6 +6393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: summerBump 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: SummerBump1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &532426582 stripped
@@ -6396,14 +6415,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 532426582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0b776c4baa58e4e82c9db0c0d92713, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBump: 0
   obj30: {fileID: 983370887}
   obj40: {fileID: 352790266}
   obj50: {fileID: 1730768929}
   obj60: {fileID: 413824568}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 532426582}
   rd: {fileID: 750707318}
 --- !u!65 &532426584
 BoxCollider:
@@ -14050,6 +14071,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: summerBump 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: SummerBump3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &836529160 stripped
@@ -14067,14 +14093,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 836529160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48389fdfdb2107d42a946ea8b5e7ac45, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBump: 0
   obj30: {fileID: 983370887}
   obj40: {fileID: 352790266}
   obj50: {fileID: 1730768929}
   obj60: {fileID: 413824568}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 836529160}
   rd: {fileID: 750707318}
 --- !u!65 &836529162
 BoxCollider:
@@ -29130,7 +29158,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.633
+      value: 37.44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
@@ -29140,7 +29168,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.2
+      value: 26.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
