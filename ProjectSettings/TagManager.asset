@@ -13,6 +13,10 @@ TagManager:
   - gameOver
   - BlackIce
   - puddle
+  - SummerBump1
+  - SummerBump2
+  - SummerBump3
+  - SummerBump4
   layers:
   - Default
   - TransparentFX

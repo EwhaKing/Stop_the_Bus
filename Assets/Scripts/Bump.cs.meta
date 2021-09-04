@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 370c004c5a47bb24f87bf95ed0c8b392
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - obj30: {instanceID: 0}
+  - obj40: {instanceID: 0}
+  - obj50: {instanceID: 0}
+  - obj60: {instanceID: 0}
+  - audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  - bump: {instanceID: 0}
+  - rd: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
