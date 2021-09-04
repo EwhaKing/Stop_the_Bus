@@ -53,11 +53,11 @@ public class FallComfort : MonoBehaviour
 
             overline = other.gameObject.transform.parent.GetComponent<FallCustomer>();
 
-            if (overline.Taken())
+            if (overline.IsNotTaken())
             {
                 if (!overline.GetMinusCom())
                 {
-                    comfort -= NumOfPass * 5;
+                    comfort -= overline.RemainCus() * 5;
                     overline.SetMinusCom();
                 }
             }

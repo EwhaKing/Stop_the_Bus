@@ -179,7 +179,7 @@ public class FallCustomer : MonoBehaviour
             insign = false;
     }
 
-    public bool Taken()     //손님 탑승 완료 반환 함수
+    public bool IsNotTaken()     //손님 탑승 완료 반환 함수
     {
         return NotTaken;
     }
@@ -197,5 +197,10 @@ public class FallCustomer : MonoBehaviour
     public bool GetMinusCom()   //정류장을 넘어서서 만족도가 깎였는지 확인할 함수
     {
         return minusCom;
+    }
+
+    public int RemainCus()
+    {
+        return passengers.Count;
     }
 }
