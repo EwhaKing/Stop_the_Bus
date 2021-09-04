@@ -3192,6 +3192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &280288214 stripped
@@ -3222,7 +3227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 280288214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a8416e2dc7a6ae44828565eea046125, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -3230,6 +3235,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 280288214}
   rd: {fileID: 164892923}
 --- !u!82 &280288217
 AudioSource:
@@ -5003,6 +5009,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &476622473 stripped
@@ -5033,7 +5044,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 476622473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742a44549624cec4682d64a4480535b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -5041,6 +5052,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 476622473}
   rd: {fileID: 164892923}
 --- !u!82 &476622476
 AudioSource:
@@ -6874,6 +6886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &664698675 stripped
@@ -6904,7 +6921,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 664698675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aa334b8aca366441b35ace339f27410, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -6912,6 +6929,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 664698675}
   rd: {fileID: 164892923}
 --- !u!82 &664698678
 AudioSource:
@@ -13986,6 +14004,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &1266490899 stripped
@@ -14016,7 +14039,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1266490899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d337f25cea7484347933e45ba4eb2131, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -14024,6 +14047,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 1266490899}
   rd: {fileID: 164892923}
 --- !u!82 &1266490902
 AudioSource:
@@ -14443,6 +14467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &1319346050 stripped
@@ -14460,7 +14489,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319346050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf58db39b4f72c4fa60da67c2fe805f, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -14468,6 +14497,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 1319346050}
   rd: {fileID: 164892923}
 --- !u!65 &1319346052
 BoxCollider:
@@ -19004,7 +19034,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.36
+      value: 30.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ea56929a0c6bb047b5a794f315524e9,
         type: 3}
@@ -20733,6 +20763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &1950406434 stripped
@@ -20763,7 +20798,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950406434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91c8b9e37632964998bc4f50fb85ed5, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -20771,6 +20806,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 1950406434}
   rd: {fileID: 164892923}
 --- !u!82 &1950406437
 AudioSource:
@@ -22085,6 +22121,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: winterBump 5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
+        type: 3}
+      propertyPath: m_TagString
+      value: WinterBump5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
 --- !u!1 &2120120483 stripped
@@ -22115,7 +22156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2120120483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d6b97e714603742940d2a849568551, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1047498034}
@@ -22123,6 +22164,7 @@ MonoBehaviour:
   obj50: {fileID: 459842421}
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 2120120483}
   rd: {fileID: 164892923}
 --- !u!82 &2120120486
 AudioSource:

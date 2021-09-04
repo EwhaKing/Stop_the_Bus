@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 166857821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ed24c2cf28af646a7e72070cf4591b, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1335905339}
@@ -1113,6 +1113,7 @@ MonoBehaviour:
   obj50: {fileID: 650038196}
   obj60: {fileID: 1992502210}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 166857821}
   rd: {fileID: 750707318}
 --- !u!4 &166857823 stripped
 Transform:
@@ -1538,7 +1539,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_TagString
-      value: Bump
+      value: FallBump4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
@@ -2290,7 +2291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 286430483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df58ebd9532b7da4893d146775ffe6d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1335905339}
@@ -2298,6 +2299,7 @@ MonoBehaviour:
   obj50: {fileID: 650038196}
   obj60: {fileID: 1992502210}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 286430483}
   rd: {fileID: 750707318}
 --- !u!65 &286430485
 BoxCollider:
@@ -4904,7 +4906,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 601438101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d0c5f9691fe394196c0ac1f8220245, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1335905339}
@@ -4912,6 +4914,7 @@ MonoBehaviour:
   obj50: {fileID: 650038196}
   obj60: {fileID: 1992502210}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 601438101}
   rd: {fileID: 750707318}
 --- !u!4 &601438103 stripped
 Transform:
@@ -7613,7 +7616,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_TagString
-      value: Bump
+      value: FallBump3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
@@ -8450,7 +8453,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_TagString
-      value: Bump
+      value: FallBump1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
@@ -13981,7 +13984,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_TagString
-      value: Bump
+      value: FallBump2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
@@ -15107,7 +15110,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be64ae63f9d3567449aa92d2babdb756,
         type: 3}
       propertyPath: m_TagString
-      value: Bump
+      value: FallBump5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be64ae63f9d3567449aa92d2babdb756, type: 3}
@@ -15919,7 +15922,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2003892149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f24e052ec840ff40a17e699b6879d83, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1335905339}
@@ -15927,6 +15930,7 @@ MonoBehaviour:
   obj50: {fileID: 650038196}
   obj60: {fileID: 1992502210}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 2003892149}
   rd: {fileID: 750707318}
 --- !u!4 &2003892152 stripped
 Transform:
@@ -16645,7 +16649,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2067523446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f24a4b792b71c48b3dc2488d776486, type: 3}
+  m_Script: {fileID: 11500000, guid: 370c004c5a47bb24f87bf95ed0c8b392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj30: {fileID: 1335905339}
@@ -16653,6 +16657,7 @@ MonoBehaviour:
   obj50: {fileID: 650038196}
   obj60: {fileID: 1992502210}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
+  bump: {fileID: 2067523446}
   rd: {fileID: 750707318}
 --- !u!4 &2067523448 stripped
 Transform:
