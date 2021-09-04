@@ -51,11 +51,11 @@ public class SpringComfort : MonoBehaviour
 
             overline = other.gameObject.transform.parent.GetComponent<SpringCustomer>();
 
-            if (overline.Taken())
+            if (overline.IsNotTaken())
             {
                 if (!overline.GetMinusCom())
                 {
-                    comfort -= NumOfPass * 5;
+                    comfort -= overline.RemainCus() * 5;
                     overline.SetMinusCom();
                 }
             }
@@ -83,6 +83,8 @@ public class SpringComfort : MonoBehaviour
         }
         else
             time = 0;   //속도가 0이 아니면 다시 시간 카운트 0으로 설정
+
+        Debug.Log("만족도 : " + comfort);
     }
 
     public static int GetComfort()

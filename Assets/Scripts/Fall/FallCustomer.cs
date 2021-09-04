@@ -10,13 +10,16 @@ public class FallCustomer : MonoBehaviour
     int[] ListOfNumPass;        //정류장 손님수 배열
     int NumOfPass;              //각 정류장마다 손님수를 저장할 변수
 
-    float timeCount;
+    float timeCount;    //손님 태울 때 시간 카운트
+    float WaitTime;       //손님 태우기 전 2초간 기다리기
+    float TakeCusTime;
+
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;
-    private bool eachtaken;     //손님 탑승 체크 변수
+    private bool NotTaken;     //손님 탑승 체크 변수
+    private bool MoveInLine;    //점선 안에서 손님을 태우다가 움직였을 때 사용할 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
     private bool minusCom;      //정류장을 넘어서서 만족도가 깎였는지 체크할 변수
-    private bool sumCheck;      //손님 태워서 합계 더했는지 확인
 
     AudioSource audioSource;
     public AudioClip customerIng;
@@ -63,61 +66,87 @@ public class FallCustomer : MonoBehaviour
             passengers.Add(per);
         }
 
+        TakeCusTime = 0;
+        WaitTime = 0;
+        MoveInLine = false;
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
         wheel4 = false;
-        eachtaken = true;
+        NotTaken = true;
         insign = false;
         minusCom = false;
-        sumCheck = false;
     }
 
     void Update()
-    { 
+    {
         if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
         {
             insign = true;
             if (bus.speed == 0)     // 버스 속도가 0이어야        
             {
-                if (timeCount > 0)
-                    timeCount -= Time.deltaTime;
+                MoveInLine = true;
+                if (WaitTime > 0)
+                    WaitTime -= Time.deltaTime;
+                else
+                {
+                    if (timeCount > 0)
+                    {
+                        timeCount -= Time.deltaTime;
+                        TakeCusTime += Time.deltaTime;
+                        if (TakeCusTime >= 1f)
+                        {
+                            TakeCusTime = 0;
+                            FallTotal.SumOfCus++;
+                            FallTotal.ActiveCustomer(FallTotal.SumOfCus);
+                            Destroy(passengers[passengers.Count - 1]);
+                            passengers.RemoveAt(passengers.Count - 1);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        if (timeCount <= 0 && NotTaken)
+            NotTaken = false;
+
+        if (insign && NotTaken)
+        {
+            if (bus.speed == 0)
+            {
+                soundCount += Time.deltaTime;
+                if (soundCount >= 1f)
+                {
+                    audioSource.clip = customerIng;
+                    audioSource.Play();
+                    soundCount = 0;
+                }
             }
             else
-                timeCount = NumOfPass;
-
-        }
-
-
-        if (timeCount <= 0 && eachtaken)
-        {
-            eachtaken = false;
-
-            //손님 오브젝트 삭제
-            foreach (var child in passengers)
-                Destroy(child.gameObject);
-
-        }
-
-        if (insign && bus.speed == 0 && eachtaken)
-        {
-            soundCount += Time.deltaTime;
-            if (soundCount >= 1f)
             {
-                audioSource.clip = customerIng;
-                audioSource.Play();
-                soundCount = 0;
+                if (MoveInLine)
+                {
+                    WaitTime = 2;
+                    MoveInLine = false;
+                }
             }
         }
 
-        if (insign && bus.speed == 0 && !eachtaken)
+        if (insign && bus.speed == 0 && !NotTaken)
             if (TakenSound == 0)
             {
+                if(passengers.Count != 0)
+                {
+                    FallTotal.SumOfCus++;
+                    FallTotal.ActiveCustomer(FallTotal.SumOfCus);
+                    Destroy(passengers[0]);
+                    passengers.RemoveAt(0);
+                }
                 audioSource.clip = customerEnd;
                 audioSource.Play();
                 TakenSound++;
             }
-
     }
 
 
@@ -147,16 +176,12 @@ public class FallCustomer : MonoBehaviour
             wheel4 = false;
 
         if (!(wheel1 && wheel2 && wheel3 && wheel4))
-        {
             insign = false;
-            if (eachtaken)
-                timeCount = NumOfPass;
-        }
     }
 
-    public bool Taken()     //손님 탑승 완료 반환 함수
+    public bool IsNotTaken()     //손님 탑승 완료 반환 함수
     {
-        return eachtaken;
+        return NotTaken;
     }
 
     public bool InSign()    //정류장 점선 안에 버스가 있는지를 반환하는 함수
@@ -174,13 +199,8 @@ public class FallCustomer : MonoBehaviour
         return minusCom;
     }
 
-    public void SetSumCheck()
+    public int RemainCus()
     {
-        sumCheck = true;
-    }
-
-    public bool GetSumCheck()
-    {
-        return sumCheck;
+        return passengers.Count;
     }
 }

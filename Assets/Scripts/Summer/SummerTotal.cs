@@ -15,7 +15,7 @@ public class SummerTotal : MonoBehaviour
     public static int SumOfCus;     //손님 합계
 
     public GameObject Bus;
-    GameObject[] Child;
+    public static GameObject[] Child;
 
 
     void Start()
@@ -38,22 +38,21 @@ public class SummerTotal : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < obj.Length; i++)
-            if (!obj[i].Taken() && !obj[i].GetSumCheck())
-            {
-                obj[i].SetSumCheck();
-                SumOfCus += ListOfNumPass[i];
-                ActiveCustomer(SumOfCus);
-            }
-
         customerText.text = SumOfCus.ToString();
     }
 
-    void ActiveCustomer(int num)
+    public static void ActiveCustomer(int num)
     {
-        if(num <= 8)
+        int count = 0;
+        for (int i = 0; i < 8; i++)
         {
-            for (int i = 0; i < num; i++)
+            if (Child[i].activeSelf)
+                count++;
+        }
+
+        if (num <= 8)
+        {
+            for (int i = 0; i < num - count; i++)
             {
                 int rand = Random.Range(0, 8);
                 if (Child[rand].activeSelf)

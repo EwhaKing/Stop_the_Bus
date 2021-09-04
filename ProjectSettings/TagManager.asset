@@ -7,12 +7,31 @@ TagManager:
   - gravel
   - curve90
   - curve180
-  - Bump
   - Bus
   - Backwheel
   - gameOver
   - BlackIce
   - puddle
+  - SummerBump1
+  - SummerBump2
+  - SummerBump3
+  - SummerBump4
+  - SpringBump1
+  - SpringBump2
+  - SpringBump3
+  - SpringBump4
+  - FallBump1
+  - FallBump2
+  - FallBump3
+  - FallBump4
+  - FallBump5
+  - WinterBump1
+  - WinterBump2
+  - WinterBump3
+  - WinterBump4
+  - WinterBump5
+  - WinterBump6
+  - WinterBump7
   layers:
   - Default
   - TransparentFX
