@@ -93,6 +93,14 @@
 			"value": "| LANGUAGE |"
 		},
 		{
+			"key": "forward",
+			"value": "Forward"
+		},
+		{
+			"key": "backward",
+			"value": "Backward"
+		},
+		{
 			"key": "left",
 			"value": "Left"
 		},

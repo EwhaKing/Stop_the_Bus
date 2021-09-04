@@ -93,6 +93,14 @@
 			"value": "| 언어 |"
 		},
 		{
+			"key": "forward",
+			"value": "전진"
+		},
+		{
+			"key": "backward",
+			"value": "후진"
+		},
+		{
 			"key": "left",
 			"value": "좌회전"
 		},
