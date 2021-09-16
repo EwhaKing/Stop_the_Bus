@@ -11,7 +11,7 @@ public class TutorialTotal : MonoBehaviour
     public static int SumOfCus;     //손님 합계
     
     public GameObject Bus;
-    GameObject[] Child;
+    public static GameObject[] Child;
 
     void Start()
     {
@@ -28,21 +28,21 @@ public class TutorialTotal : MonoBehaviour
 
     void Update()
     {
-        if (!obj.Taken() && !obj.GetSumCheck())
-        {
-            obj.SetSumCheck();
-            SumOfCus += TutorialCustomer.Tutopassenger;
-            ActiveCustomer(SumOfCus);
-        }
-
         customerText.text = SumOfCus.ToString();
     }
 
-    void ActiveCustomer(int num)
+    public static void ActiveCustomer(int num)
     {
+        int count = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            if (Child[i].activeSelf)
+                count++;
+        }
+
         if (num <= 8)
         {
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < num - count; i++)
             {
                 int rand = Random.Range(0, 8);
                 if (Child[rand].activeSelf)

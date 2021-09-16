@@ -8,14 +8,16 @@ public class TutorialCustomer : MonoBehaviour
     public GameObject[] person;
     private List<GameObject> passengers = new List<GameObject>();   //손님 오브젝트 배열
 
+    float timeCount;    //손님 태울 때 시간 카운트
+    float WaitTime;       //손님 태우기 전 2초간 기다리기
+    float TakeCusTime;
+
     string wheel;
     bool wheel1, wheel2, wheel3, wheel4;    //바퀴가 점선과 접촉해 있는지 확인할 변수
 
-    private bool eachtaken;     //손님 탑승 체크 변수
+    private bool NotTaken;     //손님 탑승 체크 변수
+    private bool MoveInLine;    //점선 안에서 손님을 태우다가 움직였을 때 사용할 변수
     private bool insign;        //버스 스탑 점선 안에 있는지 체크할 변수
-    private bool sumCheck;
-
-    float timeCount;
 
     AudioSource audioSource;
     public AudioClip customerIng;
@@ -29,13 +31,15 @@ public class TutorialCustomer : MonoBehaviour
         Tutopassenger = 5;
         timeCount = Tutopassenger;
 
+        TakeCusTime = 0;
+        WaitTime = 0;
+        MoveInLine = false;
         wheel1 = false;
         wheel2 = false;
         wheel3 = false;
         wheel4 = false;
-        eachtaken = true;
+        NotTaken = true;
         insign = false;
-        sumCheck = false;
 
         for (int i = 0; i < Tutopassenger; i++)
         {
@@ -57,6 +61,81 @@ public class TutorialCustomer : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
+        {
+            insign = true;
+            if (bus.speed == 0)     // 버스 속도가 0이어야        
+            {
+                MoveInLine = true;
+                if (WaitTime > 0)
+                    WaitTime -= Time.deltaTime;
+                else
+                {
+                    if (timeCount > 0)
+                    {
+                        timeCount -= Time.deltaTime;
+                        TakeCusTime += Time.deltaTime;
+                        if (TakeCusTime >= 1f)
+                        {
+                            TakeCusTime = 0;
+                            TutorialTotal.SumOfCus++;
+                            TutorialTotal.ActiveCustomer(TutorialTotal.SumOfCus);
+                            Destroy(passengers[passengers.Count - 1]);
+                            passengers.RemoveAt(passengers.Count - 1);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+        if (timeCount <= 0 && NotTaken)
+            NotTaken = false;
+
+
+        if (insign && NotTaken)
+        {
+            if (bus.speed == 0)
+            {
+                soundCount += Time.deltaTime;
+                if (soundCount >= 1f)
+                {
+                    audioSource.clip = customerIng;
+                    audioSource.Play();
+                    soundCount = 0;
+                }
+
+            }
+            else
+            {
+                if (MoveInLine)
+                {
+                    WaitTime = 2;
+                    MoveInLine = false;
+                }
+            }
+        }
+
+        if (insign && bus.speed == 0 && !NotTaken)
+            if (TakenSound == 0)
+            {
+                if (passengers.Count != 0)
+                {
+                    TutorialTotal.SumOfCus++;
+                    TutorialTotal.ActiveCustomer(TutorialTotal.SumOfCus);
+                    Destroy(passengers[0]);
+                    passengers.RemoveAt(0);
+                }
+                audioSource.clip = customerEnd;
+                audioSource.Play();
+                TakenSound++;
+            }
+    }
+
     void OnTriggerStay(Collider coll)
     {
         wheel = coll.gameObject.name;
@@ -70,48 +149,6 @@ public class TutorialCustomer : MonoBehaviour
             wheel4 = true;
     }
 
-    void Update()
-    {
-        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
-        {
-            insign = true;
-            if (bus.speed == 0)          // 버스 속도가 0이어야        
-            {
-                if (timeCount > 0)
-                    timeCount -= Time.deltaTime;
-            }
-            else
-                timeCount = Tutopassenger;
-        }
-
-
-        if (timeCount <= 0 && eachtaken)
-        {
-            eachtaken = false;
-
-            foreach (var child in passengers)
-                Destroy(child.gameObject);
-        }
-
-        if (insign && bus.speed == 0 && eachtaken)
-        {
-            soundCount += Time.deltaTime;
-            if (soundCount >= 1f)
-            {
-                audioSource.clip = customerIng;
-                audioSource.Play();
-                soundCount = 0;
-            }
-        }
-
-        if (insign && bus.speed == 0 && !eachtaken)
-            if (TakenSound == 0)
-            {
-                audioSource.clip = customerEnd;
-                audioSource.Play();
-                TakenSound++;
-            }
-    }
 
     void OnTriggerExit(Collider coll)
     {
@@ -128,28 +165,14 @@ public class TutorialCustomer : MonoBehaviour
         if (!(wheel1 && wheel2 && wheel3 && wheel4))
         {
             insign = false;
-            if (eachtaken)
+            if (NotTaken)
                 timeCount = Tutopassenger;
         }
     }
 
     public bool Taken()     //손님 탑승 완료 반환 함수
     {
-        return eachtaken;
+        return NotTaken;
     }
 
-    public bool InSign()    //정류장 점선 안에 버스가 있는지를 반환하는 함수
-    {
-        return insign;
-    }
-
-    public void SetSumCheck()
-    {
-        sumCheck = true;
-    }
-
-    public bool GetSumCheck()
-    {
-        return sumCheck;
-    }
 }
