@@ -3308,8 +3308,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC2A4\uD14C\uC774\uC9C0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1717f47d095ff434cbb3f07be7766dc3, type: 2}
-  m_sharedMaterial: {fileID: 537952367381854959, guid: 1717f47d095ff434cbb3f07be7766dc3,
+  m_fontAsset: {fileID: 11400000, guid: e5281723bcf524d4191c95970db1c9cc, type: 2}
+  m_sharedMaterial: {fileID: 7651017606396875419, guid: e5281723bcf524d4191c95970db1c9cc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5094,6 +5094,7 @@ GameObject:
   - component: {fileID: 586229606}
   - component: {fileID: 586229608}
   - component: {fileID: 586229607}
+  - component: {fileID: 586229609}
   m_Layer: 5
   m_Name: out
   m_TagString: Untagged
@@ -5241,6 +5242,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586229605}
   m_CullTransparentMesh: 0
+--- !u!114 &586229609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586229605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b7750cc9742b94fa6c92534d74da81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: out
 --- !u!1 &610017770
 GameObject:
   m_ObjectHideFlags: 0
@@ -10304,8 +10318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB2E4\uC2DC\uD558\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1717f47d095ff434cbb3f07be7766dc3, type: 2}
-  m_sharedMaterial: {fileID: 537952367381854959, guid: 1717f47d095ff434cbb3f07be7766dc3,
+  m_fontAsset: {fileID: 11400000, guid: e5281723bcf524d4191c95970db1c9cc, type: 2}
+  m_sharedMaterial: {fileID: 7651017606396875419, guid: e5281723bcf524d4191c95970db1c9cc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14557,7 +14571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b7750cc9742b94fa6c92534d74da81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: btn_start
+  key: btn_home
 --- !u!1 &1811526265
 GameObject:
   m_ObjectHideFlags: 0

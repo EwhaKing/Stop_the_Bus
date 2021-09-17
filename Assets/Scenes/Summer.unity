@@ -13813,7 +13813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b7750cc9742b94fa6c92534d74da81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: btn_start
+  key: btn_home
 --- !u!1001 &740050481
 PrefabInstance:
   m_ObjectHideFlags: 0
