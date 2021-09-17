@@ -6856,7 +6856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b7750cc9742b94fa6c92534d74da81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: btn_start
+  key: btn_home
 --- !u!1 &750707314 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ea56929a0c6bb047b5a794f315524e9,
@@ -7073,6 +7073,7 @@ GameObject:
   - component: {fileID: 777558219}
   - component: {fileID: 777558221}
   - component: {fileID: 777558220}
+  - component: {fileID: 777558222}
   m_Layer: 5
   m_Name: recordText
   m_TagString: Untagged
@@ -7219,6 +7220,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777558218}
   m_CullTransparentMesh: 0
+--- !u!114 &777558222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777558218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b7750cc9742b94fa6c92534d74da81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: rcd_comfort
 --- !u!1 &778950161
 GameObject:
   m_ObjectHideFlags: 0
