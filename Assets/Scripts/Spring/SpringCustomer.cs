@@ -89,7 +89,7 @@ public class SpringCustomer : MonoBehaviour
                 if (WaitTime > 0)
                 {
                     WaitTime -= Time.deltaTime;
-                    if(WaitTime <= 1f && AnnoyingCount)
+                    if (WaitTime <= 1f && AnnoyingCount)
                     {
                         audioSource.Play();
                         AnnoyingCount = false;
@@ -128,9 +128,15 @@ public class SpringCustomer : MonoBehaviour
                     audioSource.clip = Annoyed;
                 }
             }
-
         }
-        
+
+        if (!insign && NotTaken && AnnoyingCount && Annoying.activeSelf)
+        {
+            Annoying.SetActive(false);
+            AnnoyingCount = false;
+        }
+
+
         if (insign && bus.speed == 0 && !NotTaken)
         {
             if (TakenSound == 0)
@@ -150,6 +156,7 @@ public class SpringCustomer : MonoBehaviour
 
         if (timeCount <= 0)
             NotTaken = false;
+
     }
 
 
