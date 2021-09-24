@@ -80,10 +80,9 @@ public class FallCustomer : MonoBehaviour
 
     void Update()
     {
-        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
+        if (insign && NotTaken)
         {
-            insign = true;
-            if (bus.speed == 0)     // 버스 속도가 0이어야        
+            if (bus.speed == 0)
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
@@ -99,28 +98,12 @@ public class FallCustomer : MonoBehaviour
                             TakeCusTime = 0;
                             FallTotal.SumOfCus++;
                             FallTotal.ActiveCustomer(FallTotal.SumOfCus);
+                            audioSource.clip = customerIng;
+                            audioSource.Play();
                             Destroy(passengers[passengers.Count - 1]);
                             passengers.RemoveAt(passengers.Count - 1);
                         }
                     }
-                }
-
-            }
-        }
-
-        if (timeCount <= 0 && NotTaken)
-            NotTaken = false;
-
-        if (insign && NotTaken)
-        {
-            if (bus.speed == 0)
-            {
-                soundCount += Time.deltaTime;
-                if (soundCount >= 1f)
-                {
-                    audioSource.clip = customerIng;
-                    audioSource.Play();
-                    soundCount = 0;
                 }
             }
             else
@@ -133,10 +116,14 @@ public class FallCustomer : MonoBehaviour
             }
         }
 
+
+        if (timeCount <= 0 && NotTaken)
+            NotTaken = false;
+
         if (insign && bus.speed == 0 && !NotTaken)
             if (TakenSound == 0)
             {
-                if(passengers.Count != 0)
+                if (passengers.Count != 0)
                 {
                     FallTotal.SumOfCus++;
                     FallTotal.ActiveCustomer(FallTotal.SumOfCus);
@@ -147,8 +134,8 @@ public class FallCustomer : MonoBehaviour
                 audioSource.Play();
                 TakenSound++;
             }
-    }
 
+    }
 
     void OnTriggerStay(Collider coll)
     {
@@ -161,6 +148,9 @@ public class FallCustomer : MonoBehaviour
             wheel3 = true;
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
+
+        if (wheel1 && wheel2 && wheel3 && wheel4)
+            insign = true;
     }
 
     void OnTriggerExit(Collider coll)

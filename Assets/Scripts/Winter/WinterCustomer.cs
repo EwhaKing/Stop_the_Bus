@@ -79,10 +79,9 @@ public class WinterCustomer : MonoBehaviour
 
     void Update()
     {
-        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
+        if (insign && NotTaken)
         {
-            insign = true;
-            if (bus.speed == 0)     // 버스 속도가 0이어야        
+            if (bus.speed == 0)
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
@@ -98,28 +97,12 @@ public class WinterCustomer : MonoBehaviour
                             TakeCusTime = 0;
                             WinterTotal.SumOfCus++;
                             WinterTotal.ActiveCustomer(WinterTotal.SumOfCus);
+                            audioSource.clip = customerIng;
+                            audioSource.Play();
                             Destroy(passengers[passengers.Count - 1]);
                             passengers.RemoveAt(passengers.Count - 1);
                         }
                     }
-                }
-
-            }
-        }
-
-        if (timeCount <= 0 && NotTaken)
-            NotTaken = false;
-
-        if (insign && NotTaken)
-        {
-            if (bus.speed == 0)
-            {
-                soundCount += Time.deltaTime;
-                if (soundCount >= 1f)
-                {
-                    audioSource.clip = customerIng;
-                    audioSource.Play();
-                    soundCount = 0;
                 }
             }
             else
@@ -131,6 +114,10 @@ public class WinterCustomer : MonoBehaviour
                 }
             }
         }
+
+
+        if (timeCount <= 0 && NotTaken)
+            NotTaken = false;
 
         if (insign && bus.speed == 0 && !NotTaken)
             if (TakenSound == 0)
@@ -147,7 +134,6 @@ public class WinterCustomer : MonoBehaviour
                 TakenSound++;
             }
 
-
     }
 
     void OnTriggerStay(Collider coll)
@@ -161,6 +147,9 @@ public class WinterCustomer : MonoBehaviour
             wheel3 = true;
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
+
+        if (wheel1 && wheel2 && wheel3 && wheel4)
+            insign = true;
     }
 
     void OnTriggerExit(Collider coll)

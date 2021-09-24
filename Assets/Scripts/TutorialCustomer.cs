@@ -87,9 +87,7 @@ public class TutorialCustomer : MonoBehaviour
                         }
                     }
                 }
-
             }
-
         }
 
 
