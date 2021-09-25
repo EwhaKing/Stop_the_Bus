@@ -24,7 +24,9 @@ public class FallCustomer : MonoBehaviour
     AudioSource audioSource;
     public AudioClip customerIng;
     public AudioClip customerEnd;
-    float soundCount = 0;       //손님 태울 때 시간 카운트
+    public AudioClip Annoyed;
+    public GameObject Annoying; //궁시렁 오브젝트 
+    bool AnnoyingCount;       //궁시렁 한번
     int TakenSound = 0;         //손님 다 태우고 났을 때 사운드 
 
     void Start()
@@ -68,6 +70,7 @@ public class FallCustomer : MonoBehaviour
 
         TakeCusTime = 0;
         WaitTime = 0;
+        AnnoyingCount = false;
         MoveInLine = false;
         wheel1 = false;
         wheel2 = false;
@@ -86,9 +89,17 @@ public class FallCustomer : MonoBehaviour
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
+                {
                     WaitTime -= Time.deltaTime;
+                    if (AnnoyingCount)
+                    {
+                        audioSource.Play();
+                        AnnoyingCount = false;
+                    }
+                }
                 else
                 {
+                    Annoying.SetActive(false);
                     if (timeCount > 0)
                     {
                         timeCount -= Time.deltaTime;
@@ -96,12 +107,15 @@ public class FallCustomer : MonoBehaviour
                         if (TakeCusTime >= 1f)
                         {
                             TakeCusTime = 0;
-                            FallTotal.SumOfCus++;
-                            FallTotal.ActiveCustomer(FallTotal.SumOfCus);
                             audioSource.clip = customerIng;
                             audioSource.Play();
-                            Destroy(passengers[passengers.Count - 1]);
-                            passengers.RemoveAt(passengers.Count - 1);
+                            FallTotal.SumOfCus++;
+                            FallTotal.ActiveCustomer(FallTotal.SumOfCus);
+                            Destroy(passengers[0]);
+                            passengers.RemoveAt(0);
+                            foreach (GameObject pas in passengers)
+                                pas.transform.localPosition =
+                                    new Vector3(pas.transform.localPosition.x + 0.0025f, pas.transform.localPosition.y, pas.transform.localPosition.z);
                         }
                     }
                 }
@@ -111,22 +125,31 @@ public class FallCustomer : MonoBehaviour
                 if (MoveInLine)
                 {
                     WaitTime = 2;
+                    Annoying.SetActive(true);
+                    AnnoyingCount = true;
                     MoveInLine = false;
+                    timeCount = Mathf.Ceil(timeCount);
+                    TakeCusTime = 0;
+                    audioSource.clip = Annoyed;
                 }
             }
         }
 
+        if (!insign && NotTaken && AnnoyingCount && Annoying.activeSelf)
+        {
+            Annoying.SetActive(false);
+            AnnoyingCount = false;
+        }
 
-        if (timeCount <= 0 && NotTaken)
-            NotTaken = false;
 
         if (insign && bus.speed == 0 && !NotTaken)
+        {
             if (TakenSound == 0)
             {
                 if (passengers.Count != 0)
                 {
                     FallTotal.SumOfCus++;
-                    FallTotal.ActiveCustomer(FallTotal.SumOfCus);
+                    FallTotal.ActiveCustomer(TutorialTotal.SumOfCus);
                     Destroy(passengers[0]);
                     passengers.RemoveAt(0);
                 }
@@ -134,6 +157,10 @@ public class FallCustomer : MonoBehaviour
                 audioSource.Play();
                 TakenSound++;
             }
+        }
+
+        if (timeCount <= 0)
+            NotTaken = false;
 
     }
 
