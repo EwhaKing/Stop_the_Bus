@@ -27,6 +27,7 @@ public class FallCustomer : MonoBehaviour
     public AudioClip Annoyed;
     public GameObject Annoying; //궁시렁 오브젝트 
     bool AnnoyingCount;       //궁시렁 한번
+    float AnnoyingTime = 0;          //손님 한명도 안태우고 떠났을 때 말풍선 시간
     int TakenSound = 0;         //손님 다 태우고 났을 때 사운드 
 
     void Start()
