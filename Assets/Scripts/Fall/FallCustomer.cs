@@ -162,6 +162,17 @@ public class FallCustomer : MonoBehaviour
         if (timeCount <= 0)
             NotTaken = false;
 
+        if (NotTaken && !insign && minusCom && AnnoyingCount)
+        {
+            Annoying.SetActive(true);
+            AnnoyingTime += Time.deltaTime;
+            if (AnnoyingTime > 1f)
+            {
+                Annoying.SetActive(false);
+                AnnoyingCount = false;
+            }
+        }
+
     }
 
     void OnTriggerStay(Collider coll)

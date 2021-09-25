@@ -27,6 +27,7 @@ public class SpringCustomer : MonoBehaviour
     public AudioClip Annoyed;
     public GameObject Annoying; //궁시렁 오브젝트 
     bool AnnoyingCount;       //궁시렁 한번
+    float AnnoyingTime = 0;          //손님 한명도 안태우고 떠났을 때 말풍선 시간
     int TakenSound = 0;         //손님 다 태우고 났을 때 사운드 
 
     void Start()
@@ -68,7 +69,7 @@ public class SpringCustomer : MonoBehaviour
 
         TakeCusTime = 0;
         WaitTime = 0;
-        AnnoyingCount = false;
+        AnnoyingCount = true;
         MoveInLine = false;
         wheel1 = false;
         wheel2 = false;
@@ -134,13 +135,6 @@ public class SpringCustomer : MonoBehaviour
             }
         }
 
-        if (!insign && NotTaken && AnnoyingCount && Annoying.activeSelf)
-        {
-            Annoying.SetActive(false);
-            AnnoyingCount = false;
-        }
-
-
         if (insign && bus.speed == 0 && !NotTaken)
         {
             if (TakenSound == 0)
@@ -161,7 +155,17 @@ public class SpringCustomer : MonoBehaviour
         if (timeCount <= 0)
             NotTaken = false;
 
-    }
+        if(NotTaken && !insign && minusCom && AnnoyingCount)
+        {
+            Annoying.SetActive(true);
+            AnnoyingTime += Time.deltaTime;
+            if (AnnoyingTime > 1f)
+            {
+                Annoying.SetActive(false);
+                AnnoyingCount = false;
+            }
+        }
+     }
 
 
     void OnTriggerStay(Collider coll)
