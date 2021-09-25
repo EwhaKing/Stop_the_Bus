@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class infoText : MonoBehaviour
 {
-    private Text txt;
+    private TextMeshProUGUI txt;
 
     // Start is called before the first frame update
     void Start()
     {
-        txt = GetComponent<Text>();
-
+        txt = GetComponent<TextMeshProUGUI> (); 
         switch (toLoading.ld)
         {
             case 0:
