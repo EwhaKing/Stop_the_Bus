@@ -11,7 +11,7 @@ public class SpringCustomer : MonoBehaviour
     int NumOfPass;              //각 정류장마다 손님수를 저장할 변수
 
     float timeCount;    //손님 태울 때 시간 카운트
-    float WaitTime;       //손님 태우기 전 2초간 기다리기
+    float WaitTime;     //손님 태우기 전 2초간 기다리기
     float TakeCusTime;
 
     string wheel;
@@ -46,7 +46,7 @@ public class SpringCustomer : MonoBehaviour
 
         timeCount = NumOfPass;
 
-        //손님 에셋 추가 시 수정!!!!
+        //손님 오브젝트 생성
         for (int i = 0; i < NumOfPass; i++)
         {
             int size = Random.Range(0, person.Length);
@@ -89,7 +89,7 @@ public class SpringCustomer : MonoBehaviour
                 if (WaitTime > 0)
                 {
                     WaitTime -= Time.deltaTime;
-                    if (WaitTime <= 1f && AnnoyingCount)
+                    if (AnnoyingCount)
                     {
                         audioSource.Play();
                         AnnoyingCount = false;
@@ -109,8 +109,12 @@ public class SpringCustomer : MonoBehaviour
                             audioSource.Play();
                             SpringTotal.SumOfCus++;
                             SpringTotal.ActiveCustomer(SpringTotal.SumOfCus);
-                            Destroy(passengers[passengers.Count - 1]);
-                            passengers.RemoveAt(passengers.Count - 1);
+                            Destroy(passengers[0]);
+                            passengers.RemoveAt(0);
+                            foreach (GameObject pas in passengers)
+                                pas.transform.localPosition =
+                                    new Vector3(pas.transform.localPosition.x + 0.0025f, pas.transform.localPosition.y, pas.transform.localPosition.z);
+
                         }
                     }
                 }

@@ -22,7 +22,9 @@ public class TutorialCustomer : MonoBehaviour
     AudioSource audioSource;
     public AudioClip customerIng;
     public AudioClip customerEnd;
-    float soundCount = 0;       //손님 태울 때 시간 카운트
+    public AudioClip Annoyed;
+    public GameObject Annoying; //궁시렁 오브젝트 
+    bool AnnoyingCount;       //궁시렁 한번
     int TakenSound = 0;         //손님 다 태우고 났을 때 사운드 
 
     void Start()
@@ -33,6 +35,7 @@ public class TutorialCustomer : MonoBehaviour
 
         TakeCusTime = 0;
         WaitTime = 0;
+        AnnoyingCount = false;
         MoveInLine = false;
         wheel1 = false;
         wheel2 = false;
@@ -63,16 +66,23 @@ public class TutorialCustomer : MonoBehaviour
 
     void Update()
     {
-        if (wheel1 && wheel2 && wheel3 && wheel4)   // 네 바퀴가 모두 점선과 접촉해있을 때
+        if (insign && NotTaken)
         {
-            insign = true;
-            if (bus.speed == 0)     // 버스 속도가 0이어야        
+            if (bus.speed == 0)
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
+                {
                     WaitTime -= Time.deltaTime;
+                    if (AnnoyingCount)
+                    {
+                        audioSource.Play();
+                        AnnoyingCount = false;
+                    }
+                }
                 else
                 {
+                    Annoying.SetActive(false);
                     if (timeCount > 0)
                     {
                         timeCount -= Time.deltaTime;
@@ -80,45 +90,43 @@ public class TutorialCustomer : MonoBehaviour
                         if (TakeCusTime >= 1f)
                         {
                             TakeCusTime = 0;
+                            audioSource.clip = customerIng;
+                            audioSource.Play();
                             TutorialTotal.SumOfCus++;
                             TutorialTotal.ActiveCustomer(TutorialTotal.SumOfCus);
-                            Destroy(passengers[passengers.Count - 1]);
-                            passengers.RemoveAt(passengers.Count - 1);
+                            Destroy(passengers[0]);
+                            passengers.RemoveAt(0);
+                            foreach (GameObject pas in passengers)
+                                pas.transform.localPosition =
+                                    new Vector3(pas.transform.localPosition.x + 0.0025f, pas.transform.localPosition.y, pas.transform.localPosition.z);
                         }
                     }
                 }
-            }
-        }
-
-
-        if (timeCount <= 0 && NotTaken)
-            NotTaken = false;
-
-
-        if (insign && NotTaken)
-        {
-            if (bus.speed == 0)
-            {
-                soundCount += Time.deltaTime;
-                if (soundCount >= 1f)
-                {
-                    audioSource.clip = customerIng;
-                    audioSource.Play();
-                    soundCount = 0;
-                }
-
             }
             else
             {
                 if (MoveInLine)
                 {
                     WaitTime = 2;
+                    Annoying.SetActive(true);
+                    AnnoyingCount = true;
                     MoveInLine = false;
+                    timeCount = Mathf.Ceil(timeCount);
+                    TakeCusTime = 0;
+                    audioSource.clip = Annoyed;
                 }
             }
         }
 
+        if (!insign && NotTaken && AnnoyingCount && Annoying.activeSelf)
+        {
+            Annoying.SetActive(false);
+            AnnoyingCount = false;
+        }
+
+
         if (insign && bus.speed == 0 && !NotTaken)
+        {
             if (TakenSound == 0)
             {
                 if (passengers.Count != 0)
@@ -132,6 +140,11 @@ public class TutorialCustomer : MonoBehaviour
                 audioSource.Play();
                 TakenSound++;
             }
+        }
+
+        if (timeCount <= 0)
+            NotTaken = false;
+
     }
 
     void OnTriggerStay(Collider coll)
@@ -145,6 +158,9 @@ public class TutorialCustomer : MonoBehaviour
             wheel3 = true;
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
+
+        if (wheel1 && wheel2 && wheel3 && wheel4)
+            insign = true;
     }
 
 
