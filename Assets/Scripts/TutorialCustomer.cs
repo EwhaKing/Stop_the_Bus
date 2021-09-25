@@ -180,7 +180,7 @@ public class TutorialCustomer : MonoBehaviour
         {
             insign = false;
             if (NotTaken)
-                timeCount = Tutopassenger;
+                timeCount = passengers.Count;
         }
     }
 
