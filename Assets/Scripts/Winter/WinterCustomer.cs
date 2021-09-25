@@ -109,8 +109,8 @@ public class WinterCustomer : MonoBehaviour
                             TakeCusTime = 0;
                             audioSource.clip = customerIng;
                             audioSource.Play();
-                            SpringTotal.SumOfCus++;
-                            SpringTotal.ActiveCustomer(SpringTotal.SumOfCus);
+                            WinterTotal.SumOfCus++;
+                            WinterTotal.ActiveCustomer(WinterTotal.SumOfCus);
                             Destroy(passengers[0]);
                             passengers.RemoveAt(0);
                             foreach (GameObject pas in passengers)
@@ -148,8 +148,8 @@ public class WinterCustomer : MonoBehaviour
             {
                 if (passengers.Count != 0)
                 {
-                    SpringTotal.SumOfCus++;
-                    SpringTotal.ActiveCustomer(TutorialTotal.SumOfCus);
+                    WinterTotal.SumOfCus++;
+                    WinterTotal.ActiveCustomer(TutorialTotal.SumOfCus);
                     Destroy(passengers[0]);
                     passengers.RemoveAt(0);
                 }
