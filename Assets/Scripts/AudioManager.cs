@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour{
     public AudioMixer mixer;
     public Slider backSlider;
     public Slider effectSlider;
+    public Image volumeMute;
 
     private float volume;
     
@@ -19,16 +20,34 @@ public class AudioManager : MonoBehaviour{
     public void backgroundControl(){
         volume = backSlider.value;
         data.background = volume;
-        
-        mixer.SetFloat("background",volume);
-        
+        if (!data.mute){
+            mixer.SetFloat("background",volume);
+        }
     }
 
     public void effectControl(){
+        
         volume = effectSlider.value;
         data.effect = volume;
+            
+        if (!data.mute){
+            mixer.SetFloat("effect",volume);
+        }
         
-        mixer.SetFloat("effect",volume);
-        
+    }
+
+    public void volumeControl(){
+        if (data.mute){
+            data.mute = !data.mute;
+            volumeMute.sprite = Resources.Load<Sprite>("UI/음향 on");
+            mixer.SetFloat("background",data.background);
+            mixer.SetFloat("effect",data.effect);
+        }
+        else{
+            data.mute = !data.mute;
+            volumeMute.sprite = Resources.Load<Sprite>("UI/음향 off");
+            mixer.SetFloat("background",-80f);
+            mixer.SetFloat("effect",-80f);
+        }
     }
 }
