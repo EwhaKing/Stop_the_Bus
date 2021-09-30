@@ -146,19 +146,19 @@
 		},
 		{
 			"key": "txt_loading1",
-			"value": "Passengers complain when bus stays for a long time."
+			"value": "Passengers complain when the bus stays for a long time."
 		},
 		{
 			"key": "txt_loading2",
-			"value": "Be aware of puddlle because it makes bus slip!"
+			"value": "Be aware of the puddle because it makes the bus slip!"
 		},
 		{
 			"key": "txt_loading3",
-			"value": "Pay attention to the speed control on asphalt pavement!"
+			"value": "Pay attention to speed control in the asphalt pavement!"
 		},
 		{
 			"key": "txt_loading4",
-			"value": "Be careful as the wheels can freeze on ice."
+			"value": "Be careful as the wheels can freeze on the ice."
 		}
 
 	]
