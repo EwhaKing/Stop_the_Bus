@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Steamworks;
 
 public class bus : MonoBehaviour{
 
@@ -37,6 +38,7 @@ public class bus : MonoBehaviour{
 
     void Start()
     {
+        SteamUserStats.ResetAllStats(true);
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
         rb.centerOfMass = new Vector3(0, -0.218f, 0.173f); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
@@ -250,16 +252,28 @@ public class bus : MonoBehaviour{
     void OnTriggerEnter(Collider col){
         if (col.gameObject.CompareTag("gravel")){
             accel = 0.02f;
+            return;
         }
 
         if (col.gameObject.CompareTag("gameOver")){
             isOut = true;
+            return;
         }
 
         if(col.gameObject.CompareTag("BlackIce") && icecheck == false)
         {
             icecheck = true;
             soundEffect(2); // 아이스 밟았을때 소리
+            return;
+        }
+
+        if (col.gameObject.name == "farm"){
+            bool flag = true;
+            SteamUserStats.GetAchievement("TEARS_OF_FARMER", out flag);
+            Debug.Log(flag);
+            if (flag) return;
+            SteamUserStats.SetAchievement("TEARS_OF_FARMER");
+            SteamUserStats.StoreStats();
         }
     }
 
@@ -275,6 +289,10 @@ public class bus : MonoBehaviour{
     }
 
     void OnTriggerExit(Collider col){
+        if (col.gameObject.CompareTag("gravel")){
+            accel = 0.01f;
+            return;
+        }
         if(col.gameObject.CompareTag("BlackIce")){
             icecheck = false;
         }
@@ -282,15 +300,21 @@ public class bus : MonoBehaviour{
         {
             puddle = false;
         }
-        if (col.gameObject.CompareTag("gravel")){
-            accel = 0.01f;
-        }
+        
     }
     
 
     void OnCollisionEnter(Collision col){
         if (col.collider.CompareTag("gameOver")){
             isOut = true;
+            return;
+        }
+        if (col.collider.CompareTag("car")){
+            bool flag;
+            SteamUserStats.GetAchievement("GANG_ON_THE_LOAD", out flag);
+            if (flag) return;
+            SteamUserStats.SetAchievement("GANG_ON_THE_LOAD");
+            SteamUserStats.StoreStats();
         }
     }
 

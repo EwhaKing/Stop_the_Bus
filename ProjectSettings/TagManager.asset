@@ -32,6 +32,7 @@ TagManager:
   - WinterBump5
   - WinterBump6
   - WinterBump7
+  - car
   layers:
   - Default
   - TransparentFX
