@@ -18,6 +18,7 @@ public class data : MonoBehaviour
     public static float background = -10f;
     public static float effect = -10f;
     public static bool mute = false;
+
     void Awake(){
         //PlayerPrefs.SetString("lang","localizedText_kr");
     }
