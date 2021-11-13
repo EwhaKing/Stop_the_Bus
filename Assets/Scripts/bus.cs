@@ -38,7 +38,6 @@ public class bus : MonoBehaviour{
 
     void Start()
     {
-        SteamUserStats.ResetAllStats(true);
         rb = GetComponent<Rigidbody>(); //리지드바디를 받아온다.
         rb.centerOfMass = new Vector3(0, -0.218f, 0.173f); //무게중심을 가운데로 맞춰서 안정적으로 주행하도록 한다.*/
         velocity = 0;
