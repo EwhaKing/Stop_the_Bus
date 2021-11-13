@@ -17,9 +17,10 @@ public class data : MonoBehaviour
     //볼륨상수
     public static float background = -10f;
     public static float effect = -10f;
+    public static bool mute = false;
 
     void Awake(){
-        PlayerPrefs.SetString("lang","localizedText_kr");
+        //PlayerPrefs.SetString("lang","localizedText_kr");
     }
     // 더 추가할 거 있으면 추가하셔요~
 }

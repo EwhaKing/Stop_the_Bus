@@ -118,11 +118,11 @@
 		},
 		{
 			"key": "txt_tuto2",
-			"value": "Press A button"
+			"value": "Press [A] button"
 		},
 		{
 			"key": "txt_tuto3",
-			"value": "Press D button"
+			"value": "Press [D] button"
 		},
 		{
 			"key": "txt_tuto4",
@@ -146,19 +146,19 @@
 		},
 		{
 			"key": "txt_loading1",
-			"value": "People complain when the bus doesn't move"
+			"value": "Passengers complain when the bus stays for a long time."
 		},
 		{
 			"key": "txt_loading2",
-			"value": "Be careful about changing directions in puddles"
+			"value": "Be aware of the puddle because it makes the bus slip!"
 		},
 		{
 			"key": "txt_loading3",
-			"value": "Be careful of speed control on asphalt pavement."
+			"value": "Pay attention to speed control in the asphalt pavement!"
 		},
 		{
 			"key": "txt_loading4",
-			"value": "Be careful as the wheels can freeze on ice."
+			"value": "Be careful as the wheels can freeze on the ice."
 		}
 
 	]

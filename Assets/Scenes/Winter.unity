@@ -11793,7 +11793,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 591782112}
   m_HandleRect: {fileID: 1138804780}
   m_Direction: 0
-  m_MinValue: -40
+  m_MinValue: -50
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
@@ -13298,6 +13298,7 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 3ad7fece46c827444b0846ba38a8b58a, type: 2}
   backSlider: {fileID: 2085617750}
   effectSlider: {fileID: 1034291525}
+  volumeMute: {fileID: 0}
 --- !u!114 &1201259152
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class TutorialEndSign : MonoBehaviour
         {
             popup.SetActive(true);
             clickPanel.SetActive(true);
+            //if(!steam_get_achievement("DRIVERS_LICENSE")) steam_set_achievement("DRIVERS_LICENSE");
         }
     }
 

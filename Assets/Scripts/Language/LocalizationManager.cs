@@ -14,7 +14,6 @@ public class LocalizationManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
         //싱글톤 패턴
         if(instance == null)
         {
@@ -27,6 +26,7 @@ public class LocalizationManager : MonoBehaviour
         }
         
         LoadLocalizedText(PlayerPrefs.GetString("lang"));
+        Debug.Log("지금설정 : "+PlayerPrefs.GetString("lang"));
     }
 
 
