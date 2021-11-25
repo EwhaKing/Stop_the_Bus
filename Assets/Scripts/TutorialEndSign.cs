@@ -40,9 +40,9 @@ public class TutorialEndSign : MonoBehaviour
         {
             popup.SetActive(true);
             clickPanel.SetActive(true);
+            //SteamUserStats.ResetAllStats(true);
             SteamUserStats.SetAchievement("NEWBIE_DRIVER");
             SteamUserStats.StoreStats();
-            //if(!steam_get_achievement("NEWBIE_DRIVER")) steam_set_achievement("NEWBIE_DRIVER");
         }
     }
 
