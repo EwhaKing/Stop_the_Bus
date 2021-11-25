@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class BestScore : MonoBehaviour
 {
     //계절별 기록 창
@@ -53,6 +54,7 @@ public class BestScore : MonoBehaviour
             PlayerPrefs.SetInt("SpringMin", Min);
             PlayerPrefs.SetInt("SpringSec", Sec);
             PlayerPrefs.SetInt("SpringPass", Passengers);
+            ScoreAchieve.UpdateStats();
         }
         else if (ComfortNum == SpringComfortNum)    //만족도가 같으면 시간 비교
         {
@@ -61,6 +63,7 @@ public class BestScore : MonoBehaviour
                 PlayerPrefs.SetInt("SpringMin", Min);
                 PlayerPrefs.SetInt("SpringSec", Sec);
                 PlayerPrefs.SetInt("SpringPass", Passengers);
+                ScoreAchieve.UpdateStats();
             }
             else if (Min == SpringMin)
             {
@@ -68,11 +71,16 @@ public class BestScore : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("SpringSec", Sec);
                     PlayerPrefs.SetInt("SpringPass", Passengers);
+                    ScoreAchieve.UpdateStats();
                 }
                 else if (Sec == SpringSec)          //시간이 같으면 손님수 비교 
                 {
                     if (Passengers > SpringPass)
+                    {
                         PlayerPrefs.SetInt("SpringPass", Passengers);
+                        ScoreAchieve.UpdateStats();
+                    }
+                        
                 }
             }
 
@@ -105,6 +113,7 @@ public class BestScore : MonoBehaviour
             PlayerPrefs.SetInt("SummerMin", Min);
             PlayerPrefs.SetInt("SummerSec", Sec);
             PlayerPrefs.SetInt("SummerPass", Passengers);
+            ScoreAchieve.UpdateStats();
         }
         else if (ComfortNum == SummerComfortNum)    //만족도가 같으면 시간 비교
         {
@@ -113,6 +122,7 @@ public class BestScore : MonoBehaviour
                 PlayerPrefs.SetInt("SummerMin", Min);
                 PlayerPrefs.SetInt("SummerSec", Sec);
                 PlayerPrefs.SetInt("SummerPass", Passengers);
+                ScoreAchieve.UpdateStats();
             }
             else if (Min == SummerMin)
             {
@@ -120,11 +130,16 @@ public class BestScore : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("SummerSec", Sec);
                     PlayerPrefs.SetInt("SummerPass", Passengers);
+                    ScoreAchieve.UpdateStats();
                 }
                 else if (Sec == SummerSec)          //시간이 같으면 손님수 비교 
                 {
                     if (Passengers > SummerPass)
+                    {
                         PlayerPrefs.SetInt("SummerPass", Passengers);
+                        ScoreAchieve.UpdateStats();
+                    }
+                        
                 }
             }
 
@@ -157,6 +172,7 @@ public class BestScore : MonoBehaviour
             PlayerPrefs.SetInt("FallMin", Min);
             PlayerPrefs.SetInt("FallSec", Sec);
             PlayerPrefs.SetInt("FallPass", Passengers);
+            ScoreAchieve.UpdateStats();
         }
         else if (ComfortNum == FallComfortNum)    //만족도가 같으면 시간 비교
         {
@@ -165,6 +181,7 @@ public class BestScore : MonoBehaviour
                 PlayerPrefs.SetInt("FallMin", Min);
                 PlayerPrefs.SetInt("FallSec", Sec);
                 PlayerPrefs.SetInt("FallPass", Passengers);
+                ScoreAchieve.UpdateStats();
             }
             else if (Min == FallMin)
             {
@@ -172,11 +189,16 @@ public class BestScore : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("FallSec", Sec);
                     PlayerPrefs.SetInt("FallPass", Passengers);
+                    ScoreAchieve.UpdateStats();
                 }
                 else if (Sec == FallSec)          //시간이 같으면 손님수 비교 
                 {
                     if (Passengers > FallPass)
+                    {
                         PlayerPrefs.SetInt("FallPass", Passengers);
+                        ScoreAchieve.UpdateStats();
+                    }
+                        
                 }
             }
         }
@@ -208,6 +230,7 @@ public class BestScore : MonoBehaviour
             PlayerPrefs.SetInt("WinterMin", Min);
             PlayerPrefs.SetInt("WinterSec", Sec);
             PlayerPrefs.SetInt("WinterPass", Passengers);
+            ScoreAchieve.UpdateStats();
         }
         else if (ComfortNum == WinterComfortNum)    //만족도가 같으면 시간 비교
         {
@@ -216,6 +239,7 @@ public class BestScore : MonoBehaviour
                 PlayerPrefs.SetInt("WinterMin", Min);
                 PlayerPrefs.SetInt("WinterSec", Sec);
                 PlayerPrefs.SetInt("WinterPass", Passengers);
+                ScoreAchieve.UpdateStats();
             }
             else if (Min == WinterMin)
             {
@@ -223,11 +247,16 @@ public class BestScore : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("WinterSec", Sec);
                     PlayerPrefs.SetInt("WinterPass", Passengers);
+                    ScoreAchieve.UpdateStats();
                 }
                 else if (Sec == WinterSec)          //시간이 같으면 손님수 비교 
                 {
                     if (Passengers > WinterPass)
+                    {
                         PlayerPrefs.SetInt("WinterPass", Passengers);
+                        ScoreAchieve.UpdateStats();
+                    }
+                        
                 }
             }
         }
