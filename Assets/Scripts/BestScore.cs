@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using Steamworks;
 
 public class BestScore : MonoBehaviour
 {
@@ -264,6 +264,17 @@ public class BestScore : MonoBehaviour
 
     private void Update()
     {
+        if (!SteamManager.Initialized) { return; }
+
+        if(PlayerPrefs.GetInt("SpringComfortNum") == 1 && PlayerPrefs.GetInt("SummerComfortNum") == 1 && PlayerPrefs.GetInt("FallComfortNum") == 1 && PlayerPrefs.GetInt("WinterComfortNum") == 1)
+        {
+            Debug.Log("Wow");
+            SteamUserStats.SetAchievement("STABLE_RIDE");
+            SteamUserStats.StoreStats();
+        }
+
+
+
         //봄
         if(PlayerPrefs.HasKey("SpringComfortNum"))
         {
