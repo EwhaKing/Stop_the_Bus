@@ -2054,6 +2054,18 @@ MonoBehaviour:
   - {fileID: 1082719460}
   - {fileID: 1999260647}
   accel: 0.01
+--- !u!114 &164892921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164892917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835c5c74de57be14f9cfe1fb2a0630b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &164892922
 BoxCollider:
   m_ObjectHideFlags: 0
