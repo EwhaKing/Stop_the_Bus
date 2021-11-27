@@ -266,6 +266,12 @@ public class BestScore : MonoBehaviour
     {
         if (!SteamManager.Initialized) { return; }
 
+        if(PlayerPrefs.HasKey("SpringComfortNum") && PlayerPrefs.HasKey("SummerComfortNum") && PlayerPrefs.HasKey("FallComfortNum") && PlayerPrefs.HasKey("WinterComfortNum"))
+        {
+            SteamUserStats.SetAchievement("BEST_DRIVER");
+            SteamUserStats.StoreStats();
+        }
+
         if(PlayerPrefs.GetInt("SpringComfortNum") == 1 && PlayerPrefs.GetInt("SummerComfortNum") == 1 && PlayerPrefs.GetInt("FallComfortNum") == 1 && PlayerPrefs.GetInt("WinterComfortNum") == 1)
         {
             Debug.Log("Wow");
