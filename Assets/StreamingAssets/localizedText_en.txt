@@ -54,7 +54,7 @@
 		},
 		{
 			"key": "rcd_comfort",
-			"value": "Comfort"
+			"value": "Comfortability"
 		},
 		{
 			"key": "out",
@@ -114,27 +114,27 @@
 		},
 		{
 			"key": "txt_tuto1",
-			"value": "Rotate the mouse in the circle"
+			"value": "Spin the mouse inside the circle to go straight"
 		},
 		{
 			"key": "txt_tuto2",
-			"value": "Press [A] button"
+			"value": "Press [A] button to turn left at the corner"
 		},
 		{
 			"key": "txt_tuto3",
-			"value": "Press [D] button"
+			"value": "Press [D] button to turn right at the corner"
 		},
 		{
 			"key": "txt_tuto4",
-			"value": "Pick up passengers"
+			"value": "Pick up the passengers"
 		},
 		{
 			"key": "txt_tuto5",
-			"value": "Wait in the white line"
+			"value": "Wait inside the white dotted line"
 		},
 		{
 			"key": "txt_tuto6",
-			"value": "Keep the speed limit"
+			"value": "Keep the speed limit on the speed bump"
 		},
 		{
 			"key": "txt_tuto7",
@@ -142,7 +142,7 @@
 		},
 		{
 			"key": "txt_tuto8",
-			"value": "Stop in the red line"
+			"value": "Stop inside the red dotted line"
 		},
 		{
 			"key": "txt_loading1",

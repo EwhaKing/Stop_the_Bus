@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Steamworks;
 
 public class TutorialEndSign : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class TutorialEndSign : MonoBehaviour
         wheel4 = false;
     }
 
+    private void Update() {
+        if(!SteamManager.Initialized){return;} 
+    }
+
     void OnTriggerStay(Collider coll)
     {
         wheel = coll.gameObject.name;
@@ -30,11 +35,14 @@ public class TutorialEndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
+        
         if (wheel1 && wheel2 && wheel3 && wheel4 && bus.speed == 0)
         {
             popup.SetActive(true);
             clickPanel.SetActive(true);
-            //if(!steam_get_achievement("DRIVERS_LICENSE")) steam_set_achievement("DRIVERS_LICENSE");
+            //SteamUserStats.ResetAllStats(true);
+            SteamUserStats.SetAchievement("NEWBIE_DRIVER");
+            SteamUserStats.StoreStats();
         }
     }
 

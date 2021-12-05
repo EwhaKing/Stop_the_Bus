@@ -1523,6 +1523,7 @@ MonoBehaviour:
   obj60: {fileID: 970732239}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 191415153}
+  count: 0
   rd: {fileID: 750707318}
 --- !u!65 &191415155
 BoxCollider:
@@ -2479,6 +2480,7 @@ MonoBehaviour:
   obj60: {fileID: 970732239}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 322099578}
+  count: 0
   rd: {fileID: 750707318}
 --- !u!65 &322099580
 BoxCollider:
@@ -4250,6 +4252,7 @@ MonoBehaviour:
   obj60: {fileID: 970732239}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 485234604}
+  count: 0
   rd: {fileID: 750707318}
 --- !u!65 &485234606
 BoxCollider:
@@ -6631,6 +6634,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750707314}
   m_Enabled: 1
+--- !u!114 &750707322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750707314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835c5c74de57be14f9cfe1fb2a0630b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &773060495
 GameObject:
   m_ObjectHideFlags: 0
@@ -8755,6 +8770,7 @@ MonoBehaviour:
   obj60: {fileID: 970732239}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 1063690309}
+  count: 0
   rd: {fileID: 750707318}
 --- !u!65 &1063690311
 BoxCollider:
@@ -14767,6 +14783,18 @@ MonoBehaviour:
   Time: {fileID: 1961236007}
   Face: {fileID: 2051499142}
   clickPanel: {fileID: 1077279640}
+--- !u!114 &1830691226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830691222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25388d2b81de5449b7cd02eaa9483e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1830691228
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -2054,6 +2054,18 @@ MonoBehaviour:
   - {fileID: 1082719460}
   - {fileID: 1999260647}
   accel: 0.01
+--- !u!114 &164892921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164892917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835c5c74de57be14f9cfe1fb2a0630b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &164892922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3326,6 +3338,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 280288214}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!82 &280288217
 AudioSource:
@@ -5157,6 +5170,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 476622473}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!82 &476622476
 AudioSource:
@@ -7049,6 +7063,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 664698675}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!82 &664698678
 AudioSource:
@@ -11866,6 +11881,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1958093039}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1045648953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045648948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25388d2b81de5449b7cd02eaa9483e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046537012
 GameObject:
   m_ObjectHideFlags: 0
@@ -14296,6 +14323,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 1266490899}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!82 &1266490902
 AudioSource:
@@ -14746,6 +14774,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 1319346050}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!65 &1319346052
 BoxCollider:
@@ -21271,6 +21300,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 1950406434}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!82 &1950406437
 AudioSource:
@@ -22629,6 +22659,7 @@ MonoBehaviour:
   obj60: {fileID: 1515202828}
   audioBump: {fileID: 8300000, guid: d567f2697db7ad54ea1e4556aea97b6e, type: 3}
   bump: {fileID: 2120120483}
+  count: 0
   rd: {fileID: 164892923}
 --- !u!82 &2120120486
 AudioSource:

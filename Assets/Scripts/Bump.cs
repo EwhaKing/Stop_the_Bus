@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Steamworks;
 
 public class Bump : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class Bump : MonoBehaviour
     public AudioClip audioBump;
     public GameObject bump; // 방지턱
     private int rand;
-    public int count = 0; // 방지턱 속도 위반 횟수
 
     AudioSource audioSource;
     public Rigidbody rd;
@@ -477,9 +477,7 @@ public class Bump : MonoBehaviour
         {
             if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
-                // 충돌 횟수 증가
-                count++;
-                Debug.Log(count);
+                SpeedAchieve.UpdateStats();
                 // 충돌 효과음 내기
                 audioSource.mute = false;
                 audioSource.Play();
