@@ -41,8 +41,8 @@ public class SpringAssign : MonoBehaviour
         EachPass[1] = b;
         EachPass[2] = c;
 
-        Debug.Log("첫번째 정류장 : " + EachPass[0] + "명");
-        Debug.Log("두번째 정류장 : " + EachPass[1] + "명");
-        Debug.Log("세번째 정류장 : " + EachPass[2] + "명");
+        //Debug.Log("첫번째 정류장 : " + EachPass[0] + "명");
+        //Debug.Log("두번째 정류장 : " + EachPass[1] + "명");
+        //Debug.Log("세번째 정류장 : " + EachPass[2] + "명");
     }
 }

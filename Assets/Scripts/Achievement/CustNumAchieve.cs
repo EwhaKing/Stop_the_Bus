@@ -15,7 +15,7 @@ public class CustNumAchieve : MonoBehaviour
         SteamUserStats.RequestCurrentStats();
 
         SteamUserStats.GetStat("PASSENGER_COUNT", out countPassenger);
-        Debug.Log(countPassenger);
+        //Debug.Log(countPassenger);
 
         //SteamUserStats.ResetAllStats(true);
 
@@ -33,7 +33,7 @@ public class CustNumAchieve : MonoBehaviour
         
         SteamUserStats.GetStat("PASSENGER_COUNT", out temp);
         SteamUserStats.SetStat("PASSENGER_COUNT", ++temp);
-        Debug.Log(temp);
+        //Debug.Log(temp);
 
         SteamUserStats.StoreStats();
     }
