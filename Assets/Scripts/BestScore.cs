@@ -274,7 +274,6 @@ public class BestScore : MonoBehaviour
 
         if(PlayerPrefs.GetInt("SpringComfortNum") == 1 && PlayerPrefs.GetInt("SummerComfortNum") == 1 && PlayerPrefs.GetInt("FallComfortNum") == 1 && PlayerPrefs.GetInt("WinterComfortNum") == 1)
         {
-            Debug.Log("Wow");
             SteamUserStats.SetAchievement("STABLE_RIDE");
             SteamUserStats.StoreStats();
         }
