@@ -71,9 +71,9 @@ public class FallAssign : MonoBehaviour
         EachPass[2] = c;
         EachPass[3] = d;
 
-        Debug.Log("첫번째 정류장 : " + EachPass[0] + "명");
-        Debug.Log("두번째 정류장 : " + EachPass[1] + "명");
-        Debug.Log("세번째 정류장 : " + EachPass[2] + "명");
-        Debug.Log("네번째 정류장 : " + EachPass[3] + "명");
+        //Debug.Log("첫번째 정류장 : " + EachPass[0] + "명");
+        //Debug.Log("두번째 정류장 : " + EachPass[1] + "명");
+        //Debug.Log("세번째 정류장 : " + EachPass[2] + "명");
+        //Debug.Log("네번째 정류장 : " + EachPass[3] + "명");
     }
 }
