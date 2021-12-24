@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Steamworks;
 
 public class TutorialEndSign : MonoBehaviour
 {
@@ -19,9 +18,6 @@ public class TutorialEndSign : MonoBehaviour
         wheel4 = false;
     }
 
-    private void Update() {
-        if(!SteamManager.Initialized){return;} 
-    }
 
     void OnTriggerStay(Collider coll)
     {
@@ -40,9 +36,6 @@ public class TutorialEndSign : MonoBehaviour
         {
             popup.SetActive(true);
             clickPanel.SetActive(true);
-            //SteamUserStats.ResetAllStats(true);
-            SteamUserStats.SetAchievement("NEWBIE_DRIVER");
-            SteamUserStats.StoreStats();
         }
     }
 

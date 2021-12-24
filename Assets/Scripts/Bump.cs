@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Steamworks;
 
 public class Bump : MonoBehaviour
 {
@@ -486,7 +485,6 @@ public class Bump : MonoBehaviour
                 rd.AddRelativeForce(new Vector3(0, 0, -1) * 50000);
                 
                 if (isBumping) return;
-                SpeedAchieve.UpdateStats();
                 StartCoroutine(Bumping());
             }
         }

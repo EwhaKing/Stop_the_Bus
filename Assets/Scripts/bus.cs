@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-using Steamworks;
 
 public class bus : MonoBehaviour{
 
@@ -265,15 +264,6 @@ public class bus : MonoBehaviour{
             soundEffect(2); // 아이스 밟았을때 소리
             return;
         }
-
-        if (col.gameObject.name == "farm"){
-            bool flag = true;
-            SteamUserStats.GetAchievement("TEARS_OF_FARMER", out flag);
-            Debug.Log(flag);
-            if (flag) return;
-            SteamUserStats.SetAchievement("TEARS_OF_FARMER");
-            SteamUserStats.StoreStats();
-        }
     }
 
     void OnTriggerStay(Collider col) {
@@ -307,13 +297,6 @@ public class bus : MonoBehaviour{
         if (col.collider.CompareTag("gameOver")){
             isOut = true;
             return;
-        }
-        if (col.collider.CompareTag("car")){
-            bool flag;
-            SteamUserStats.GetAchievement("GANG_ON_THE_LOAD", out flag);
-            if (flag) return;
-            SteamUserStats.SetAchievement("GANG_ON_THE_LOAD");
-            SteamUserStats.StoreStats();
         }
     }
 
