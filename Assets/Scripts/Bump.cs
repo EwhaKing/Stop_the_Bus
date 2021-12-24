@@ -13,6 +13,7 @@ public class Bump : MonoBehaviour
     public AudioClip audioBump;
     public GameObject bump; // 방지턱
     private int rand;
+    private bool isBumping; // 방지턱에 걸려서 날아가는중인지
 
     AudioSource audioSource;
     public Rigidbody rd;
@@ -20,7 +21,7 @@ public class Bump : MonoBehaviour
     void Start()
     {
         rand = Random.Range(3, 7); // 변수에 랜덤으로 3, 4, 5, 6 저장
-
+        isBumping = false; // 시작할때 무조건 초기화 
         // 속도 지정 및 표지판 생성
         if (bump.CompareTag("SpringBump1"))
         {
@@ -477,15 +478,24 @@ public class Bump : MonoBehaviour
         {
             if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
-                SpeedAchieve.UpdateStats();
-                // 충돌 효과음 내기
                 audioSource.mute = false;
                 audioSource.Play();
                 // 버스 튀어오르는 모션
                 rd.AddRelativeForce(new Vector3(1, 0, 0) * 300000);
                 rd.AddRelativeForce(new Vector3(0, 1, 0) * 800000);
-                rd.AddRelativeForce(new Vector3(0, 0, -1) * 500000);
+                rd.AddRelativeForce(new Vector3(0, 0, -1) * 50000);
+                
+                if (isBumping) return;
+                SpeedAchieve.UpdateStats();
+                StartCoroutine(Bumping());
             }
         }
+    }
+
+    IEnumerator Bumping()
+    {
+        isBumping = true;
+        yield return new WaitForSeconds(3.0f);
+        isBumping = false;
     }
 }

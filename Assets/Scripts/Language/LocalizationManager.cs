@@ -25,8 +25,10 @@ public class LocalizationManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        LoadLocalizedText(PlayerPrefs.GetString("lang"));
-        Debug.Log("지금설정 : "+PlayerPrefs.GetString("lang"));
+        if (PlayerPrefs.HasKey("lang")) {
+            LoadLocalizedText(PlayerPrefs.GetString("lang"));
+        }
+        else LoadLocalizedText("localizedText_kr");
     }
 
 

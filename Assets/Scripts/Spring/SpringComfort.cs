@@ -84,7 +84,7 @@ public class SpringComfort : MonoBehaviour
         else
             time = 0;   //속도가 0이 아니면 다시 시간 카운트 0으로 설정
 
-        Debug.Log("만족도 : " + comfort);
+        //Debug.Log("만족도 : " + comfort);
     }
 
     public static int GetComfort()

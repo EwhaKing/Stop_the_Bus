@@ -10,12 +10,13 @@ public class CustNumAchieve : MonoBehaviour
     
     void Update()
     {
+        /*
         if (!SteamManager.Initialized) { return; }
 
         SteamUserStats.RequestCurrentStats();
 
         SteamUserStats.GetStat("PASSENGER_COUNT", out countPassenger);
-        Debug.Log(countPassenger);
+        //Debug.Log(countPassenger);
 
         //SteamUserStats.ResetAllStats(true);
 
@@ -24,7 +25,7 @@ public class CustNumAchieve : MonoBehaviour
         if (countPassenger == 200) { SteamUserStats.SetAchievement("200TH_PASSENGER"); }
              
         SteamUserStats.StoreStats();
-
+*/
     }
 
     public static void UpdateStats()
@@ -32,8 +33,12 @@ public class CustNumAchieve : MonoBehaviour
         SteamUserStats.RequestCurrentStats();
         
         SteamUserStats.GetStat("PASSENGER_COUNT", out temp);
-        SteamUserStats.SetStat("PASSENGER_COUNT", ++temp);
-        Debug.Log(temp);
+        temp += 1;
+        SteamUserStats.SetStat("PASSENGER_COUNT", temp);
+
+        if (temp == 1) { SteamUserStats.SetAchievement("FIRST_PASSENGER"); }
+        else if (temp == 100) { SteamUserStats.SetAchievement("100TH_PASSENGER"); }
+        else if (temp == 200) { SteamUserStats.SetAchievement("200TH_PASSENGER"); }
 
         SteamUserStats.StoreStats();
     }
