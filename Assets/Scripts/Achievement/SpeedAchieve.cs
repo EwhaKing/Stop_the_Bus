@@ -10,6 +10,7 @@ public class SpeedAchieve : MonoBehaviour
 
     void Update()
     {
+        /*
         if(!SteamManager.Initialized) { return; }
 
         SteamUserStats.RequestCurrentStats();
@@ -20,6 +21,7 @@ public class SpeedAchieve : MonoBehaviour
         if(countSpeedNum == 20) { SteamUserStats.SetAchievement("BUS_FLY"); }
 
         SteamUserStats.StoreStats();
+        */
 
     }
 
@@ -28,9 +30,10 @@ public class SpeedAchieve : MonoBehaviour
         SteamUserStats.RequestCurrentStats();
 
         SteamUserStats.GetStat("SPEEDNUM_COUNT", out temp);
-        SteamUserStats.SetStat("SPEEDNUM_COUNT", ++temp);
-        Debug.Log(temp);
-
+        temp += 1;
+        SteamUserStats.SetStat("SPEEDNUM_COUNT", temp);
+        
+        if(temp == 20) { SteamUserStats.SetAchievement("BUS_FLY"); }
         SteamUserStats.StoreStats();
     }
 }
