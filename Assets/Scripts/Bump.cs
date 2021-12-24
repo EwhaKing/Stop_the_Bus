@@ -21,7 +21,7 @@ public class Bump : MonoBehaviour
     void Start()
     {
         rand = Random.Range(3, 7); // 변수에 랜덤으로 3, 4, 5, 6 저장
-
+        isBumping = false; // 시작할때 무조건 초기화 
         // 속도 지정 및 표지판 생성
         if (bump.CompareTag("SpringBump1"))
         {
