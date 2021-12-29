@@ -5,35 +5,17 @@ using Steamworks;
 
 public class SpeedAchieve : MonoBehaviour
 {
-    int countSpeedNum;
-    static int temp;
-
-    void Update()
-    {
-        /*
-        if(!SteamManager.Initialized) { return; }
-
-        SteamUserStats.RequestCurrentStats();
-
-        SteamUserStats.GetStat("SPEEDNUM_COUNT", out countSpeedNum);
-        Debug.Log(countSpeedNum);
-
-        if(countSpeedNum == 20) { SteamUserStats.SetAchievement("BUS_FLY"); }
-
-        SteamUserStats.StoreStats();
-        */
-
-    }
+    static int speedNum;
 
     public static void UpdateStats()
     {
         SteamUserStats.RequestCurrentStats();
 
-        SteamUserStats.GetStat("SPEEDNUM_COUNT", out temp);
-        temp += 1;
-        SteamUserStats.SetStat("SPEEDNUM_COUNT", temp);
+        SteamUserStats.GetStat("SPEEDNUM_COUNT", out speedNum);
+        speedNum += 1;
+        SteamUserStats.SetStat("SPEEDNUM_COUNT", speedNum);
         
-        if(temp == 20) { SteamUserStats.SetAchievement("BUS_FLY"); }
+        if(speedNum == 20) { SteamUserStats.SetAchievement("BUS_FLY"); }
         SteamUserStats.StoreStats();
     }
 }

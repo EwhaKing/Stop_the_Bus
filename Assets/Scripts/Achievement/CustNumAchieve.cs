@@ -5,40 +5,21 @@ using Steamworks;
 
 public class CustNumAchieve : MonoBehaviour
 {
-    int countPassenger;
-    static int temp;
     
-    void Update()
-    {
-        /*
-        if (!SteamManager.Initialized) { return; }
-
-        SteamUserStats.RequestCurrentStats();
-
-        SteamUserStats.GetStat("PASSENGER_COUNT", out countPassenger);
-        //Debug.Log(countPassenger);
-
-        //SteamUserStats.ResetAllStats(true);
-
-        if (countPassenger == 1) { SteamUserStats.SetAchievement("FIRST_PASSENGER"); }
-        if (countPassenger == 100) { SteamUserStats.SetAchievement("100TH_PASSENGER"); }
-        if (countPassenger == 200) { SteamUserStats.SetAchievement("200TH_PASSENGER"); }
-             
-        SteamUserStats.StoreStats();
-*/
-    }
-
+    static int custNum;
+    
     public static void UpdateStats()
     {
         SteamUserStats.RequestCurrentStats();
         
-        SteamUserStats.GetStat("PASSENGER_COUNT", out temp);
-        temp += 1;
-        SteamUserStats.SetStat("PASSENGER_COUNT", temp);
+        SteamUserStats.GetStat("PASSENGER_COUNT", out custNum);
+        custNum += 1;
+        SteamUserStats.SetStat("PASSENGER_COUNT", custNum);
 
-        if (temp == 1) { SteamUserStats.SetAchievement("FIRST_PASSENGER"); }
-        else if (temp == 100) { SteamUserStats.SetAchievement("100TH_PASSENGER"); }
-        else if (temp == 200) { SteamUserStats.SetAchievement("200TH_PASSENGER"); }
+        if (custNum > 200) return;
+        else if (custNum == 1) { SteamUserStats.SetAchievement("FIRST_PASSENGER"); }
+        else if (custNum == 100) { SteamUserStats.SetAchievement("100TH_PASSENGER"); }
+        else if (custNum == 200) { SteamUserStats.SetAchievement("200TH_PASSENGER"); }
 
         SteamUserStats.StoreStats();
     }
