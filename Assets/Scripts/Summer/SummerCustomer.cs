@@ -112,6 +112,7 @@ public class SummerCustomer : MonoBehaviour
                             SummerTotal.ActiveCustomer(SummerTotal.SumOfCus);
                             Destroy(passengers[0]);
                             passengers.RemoveAt(0);
+                            CustNumAchieve.UpdateStats();
                             foreach (GameObject pas in passengers)
                                 pas.transform.localPosition =
                                     new Vector3(pas.transform.localPosition.x + 0.0025f, pas.transform.localPosition.y, pas.transform.localPosition.z);
@@ -152,6 +153,7 @@ public class SummerCustomer : MonoBehaviour
                     SummerTotal.ActiveCustomer(TutorialTotal.SumOfCus);
                     Destroy(passengers[0]);
                     passengers.RemoveAt(0);
+                    CustNumAchieve.UpdateStats();
                 }
                 audioSource.clip = customerEnd;
                 audioSource.Play();
