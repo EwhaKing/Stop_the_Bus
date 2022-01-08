@@ -5,56 +5,40 @@ using Steamworks;
 
 public class ScoreAchieve : MonoBehaviour
 {
-    int countNewScore;
-    static int temp;
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!SteamManager.Initialized) { return; }
-
-        SteamUserStats.RequestCurrentStats();
-
-        SteamUserStats.GetStat("NEW_RECORD_COUNT", out countNewScore);
-        Debug.Log(countNewScore);
-
-        //SteamUserStats.ResetAllStats(true);
-        
-        if (countNewScore == 1) 
-        {
-            SteamUserStats.SetAchievement("FASTER_1ST"); 
-        }
-        
-        if (countNewScore == 3) 
-        {
-            SteamUserStats.SetAchievement("FASTER_3RD");
-        }
-        
-        if (countNewScore == 5) 
-        {
-            SteamUserStats.SetAchievement("FASTER_5TH");
-        }
-
-        if (countNewScore == 10) 
-        {
-            SteamUserStats.SetAchievement("FASTER_10TH");
-        }
-        
-        if (countNewScore == 20) 
-        {
-            SteamUserStats.SetAchievement("FASTER_20TH");
-        }
-
-        SteamUserStats.StoreStats();
-        
-    }
+    static int scoreNum;
 
     public static void UpdateStats()
     {
         SteamUserStats.RequestCurrentStats();
 
-        SteamUserStats.GetStat("NEW_RECORD_COUNT", out temp);
-        SteamUserStats.SetStat("NEW_RECORD_COUNT", ++temp);
+        SteamUserStats.GetStat("NEW_RECORD_COUNT", out scoreNum);
+        scoreNum += 1;
+        SteamUserStats.SetStat("NEW_RECORD_COUNT", scoreNum);
+
+        if (scoreNum > 20)
+        {
+            return;
+        }
+        else if (scoreNum == 1) 
+        {
+            SteamUserStats.SetAchievement("FASTER_1ST"); 
+        }
+        else if (scoreNum == 3) 
+        {
+            SteamUserStats.SetAchievement("FASTER_3RD");
+        }
+        else if (scoreNum == 5) 
+        {
+            SteamUserStats.SetAchievement("FASTER_5TH");
+        }
+        else if (scoreNum == 10) 
+        {
+            SteamUserStats.SetAchievement("FASTER_10TH");
+        }
+        else if (scoreNum == 20) 
+        {
+            SteamUserStats.SetAchievement("FASTER_20TH");
+        }
 
         SteamUserStats.StoreStats();
     }
