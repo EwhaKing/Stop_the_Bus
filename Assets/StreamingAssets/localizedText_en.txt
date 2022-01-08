@@ -118,11 +118,11 @@
 		},
 		{
 			"key": "txt_tuto2",
-			"value": "Press [A] button to turn left at the corner"
+			"value": "Press [A] button \nto turn left at the corner"
 		},
 		{
 			"key": "txt_tuto3",
-			"value": "Press [D] button to turn right at the corner"
+			"value": "Press [D] button \nto turn right at the corner"
 		},
 		{
 			"key": "txt_tuto4",
@@ -134,7 +134,7 @@
 		},
 		{
 			"key": "txt_tuto6",
-			"value": "Keep the speed limit on the speed bump"
+			"value": "Keep the speed limit \non the speed bump"
 		},
 		{
 			"key": "txt_tuto7",
