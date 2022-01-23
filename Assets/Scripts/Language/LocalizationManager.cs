@@ -28,7 +28,7 @@ public class LocalizationManager : MonoBehaviour
         if (PlayerPrefs.HasKey("lang")) {
             LoadLocalizedText(PlayerPrefs.GetString("lang"));
         }
-        else LoadLocalizedText("localizedText_kr");
+        else LoadLocalizedText("localizedText_en");
     }
 
 

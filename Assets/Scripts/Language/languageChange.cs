@@ -15,15 +15,10 @@ public class languageChange : MonoBehaviour {
     public void ChangeLang(){
         
         if (PlayerPrefs.GetString("lang") == "localizedText_kr") {
-            Debug.Log("지금설정 : "+PlayerPrefs.GetString("lang"));
             lang.LoadLocalizedText("localizedText_en");
-            Debug.Log("영어~~~");
         }
         else{
-            Debug.Log("지금설정 : "+PlayerPrefs.GetString("lang"));
             lang.LoadLocalizedText("localizedText_kr");
-            
-            Debug.Log("한국어~~~");
         }
     }
 }
