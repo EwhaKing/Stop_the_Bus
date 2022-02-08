@@ -99,8 +99,8 @@ public class bus : MonoBehaviour{
                 for(int i=0;i<4;i++) {
                     colls[i].brakeTorque = Mathf.Infinity;
                 }
-                if (speed > 0.1f) speed -=0.1f;
-                else if (speed < -0.1f) speed +=0.1f;
+                if (speed > 0.1f) speed -=0.15f;
+                else if (speed < -0.1f) speed +=0.15f;
                 else {
                     speed=0;
                     breaks = false;
@@ -112,7 +112,7 @@ public class bus : MonoBehaviour{
             speedT.text = sss.ToString();
 
             //1초 내에 속도변화가 일어나지 않으면 0.1초에 1씩 줄어듦
-            if (speed != 0 && Time.time - timecheck >= 0.1) {
+            if (speed != 0 && Time.time - timecheck >= 0.15) {
                 timecheck = Time.time;
                 if (speed < 0.1f && speed > -0.1f) speed = 0;
                 else if (speed > 0) speed-=0.1f;
@@ -137,15 +137,20 @@ public class bus : MonoBehaviour{
 
     void changeSpeed(){ //속도변화
 
-        velocity += 0.01f * mouse.crossP;
-        
-        if (velocity >= 1) {
+        velocity += 0.0005f * mouse.crossP;
+
+        if (velocity >= 1) { // 속도가 증가하기 위한 최소한의 마우스 회전속도
             speed += accel;
+            
+            // 마우스 회전 속도에 따른 추가속도 더하기
+            if (velocity >= 10) speed += velocity * 0.001f;
             velocity = 0;
             timecheck = Time.time;
         }
         else if (velocity <= -1){
             speed -= accel;
+
+            if (velocity <= -10) speed += velocity * 0.001f;
             velocity = 0;
             timecheck = Time.time;
         }
