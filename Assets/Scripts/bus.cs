@@ -100,7 +100,7 @@ public class bus : MonoBehaviour{
                     colls[i].brakeTorque = Mathf.Infinity;
                 }
                 if (speed > 0.1f) speed -=0.1f;
-                else if (speed < -0.1f) speed +=0.1;
+                else if (speed < -0.1f) speed +=0.1f;
                 else {
                     speed=0;
                     breaks = false;
