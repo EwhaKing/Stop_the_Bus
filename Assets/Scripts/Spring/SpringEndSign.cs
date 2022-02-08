@@ -6,14 +6,14 @@ using TMPro;
 
 public class SpringEndSign : MonoBehaviour
 {
-    public GameObject result;  //°á°ú ÆË¾÷Ã¢
-    public Timer timer;        //½Ã°£ °¡Á®¿À±â
-    public TextMeshProUGUI NumOfCus;      //ÆË¾÷Ã¢ ¼Õ´Ô ¼ö
-    public TextMeshProUGUI Time;          //ÆË¾÷Ã¢ ½Ã°£
-    public Image Face;         //ÆË¾÷Ã¢ ¸¸Á·µµ ÀÌ¹ÌÁö
+    public GameObject result;  //ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢
+    public Timer timer;        //ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public TextMeshProUGUI NumOfCus;      //ï¿½Ë¾ï¿½Ã¢ ï¿½Õ´ï¿½ ï¿½ï¿½
+    public TextMeshProUGUI Time;          //ï¿½Ë¾ï¿½Ã¢ ï¿½Ã°ï¿½
+    public Image Face;         //ï¿½Ë¾ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
     public GameObject clickPanel;
 
-    int comfortNum;     //¸¸Á·µµ 1(ÁÁÀ½), 0(º¸Åë), -1(³ª»Ý)
+    int comfortNum;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1(ï¿½ï¿½ï¿½ï¿½), 0(ï¿½ï¿½ï¿½ï¿½), -1(ï¿½ï¿½ï¿½ï¿½)
     int count;          //
 
     string wheel;
@@ -40,17 +40,17 @@ public class SpringEndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        if (wheel1 && wheel2 && wheel3 && wheel4 && bus.speed == 0)
+        if (wheel1 && wheel2 && wheel3 && wheel4 && bus.sss == 0)
         {
-            NumOfCus.text = SpringTotal.SumOfCus.ToString();      //°èÀý ½ºÅ©¸³Æ®º°
-            Timer.timerPause = true;         //½Ã°£ Á¤Áö
-            Time.text = timer.GetTime();    //½Ã°£ ÆË¾÷Ã¢
+            NumOfCus.text = SpringTotal.SumOfCus.ToString();      //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½
+            Timer.timerPause = true;         //ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+            Time.text = timer.GetTime();    //ï¿½Ã°ï¿½ ï¿½Ë¾ï¿½Ã¢
             SetResultFace();
             SpringComfort.end = true;
-            result.SetActive(true);     //¿£µù ÆË¾÷Ã¢ ³ªÅ¸³²
+            result.SetActive(true);     //ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢ ï¿½ï¿½Å¸ï¿½ï¿½
             clickPanel.SetActive(true);
 
-            //±â·Ï ¾÷µ¥ÀÌÆ®
+            //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             BestScore.UpdateSpring(comfortNum, timer.GetMin(), timer.GetSec(), SpringTotal.SumOfCus);
         }
     }
@@ -62,17 +62,17 @@ public class SpringEndSign : MonoBehaviour
         {
             if (comfort >= 80)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/±â·Ï_ÁÁÀ½");
+                Face.sprite = Resources.Load<Sprite>("UI/ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½");
                 comfortNum = 1;
             }
             else if (comfort >= 40)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/±â·Ï_º¸Åë");
+                Face.sprite = Resources.Load<Sprite>("UI/ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½");
                 comfortNum = 0;
             }
             else
             {
-                Face.sprite = Resources.Load<Sprite>("UI/±â·Ï_³ª»Ý");
+                Face.sprite = Resources.Load<Sprite>("UI/ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½");
                 comfortNum = -1;
             }
             count++;
