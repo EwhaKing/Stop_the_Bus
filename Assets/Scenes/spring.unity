@@ -6303,6 +6303,9 @@ MonoBehaviour:
   popup: {fileID: 541962791}
   panel: {fileID: 1077279640}
   outEff: {fileID: 497225688}
+  cursorMap: {fileID: 639566581}
+  bubble: {fileID: 1399056197}
+  defaltCursor: {fileID: 2800000, guid: 8b7374b8abae5284f9b794f7396c2abd, type: 3}
 --- !u!114 &715312601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6831,6 +6834,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 639566581}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1399056197}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &773060499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6992,6 +7017,28 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 639566581}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1399056197}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &782553440
 MonoBehaviour:
@@ -14834,6 +14881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fd4eaed1ab1554e8b4ae1943e1f839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMap: {fileID: 639566581}
+  bubble: {fileID: 1399056197}
+  defaltCursor: {fileID: 2800000, guid: 8b7374b8abae5284f9b794f7396c2abd, type: 3}
   result: {fileID: 1283426577}
   timer: {fileID: 1166248525}
   NumOfCus: {fileID: 455802804}
