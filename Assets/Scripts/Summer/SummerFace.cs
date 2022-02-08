@@ -24,7 +24,7 @@ public class SummerFace : MonoBehaviour
         comfort = SummerComfort.GetComfort();
 
         if (comfort >= 80)
-            face.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+            face.sprite = Resources.Load<Sprite>("UI/Record_good");
         else if (comfort >= 40)
         {
             if (audioCount == 0)
@@ -33,7 +33,7 @@ public class SummerFace : MonoBehaviour
                 ani.Play("face_change");
                 audioCount++;
             }
-            face.sprite = Resources.Load<Sprite>("UI/기록_보통");
+            face.sprite = Resources.Load<Sprite>("UI/Record_normal");
         }
         else
         {
@@ -43,7 +43,7 @@ public class SummerFace : MonoBehaviour
                 ani.Play("face_change");
                 audioCount++;
             }
-            face.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+            face.sprite = Resources.Load<Sprite>("UI/Record_bad");
         }
             
     }
