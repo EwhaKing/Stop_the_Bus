@@ -6,6 +6,10 @@ using TMPro;
 
 public class WinterEndSign : MonoBehaviour
 {
+    public GameObject cursorMap;
+    public GameObject bubble;
+    public Texture2D defaltCursor;
+    
     public GameObject result;  //결과 팝업창
     public Timer timer;        //시간 가져오기
     public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
@@ -50,6 +54,10 @@ public class WinterEndSign : MonoBehaviour
             result.SetActive(true);     //엔딩 팝업창 나타남
             clickPanel.SetActive(true);
 
+            cursorMap.SetActive(false);         // 커서 영역, 손님 수 말풍선 가리기
+            bubble.SetActive(false); 
+            Cursor.SetCursor (defaltCursor, Vector2.zero, CursorMode.Auto);
+            
             //기록 업데이트
             BestScore.UpdateWinter(comfortNum, timer.GetMin(), timer.GetSec(), WinterTotal.SumOfCus);
         }

@@ -49,10 +49,6 @@ public class LocalizationManager : MonoBehaviour
             {
                 localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
             }
-
-            //localizationText 데이터 불러오기 완료
-            Debug.Log("Data loaded. Dictionary containts :" + localizedText.Count + " entries");
-
         }
         else
         {

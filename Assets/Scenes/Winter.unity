@@ -413,6 +413,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 639566581}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1857634941}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &12082993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11914,6 +11936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390ebf7170822864089c4993de55ed3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMap: {fileID: 639566581}
+  bubble: {fileID: 1857634941}
+  defaltCursor: {fileID: 2800000, guid: 8b7374b8abae5284f9b794f7396c2abd, type: 3}
   result: {fileID: 1881191326}
   timer: {fileID: 1612142792}
   NumOfCus: {fileID: 22951997}
@@ -13386,6 +13411,9 @@ MonoBehaviour:
   popup: {fileID: 1664329085}
   panel: {fileID: 1022380958}
   outEff: {fileID: 1643238597}
+  cursorMap: {fileID: 639566581}
+  bubble: {fileID: 1857634941}
+  defaltCursor: {fileID: 2800000, guid: 8b7374b8abae5284f9b794f7396c2abd, type: 3}
 --- !u!114 &1201259153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15097,6 +15125,28 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 639566581}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1857634941}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1322642181
 MonoBehaviour:
