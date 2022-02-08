@@ -84,7 +84,7 @@ public class SpringCustomer : MonoBehaviour
     {
         if (insign && NotTaken)
         {
-            if (bus.speed == 0)
+            if (bus.sss == 0)
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
@@ -136,7 +136,7 @@ public class SpringCustomer : MonoBehaviour
             }
         }
 
-        if (insign && bus.speed == 0 && !NotTaken)
+        if (insign && bus.sss == 0 && !NotTaken)
         {
             if (TakenSound == 0)
             {
