@@ -71,17 +71,17 @@ public class WinterEndSign : MonoBehaviour
         {
             if (comfort >= 80)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_good");
                 comfortNum = 1;
             }
             else if (comfort >= 40)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_normal");
                 comfortNum = 0;
             }
             else
             {
-                Face.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_bad");
                 comfortNum = -1;
             }
             count++;

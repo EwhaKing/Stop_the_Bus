@@ -286,11 +286,11 @@ public class BestScore : MonoBehaviour
             SpringCusText.text = PlayerPrefs.GetInt("SpringPass").ToString();
             SpringTimeText.text = string.Format("{0:D2}:{1:D2}", PlayerPrefs.GetInt("SpringMin"), PlayerPrefs.GetInt("SpringSec"));
             if (PlayerPrefs.GetInt("SpringComfortNum") == 1)
-                SpringFace.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                SpringFace.sprite = Resources.Load<Sprite>("UI/Record_good");
             else if(PlayerPrefs.GetInt("SpringComfortNum") == 0)
-                SpringFace.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                SpringFace.sprite = Resources.Load<Sprite>("UI/Record_normal");
             else
-                SpringFace.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                SpringFace.sprite = Resources.Load<Sprite>("UI/Record_bad");
         }
 
         //여름
@@ -299,11 +299,11 @@ public class BestScore : MonoBehaviour
             SummerCusText.text = PlayerPrefs.GetInt("SummerPass").ToString();
             SummerTimeText.text = string.Format("{0:D2}:{1:D2}", PlayerPrefs.GetInt("SummerMin"), PlayerPrefs.GetInt("SummerSec"));
             if (PlayerPrefs.GetInt("SummerComfortNum") == 1)
-                SummerFace.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                SummerFace.sprite = Resources.Load<Sprite>("UI/Record_good");
             else if (PlayerPrefs.GetInt("SummerComfortNum") == 0)
-                SummerFace.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                SummerFace.sprite = Resources.Load<Sprite>("UI/Record_normal");
             else
-                SummerFace.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                SummerFace.sprite = Resources.Load<Sprite>("UI/Record_bad");
         }
 
         //가을
@@ -312,11 +312,11 @@ public class BestScore : MonoBehaviour
             FallCusText.text = PlayerPrefs.GetInt("FallPass").ToString();
             FallTimeText.text = string.Format("{0:D2}:{1:D2}", PlayerPrefs.GetInt("FallMin"), PlayerPrefs.GetInt("FallSec"));
             if (PlayerPrefs.GetInt("FallComfortNum") == 1)
-                FallFace.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                FallFace.sprite = Resources.Load<Sprite>("UI/Record_good");
             else if (PlayerPrefs.GetInt("FallComfortNum") == 0)
-                FallFace.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                FallFace.sprite = Resources.Load<Sprite>("UI/Record_normal");
             else
-                FallFace.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                FallFace.sprite = Resources.Load<Sprite>("UI/Record_bad");
         }
 
         //겨울
@@ -325,11 +325,11 @@ public class BestScore : MonoBehaviour
             WinterCusText.text = PlayerPrefs.GetInt("WinterPass").ToString();
             WinterTimeText.text = string.Format("{0:D2}:{1:D2}", PlayerPrefs.GetInt("WinterMin"), PlayerPrefs.GetInt("WinterSec"));
             if (PlayerPrefs.GetInt("WinterComfortNum") == 1)
-                WinterFace.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                WinterFace.sprite = Resources.Load<Sprite>("UI/Record_good");
             else if (PlayerPrefs.GetInt("WinterComfortNum") == 0)
-                WinterFace.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                WinterFace.sprite = Resources.Load<Sprite>("UI/Record_normal");
             else
-                WinterFace.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                WinterFace.sprite = Resources.Load<Sprite>("UI/Record_bad");
         }
     }
 }
