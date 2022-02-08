@@ -18,9 +18,10 @@ public class outCheck : MonoBehaviour{
     void Update(){
         if (bus.isOut){
             bus.speed = 0;
-            Cursor.SetCursor (defaltCursor, Vector2.zero, CursorMode.Auto);
 
             //타이머 정지
+            Timer.timerPause = true; 
+            
             if (flag){
                 flag = false;
                 outEff.Play();
@@ -28,7 +29,6 @@ public class outCheck : MonoBehaviour{
             popup.SetActive(true);
             panel.SetActive(true);
 
-            cursorMap.SetActive(false);
             bubble.SetActive(false);
 
         }
