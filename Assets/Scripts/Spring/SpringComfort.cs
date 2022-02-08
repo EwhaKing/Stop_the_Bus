@@ -69,7 +69,7 @@ public class SpringComfort : MonoBehaviour
         for (int i = 0; i < insign.Length; i++)
             check = check || insign[i].InSign();
 
-        if (bus.speed == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
+        if (bus.sss == 0) //버스 속도가 5초 동안 0이면 만족도 줄도록
         {
             if (!check && !end && !bus.isOut)     //버스 정류장 사인 내에서는 안 줄도록
             {
