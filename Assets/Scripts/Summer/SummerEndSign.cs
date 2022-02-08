@@ -6,6 +6,10 @@ using TMPro;
 
 public class SummerEndSign : MonoBehaviour
 {
+    public GameObject cursorMap;
+    public GameObject bubble;
+    public Texture2D defaltCursor;
+    
     public GameObject result;  //결과 팝업창
     public Timer timer;        //시간 가져오기
     public TextMeshProUGUI NumOfCus;      //팝업창 손님 수
@@ -50,6 +54,10 @@ public class SummerEndSign : MonoBehaviour
             result.SetActive(true);     //엔딩 팝업창 나타남
             clickPanel.SetActive(true);
 
+            cursorMap.SetActive(false);         // 커서 영역, 손님 수 말풍선 가리기
+            bubble.SetActive(false); 
+            Cursor.SetCursor (defaltCursor, Vector2.zero, CursorMode.Auto);
+            
             //기록 업데이트
             BestScore.UpdateSummer(comfortNum, timer.GetMin(), timer.GetSec(), SummerTotal.SumOfCus);
         }
@@ -62,17 +70,17 @@ public class SummerEndSign : MonoBehaviour
         {
             if (comfort >= 80)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/기록_좋음");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_good");
                 comfortNum = 1;
             }
             else if (comfort >= 40)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/기록_보통");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_normal");
                 comfortNum = 0;
             }
             else
             {
-                Face.sprite = Resources.Load<Sprite>("UI/기록_나쁨");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_bad");
                 comfortNum = -1;
             }
             count++;

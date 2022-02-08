@@ -6,6 +6,10 @@ using TMPro;
 
 public class SpringEndSign : MonoBehaviour
 {
+    public GameObject cursorMap;
+    public GameObject bubble;
+    public Texture2D defaltCursor;
+    
     public GameObject result;  //��� �˾�â
     public Timer timer;        //�ð� ��������
     public TextMeshProUGUI NumOfCus;      //�˾�â �մ� ��
@@ -50,6 +54,10 @@ public class SpringEndSign : MonoBehaviour
             result.SetActive(true);     //���� �˾�â ��Ÿ��
             clickPanel.SetActive(true);
 
+            cursorMap.SetActive(false);         // 커서 영역, 손님 수 말풍선 가리기
+            bubble.SetActive(false); 
+            Cursor.SetCursor (defaltCursor, Vector2.zero, CursorMode.Auto);
+
             //��� ������Ʈ
             BestScore.UpdateSpring(comfortNum, timer.GetMin(), timer.GetSec(), SpringTotal.SumOfCus);
         }
@@ -62,17 +70,17 @@ public class SpringEndSign : MonoBehaviour
         {
             if (comfort >= 80)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/���_����");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_good");
                 comfortNum = 1;
             }
             else if (comfort >= 40)
             {
-                Face.sprite = Resources.Load<Sprite>("UI/���_����");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_normal");
                 comfortNum = 0;
             }
             else
             {
-                Face.sprite = Resources.Load<Sprite>("UI/���_����");
+                Face.sprite = Resources.Load<Sprite>("UI/Record_bad");
                 comfortNum = -1;
             }
             count++;
