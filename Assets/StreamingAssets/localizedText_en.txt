@@ -46,7 +46,7 @@
 		},
 		{
 			"key": "rcd_num",
-			"value": "Number of People"
+			"value": "Passengers"
 		},
 		{
 			"key": "rcd_time",
