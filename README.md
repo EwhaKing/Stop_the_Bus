@@ -33,14 +33,14 @@ The bus driver's goal is to safely overcome various obstacles on the road and ma
 ## 👩‍💻 Authors
 ### PM&Graphic
 
-**김재서** - [@jaeseo222](https://github.com/jaeseo222) -[dkdk@gmail.com]()
+**김재서** - [@jaeseo222](https://github.com/jaeseo222) - wotjrla@naver.com
 
 ### Programmer
 
-**구해인** - [@Koohi45](https://github.com/Koohi45) -[dkdk@gmail.com]()<br />
-**박혜진** - [@Jiny530](https://github.com/Jiny530) -[dkdk@gmail.com]()<br />
-**이수현** - [@topnotchsh](https://github.com/topnotchsh) -[dkdk@gmail.com]()<br />
-**최영서** - [@melody2108](https://github.com/melody2108) -[dkdk@gmail.com]()<br />
+**구해인** - [@Koohi45](https://github.com/Koohi45) - haein9845@naver.com<br />
+**박혜진** - [@Jiny530](https://github.com/Jiny530) - qkrgpwls1010@gmail.com<br />
+**이수현** - [@topnotchsh](https://github.com/topnotchsh) - soohyunion@gmail.com<br />
+**최영서** - [@melody2108](https://github.com/melody2108) - melody2108@naver.com<br />
 
 
 ## 📝 License
