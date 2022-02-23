@@ -9,17 +9,17 @@ Steam Homepage: [https://store.steampowered.com/app/1772650/Stop_the_Bus](https:
   <img width="700" align="center" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1772650/header.jpg?t=1644581571" alt="demo"/>
 </p>
 
-**<p align="center">Let's drive the bus and drive the customers around!</br>
-The bus driver's goal is to safely overcome various obstacles on the road and make customers ride safely!</p>**
+***<p align="center">Let's drive the bus and bring passengers safely to the destination!<br/>
+The bus driver's goal is to pick up every passenger at each bus stop and overcome obstacles on the road!</p>***
 
-▶ Let's spin the mouse and move the bus!<br />
-▶ Be careful not to bump into the car across the street!<br />
-▶ If you don't keep the speed limit on the speed bump, it's scary...!<br />
-▶ If you pass by the bus stop, passengers will complain, so be careful!<br />
-▶ Let's go around all the routes and pick up our guests and return safely to the starting point!<br />
-▶ Let's beat myself in the past through a time attack! Let's win the fight with me and break the record!<br />
+▶ Spin the mouse roundly to move the bus!<br/>
+▶ Be careful not to crash against the car coming from other side!<br/>
+▶ If you go past the bus stop, passengers will complain severely!<br/>
+▶ If you exceed the speed limit on the speed bump, something scary will happen...!<br/>
+▶ Travel the road, pick up our passengers, and return safely to the starting point!<br/>
+▶ Beat yourself with a time attack and break a new record!<br/>
 
-※ Caution: If you leave the road, you'll end up playing a game. Driving is not easy.
+※ Caution: If you get out of the road, game will be over. *Seriously, driving is not easy.*
 
 
 ## 🚀 Built with
