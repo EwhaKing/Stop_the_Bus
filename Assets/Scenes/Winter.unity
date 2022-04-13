@@ -2069,7 +2069,7 @@ MonoBehaviour:
   - {fileID: 686784408}
   - {fileID: 147705632}
   - {fileID: 60753543}
-  speedT: {fileID: 569000974}
+  speedText: {fileID: 569000974}
   season: winter
   effect:
   - {fileID: 131928216}
@@ -6953,7 +6953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlphaThreshold: 0.1
-  rb: {fileID: 0}
   defaltCursor: {fileID: 2800000, guid: 8b7374b8abae5284f9b794f7396c2abd, type: 3}
   driveCursor: {fileID: 2800000, guid: 2aa6d0daa319686419668a183b9983bd, type: 3}
 --- !u!1 &644862095
@@ -13426,10 +13425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7f1b3b2e2018e419a9c79e304b2ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab:
-  - {fileID: 703395206984354568, guid: 33808666cc89fd84781e7aca4b007069, type: 3}
-  - {fileID: 2028865502508430620, guid: 3812cd6efe8f47e4fb9f8a952d44bb78, type: 3}
-  - {fileID: 390206754567996834, guid: b3fa1c97786b5e3479dc58c9144791e5, type: 3}
+  cars: []
   wayPoints:
   - {fileID: 1112353109}
   - {fileID: 1285926496}
@@ -13485,7 +13481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7f1b3b2e2018e419a9c79e304b2ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab:
+  cars:
   - {fileID: 703395206984354568, guid: 33808666cc89fd84781e7aca4b007069, type: 3}
   - {fileID: 2028865502508430620, guid: 3812cd6efe8f47e4fb9f8a952d44bb78, type: 3}
   - {fileID: 390206754567996834, guid: b3fa1c97786b5e3479dc58c9144791e5, type: 3}
