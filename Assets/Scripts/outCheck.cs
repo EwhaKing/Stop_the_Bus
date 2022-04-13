@@ -16,8 +16,8 @@ public class outCheck : MonoBehaviour{
         flag = true;
     }
     void Update(){
-        if (bus.isOut){
-            bus.speed = 0;
+        if (Bus.isOut){
+            Bus.speed = 0;
 
             //타이머 정지
             Timer.timerPause = true; 

@@ -44,7 +44,7 @@ public class SpringEndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        if (wheel1 && wheel2 && wheel3 && wheel4 && bus.sss == 0)
+        if (wheel1 && wheel2 && wheel3 && wheel4 && Bus.speed == 0)
         {
             NumOfCus.text = SpringTotal.SumOfCus.ToString();      //���� ��ũ��Ʈ��
             Timer.timerPause = true;         //�ð� ����

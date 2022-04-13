@@ -476,7 +476,7 @@ public class Bump : MonoBehaviour
     {
         if (col.CompareTag("Bus")) // 충돌한 오브젝트의 태그가 Bus인지 검사
         {
-            if (bus.sss > speedBump) // 랜덤으로 지정된 속도 이상일 때
+            if (Bus.speed > speedBump) // 랜덤으로 지정된 속도 이상일 때
             {
                 audioSource.mute = false;
                 audioSource.Play();
