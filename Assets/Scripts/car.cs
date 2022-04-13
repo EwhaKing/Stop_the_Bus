@@ -3,49 +3,53 @@ using System.Collections;
 
 
 // 새로운 자동차 생성 스크립트
-public class car : MonoBehaviour { 
+public class Car : MonoBehaviour { 
 
-    public GameObject[] prefab; // 사용할 프리팹 종류
-    public Transform[] wayPoints; // 프리팹 기본설정으로 심어두려 했는데 안될듯 ㅅㅂ
-    public int count;
+    public GameObject[] cars;       // 사용할 자동차 종류
+    public Transform[] wayPoints;   // 이동할 경로 포인트들
+    public int count;               // 생성할 자동차 개수
 
-    public float createTime; // 생성 주기
-    public bool isLoop; 
+    public float createTime;        // 생성 주기
+    public bool isLoop;             // 루프경로인지
 
-    
-    private int rand; // 프리팹 랜덤 설정 변수
-    private float timecheck;
-    public static int car_count = 0; //전체 생성한 car count 개수
-    public static bool tutorial = true;
+    private int rand;               // 프리팹 랜덤 설정 변수
+    private float recentCreate;     // 가장 최근 생성한 시각
+    public static int carCount = 0; // 생성한 개수
 
-    
-    // Use this for initialization 
+    public static bool tutorial = true;  // 튜토리얼 맵에서 자동차 구간 넘어가면 자동차 생성 X
+
     void Start () {
         tutorial = true;
-        timecheck = -createTime;
-        car_count = 0;
+        recentCreate = -createTime;
+        carCount = 0;
     } 
-
-    // Update is called once per frame 
+ 
     void Update () { 
 
-        if (Time.time - timecheck >= createTime && car_count < count && tutorial){
-            
-            timecheck = Time.time;
-            rand = Random.Range(0,prefab.Length);
-            
-            GameObject myInstance = Instantiate(prefab[rand]); 
-         
-            //myInstance[car_count].transfrom.position = new Vector3(0, 1.0f, 0); //위치 지정
-            myInstance.GetComponent<car_path>().init(isLoop, wayPoints); // 초기화
-            myInstance.SetActive(true);
-            
-            car_count++;
-            
+        // 생성 주기마다 1개씩 자동차 생성, 전체 개수를 채우면 생성 안함
+        if (Time.time - recentCreate >= createTime && carCount < count && tutorial)
+        {
+            createCar();
         }
 
     } 
 
+    void createCar()
+    {
+        recentCreate = Time.time; // 최근 생성 시각
+        rand = Random.Range(0,cars.Length);
+        
+        GameObject myInstance = Instantiate(cars[rand]); // 랜덤 프리팹 인스턴스 생성
+        
+        //myInstance[carCount].transfrom.position = new Vector3(0, 1.0f, 0); //위치 지정
+        myInstance.GetComponent<CarPath>().init(isLoop, wayPoints); // 초기화
+        myInstance.SetActive(true);
+        
+        carCount++;
+    }
+
+
+    /* 게임 일시정지 함수 나중에 다른 스크립트로 옮길 것 */
     public void pauseBus(){
         Time.timeScale = 0f;
     }

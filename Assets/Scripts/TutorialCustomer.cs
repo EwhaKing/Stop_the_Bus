@@ -68,7 +68,7 @@ public class TutorialCustomer : MonoBehaviour
     {
         if (insign && NotTaken)
         {
-            if (bus.sss == 0)
+            if (Bus.speed == 0)
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
@@ -125,7 +125,7 @@ public class TutorialCustomer : MonoBehaviour
         }
 
 
-        if (insign && bus.sss == 0 && !NotTaken)
+        if (insign && Bus.speed == 0 && !NotTaken)
         {
             if (TakenSound == 0)
             {
