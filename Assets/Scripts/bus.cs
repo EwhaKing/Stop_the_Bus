@@ -60,7 +60,7 @@ public class Bus : MonoBehaviour{
         if (isVerticle && Time.time - verticleTime >= 2) isOut = true; // 일직선으로 세워지고 2초가 지나면 아웃
 
         // 버스 이동
-        transform.Translate(Vector3.forward * -velocity * Time.deltaTime * 0.5f);
+        busBody.MovePosition(busBody.position + transform.forward * -velocity * Time.deltaTime * 0.5f);
 
         // 버스 바퀴 회전
         for (int i=0;i<4;i++)  {
@@ -153,36 +153,30 @@ public class Bus : MonoBehaviour{
 
         switch(seasons){
 
-            case "winter":  // 아이스를 밟으면 회전 불가
-                if(!isIce){
-                    if (Math.Abs(velocity) <= 2)  transform.Rotate(Vector3.up * 0.15f * velocity *Input.GetAxis("Horizontal"));
-                    else if (Math.Abs(velocity) < 7)  transform.Rotate(Vector3.up * 0.14f * velocity *Input.GetAxis("Horizontal"));
-                    else if (velocity > 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
-                    else if (velocity < 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
+            case "winter":  
+                if(!isIce) goto default; 
+                break; // 빙판 위에서는 회전 불가
+
+            case "summer":  
+                if(!isPuddle) goto default;
+                else 
+                {
+                    // 물 웅덩이에서는 반대 방향으로 회전
+                    if (Math.Abs(velocity) <= 2)  busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.15f * -velocity *Input.GetAxis("Horizontal")));
+                    else if (Math.Abs(velocity) < 7)  busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.14f * -velocity *Input.GetAxis("Horizontal")));
+                    else if (velocity > 0) busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal")));
+                    else if (velocity < 0) busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal")));
                 }
                 break;
 
-            case "summer":  // 물 웅덩이를 밟으면 반대로 회전
-                if(!isPuddle){
-                    if (Math.Abs(velocity) <= 2)  transform.Rotate(Vector3.up * 0.15f * velocity *Input.GetAxis("Horizontal"));
-                    else if (Math.Abs(velocity) < 7)  transform.Rotate(Vector3.up * 0.14f * velocity *Input.GetAxis("Horizontal"));
-                    else if (velocity > 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
-                    else if (velocity < 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
-                }
-                else{
-                    if (Math.Abs(velocity) <= 2)  transform.Rotate(Vector3.up * 0.15f * -velocity *Input.GetAxis("Horizontal"));
-                    else if (Math.Abs(velocity) < 7)  transform.Rotate(Vector3.up * 0.14f * -velocity *Input.GetAxis("Horizontal"));
-                    else if (velocity > 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
-                    else if (velocity < 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
-                }
+            default: 
+                // 회전 각은 속도에 비례, 7 이상부터는 같은 각도로 회전
+                if (Math.Abs(velocity) <= 2)  busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.15f * velocity *Input.GetAxis("Horizontal")));
+                else if (Math.Abs(velocity) < 7)  busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.14f * velocity *Input.GetAxis("Horizontal")));
+                else if (velocity > 0) busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal")));
+                else if (velocity < 0) busBody.MoveRotation(busBody.rotation * Quaternion.Euler(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal")));
                 break;
 
-            default:    // 속도에 비례해서 회전 각을 크게 함, 70 이상부터는 같은 각도로 회전
-                if (Math.Abs(velocity) <= 2)  transform.Rotate(Vector3.up * 0.15f * velocity *Input.GetAxis("Horizontal"));
-                else if (Math.Abs(velocity) < 7)  transform.Rotate(Vector3.up * 0.14f * velocity *Input.GetAxis("Horizontal"));
-                else if (velocity > 0) transform.Rotate(Vector3.up * 0.14f * 7 *Input.GetAxis("Horizontal"));
-                else if (velocity < 0) transform.Rotate(Vector3.up * 0.14f * -7 *Input.GetAxis("Horizontal"));
-                break;
         }
 
     }
@@ -274,9 +268,9 @@ public class Bus : MonoBehaviour{
             return;
         }
         if (col.collider.CompareTag("car")){    // 도전과제 - 자동차랑 부딪히기 (도로 위의 무법자)
-            bool flag;
-            SteamUserStats.GetAchievement("GANG_ON_THE_LOAD", out flag);
-            if (flag) return;
+            bool isAchieved;
+            SteamUserStats.GetAchievement("GANG_ON_THE_LOAD", out isAchieved);
+            if (isAchieved) return;
             SteamUserStats.SetAchievement("GANG_ON_THE_LOAD");
             SteamUserStats.StoreStats();
         }
