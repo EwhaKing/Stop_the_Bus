@@ -3,7 +3,7 @@ using System.Collections;
 
 
 // 새로운 자동차 생성 스크립트
-public class Car : MonoBehaviour { 
+public class car : MonoBehaviour { 
 
     public GameObject[] cars;       // 사용할 자동차 종류
     public Transform[] wayPoints;   // 이동할 경로 포인트들

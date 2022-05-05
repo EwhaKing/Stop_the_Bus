@@ -44,14 +44,14 @@ public class FallEndSign : MonoBehaviour
         else if (wheel == "BUS_wheelRF")
             wheel4 = true;
 
-        if (wheel1 && wheel2 && wheel3 && wheel4 && Bus.speed == 0)
+        if (wheel1 && wheel2 && wheel3 && wheel4 && bus.speed == 0)
         {
             NumOfCus.text = FallTotal.SumOfCus.ToString();      //계절 스크립트별
             Timer.timerPause = true;        //시간 정지
             Time.text = timer.GetTime();    //시간 팝업창
             SetResultFace();                //만족도 얼굴 
             FallComfort.end = true;         //엔딩 만족도 안 줄어들게
-            //Bus.speed = 0; <-- 이렇게 해야 하나? 현재 bus의 breaks 변수는 private임
+            //bus.speed = 0; <-- 이렇게 해야 하나? 현재 bus의 breaks 변수는 private임
             result.SetActive(true);         //엔딩 팝업창 나타남
             clickPanel.SetActive(true);    
 

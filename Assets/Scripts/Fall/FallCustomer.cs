@@ -86,7 +86,7 @@ public class FallCustomer : MonoBehaviour
     {
         if (insign && NotTaken)
         {
-            if (Bus.speed == 0)
+            if (bus.speed == 0)
             {
                 MoveInLine = true;
                 if (WaitTime > 0)
@@ -144,7 +144,7 @@ public class FallCustomer : MonoBehaviour
         }
 
 
-        if (insign && Bus.speed == 0 && !NotTaken)
+        if (insign && bus.speed == 0 && !NotTaken)
         {
             if (TakenSound == 0)
             {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public float AlphaThreshold = 0.1f; // 이미지 모양대로 버튼을 인식하는 스크립트
 
@@ -42,7 +42,7 @@ public class Mouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             curY = mousePos.y - originY;
 
             crossP = curY*oldX - curX*oldY; // CCW, CW 판별을 위한 벡터 외적값. 프레임단위 마우스 이동거리 벡터
-            if (crossP != 0) isSpeeding = true; //Bus.changeSpeed();
+            if (crossP != 0) isSpeeding = true; //bus.changeSpeed();
             
         }
 
