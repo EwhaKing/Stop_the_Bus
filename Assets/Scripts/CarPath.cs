@@ -70,7 +70,7 @@ public class CarPath : MonoBehaviour {
                 if (isLoop) currentIndex = 0; 
                 else {
                     Destroy(gameObject);    // 루프가 없다면 도착지점에서 삭제
-                    Car.carCount--;
+                    car.carCount--;
                     return;
                 }
             } 

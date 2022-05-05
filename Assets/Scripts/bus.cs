@@ -5,7 +5,7 @@ using TMPro;
 using System;
 using Steamworks;
 
-public class Bus : MonoBehaviour{
+public class bus : MonoBehaviour{
 
     public WheelCollider[] colls = new WheelCollider[4]; //바퀴가 돌아가는 걸 표현하기위한 메쉬
     public Transform[] tires = new Transform[4];
@@ -99,7 +99,7 @@ public class Bus : MonoBehaviour{
         }
 
         // 마우스 회전 시 수행내용
-        if (Mouse.isSpeeding && !isBreak)
+        if (mouse.isSpeeding && !isBreak)
         {
             changeSpeed();
         }
@@ -129,7 +129,7 @@ public class Bus : MonoBehaviour{
 
     void changeSpeed(){ //속도변화
 
-        mouseSpeed += 0.0005f * Mouse.crossP; // 
+        mouseSpeed += 0.0005f * mouse.crossP; // 
 
         if (mouseSpeed >= 1) { // 속도가 증가하기 위한 최소한의 마우스 회전속도
             velocity += accel;
