@@ -32,16 +32,19 @@ public class LocalizationManager : MonoBehaviour
     }
 
 
-    // 설정화면에서 언어변경할때 실행하는 메서드?
+    // 설정화면에서 언어 변경시 실행
     public void LoadLocalizedText(string fileName)
     {   
         PlayerPrefs.SetString("lang",fileName);
         localizedText = new Dictionary<string, string>();
+
+        // StreamingAssetsPath에서 fineName 의 경로를 가져오기
         string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
         filePath += ".txt";
         if (File.Exists(filePath))
         {
-            string dataAsJson = File.ReadAllText(filePath); //json파일을 읽어서 string으로 뽑음
+            // json파일을 읽어서 string으로 뽑음
+            string dataAsJson = File.ReadAllText(filePath); 
             LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);    //deserialization
 
             //전체 아이템들에 대해서
@@ -52,13 +55,13 @@ public class LocalizationManager : MonoBehaviour
         }
         else
         {
-            //파일이 존재하지않음
+            //파일이 존재하지않으면
             Debug.LogError("Cannot find file"); 
         }
 
     }
 
-
+    // key 각각에 대한 번역값 value 가져오기
     public string GetLocalizedValue(string key)
     {   
         string result = missingTextString;
