@@ -38,7 +38,7 @@ The bus driver's goal is to pick up every passenger at each bus stop and overcom
 ### Programmer
 
 **구해인** - [@Koohi45](https://github.com/Koohi45) - haein9845@naver.com<br />
-**박혜진** - [@Jiny530](https://github.com/Jiny530) - qkrgpwls1010@gmail.com<br />
+**박혜진** - [@Jiny530](https://github.com/Jiny530) - dev.hyejin@gmail.com<br />
 **이수현** - [@topnotchsh](https://github.com/topnotchsh) - soohyunion@gmail.com<br />
 **최영서** - [@melody2108](https://github.com/melody2108) - melody2108@naver.com<br />
 
